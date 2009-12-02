@@ -24,11 +24,12 @@ libnm_sshtun_properties_la_CFLAGS =                    \
         -DGNOMELOCALEDIR=\"$(datadir)/locale\"          \
         -DVERSION=\"$(VERSION)\"
 
-libnm_sshtun_properties_la_LIBADD =    \
-        $(GLADE_LIBS)                   \
-        $(GTK_LIBS)                     \
-        $(GCONF_LIBS)                   \
-        $(NETWORK_MANAGER_LIBS)
+libnm_sshtun_properties_la_LIBADD =					\
+        $(GLADE_LIBS)							\
+        $(GTK_LIBS)							\
+        $(GCONF_LIBS)							\
+        $(NETWORK_MANAGER_LIBS)						\
+	$(top_builddir)/common-gnome/libnm-sshtun-common-gnome.la
 
 libnm_sshtun_properties_la_LDFLAGS =   \
         -avoid-version

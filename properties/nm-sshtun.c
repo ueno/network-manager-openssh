@@ -187,12 +187,7 @@ static void
 fill_password (GtkWidget *widget,
 			   NMConnection *connection)
 {
-	char *password;
-
-	if (!connection)
-		return;
-
-	password = NULL;
+	char *password = NULL;
 
 	if (nm_connection_get_scope (connection) == NM_CONNECTION_SCOPE_SYSTEM) {
 		NMSettingVPN *s_vpn;
