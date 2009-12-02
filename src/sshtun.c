@@ -1181,7 +1181,7 @@ sshtun_dispatch_event (sshtun_handle_t handle)
 		}
 	}
 
-	if (!strncmp (event, "START ", 5)) {
+	if (!strncmp (event, "START", 5)) {
 		parent->state = SSHTUN_STATE_CONNECTED;
 		return 0;
 	}
