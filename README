@@ -5,11 +5,6 @@ NetworkManager-sshtun -- Tunnel over SSH (sshtun) VPN plugin for NetworkManager
 OpenSSH has a feature to tunnel IP or Ethernet over the SSH protocol.
 This plugin allows you to use that feature from NetworkManager.
 
-* Requirements
-
-- libssh2-1-dev
-- libnm-glib-vpn-dev
-
 * Build
 
  $ sudo apt-get install libssh2-1-dev libnm-glib-vpn-dev
@@ -21,8 +16,8 @@ This plugin allows you to use that feature from NetworkManager.
 
  # Build tunctl program with "pointopoint" support.
  remote$ apt-get source uml-utilities
- remote$ cd uml-utilities-*
- remote$ patch -p0 < tunctl-pointopoint.patch
+ remote$ cd uml-utilities-20070815
+ remote$ patch -p1 < tunctl-pointopoint.patch
  remote$ cd tunctl && make
 
  # Create a tun device and initialize it.
