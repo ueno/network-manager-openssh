@@ -43,6 +43,7 @@
 #include <stdarg.h>
 
 #include <pwd.h>
+#include <assert.h>
 #include "sshtun.h"
 
 #define TUN_CLONE_DEVICE "/dev/net/tun"
@@ -152,6 +153,7 @@ struct sshtun_common_st {
 struct sshtun_parent_st {
 	struct sshtun_common_st common;
 	pid_t pid;
+	sshtun_state_t state;
 };
 
 struct sshtun_child_st {
@@ -176,6 +178,9 @@ static char *
 recv_event_from_buffer (struct sshtun_event_fd_st *event_rfd)
 {
 	char *s, *p;
+
+	if (event_rfd->offset == event_rfd->length)
+		return NULL;
 
 	s = event_rfd->buffer + event_rfd->offset;
 	p = memchr (s, '\n', event_rfd->length - event_rfd->offset);
@@ -349,7 +354,7 @@ start_child (struct sshtun_child_st *child)
 {
 	sshtun_handle_t handle;
 	struct ifreq ifr;
-	char *password;
+	char *password = NULL;
 	int ret;
 
 	handle = (sshtun_handle_t)child;
@@ -365,8 +370,10 @@ start_child (struct sshtun_child_st *child)
 		return -1;
 	}
 	send_event (&handle->event_wfd, "TCP_OPEN");
+#if 0
 	send_event (&handle->event_wfd, "NEED_PASSWORD");
 	password = recv_event (&handle->event_rfd);
+#endif
 	ret = open_ssh (&child->ssh_channel, &child->ssh_session,
 					child->tcp_fd,	handle->params.user,
 					handle->params.public_key, handle->params.private_key,
@@ -374,8 +381,10 @@ start_child (struct sshtun_child_st *child)
 					handle->tun_mode,
 					handle->params.config_script,
 					&handle->event_wfd);
+#if 0
 	if (password)
 		memset (password, 0, strlen (password));
+#endif
 	if (ret < 0) {
 		close (child->tcp_fd);
 		close (child->tun_fd);
@@ -749,6 +758,7 @@ sshtun_new (sshtun_handle_t *r_handle)
 		return -1;
 	init_parent (handle);
 
+	handle->state = SSHTUN_STATE_INITIALIZED;
 	*r_handle = (sshtun_handle_t)handle;
 	return 0;
 }
@@ -954,7 +964,6 @@ sshtun_start (sshtun_handle_t handle)
 
 	if (pid > 0) {
 		struct sshtun_parent_st *parent = (struct sshtun_parent_st *)handle;
-		int config = 0;
 
 		close (pr[1]);
 		close (pw[0]);
@@ -962,37 +971,19 @@ sshtun_start (sshtun_handle_t handle)
 		handle->event_rfd.fd = pr[0];
 		handle->event_wfd.fd = pw[1];
 
-		parent->pid = pid;
-
-		while (1) {
-			char *event = recv_event (&handle->event_rfd);
-
-			if (!event || !strncmp (event, "END_CONFIG", 10))
-				break;
-
-			if (!strncmp (event, "BEGIN_CONFIG ", 12))
-				config = 1;
-			else if (config) {
-				ret = add_config (&handle->params, event);
-				if (ret < 0) {
-					sshtun_stop (handle);
-					return -1;
-				}
-			}
-		}
-
-		ret = config_tun (&handle->params, handle->tun_mode);
-		if (ret < 0) {
-			sshtun_stop (handle);
-			return -1;
-		}
-
 		ret = fcntl (handle->event_rfd.fd, F_SETFL, O_NONBLOCK);
 		if (ret == -1) {
 			DBG("fcntl: %s\n", strerror (errno));
 			sshtun_stop (handle);
 			return -1;
 		}
+		ret = fcntl (handle->event_wfd.fd, F_SETFL, O_NONBLOCK);
+		if (ret == -1) {
+			DBG("fcntl: %s\n", strerror (errno));
+			sshtun_stop (handle);
+			return -1;
+		}
+		parent->pid = pid;
 
 		return 0;
 	} else {
@@ -1013,6 +1004,11 @@ sshtun_start (sshtun_handle_t handle)
 		child->common.event_wfd.fd = pr[1];
 
 		ret = fcntl (child->common.event_rfd.fd, F_SETFL, O_NONBLOCK);
+		if (ret == -1) {
+			DBG("fcntl: %s\n", strerror (errno));
+			goto child_error;
+		}
+		ret = fcntl (child->common.event_wfd.fd, F_SETFL, O_NONBLOCK);
 		if (ret == -1) {
 			DBG("fcntl: %s\n", strerror (errno));
 			goto child_error;
@@ -1061,6 +1057,7 @@ sshtun_stop (sshtun_handle_t handle)
 		free (handle->params.tun_dev);
 		handle->params.tun_dev = NULL;
 	}
+	parent->state = SSHTUN_STATE_STOPPED;
 	return 0;
 }
 
@@ -1111,14 +1108,6 @@ sshtun_get_param (sshtun_handle_t handle, sshtun_param_t param)
 	return NULL;
 }
 
-int
-sshtun_event_fd (sshtun_handle_t handle)
-{
-	if (!handle)
-		return -1;
-	return handle->event_rfd.fd;
-}
-
 pid_t
 sshtun_pid (sshtun_handle_t handle)
 {
@@ -1127,18 +1116,62 @@ sshtun_pid (sshtun_handle_t handle)
 	return ((struct sshtun_parent_st *)handle)->pid;
 }
 
-char *
-sshtun_recv_event (sshtun_handle_t handle)
-{
-	if (!handle)
-		return NULL;
-	return recv_event (&handle->event_rfd);
-}
-
-int
-sshtun_send_event (sshtun_handle_t handle, const char *data)
+sshtun_state_t
+sshtun_state (sshtun_handle_t handle)
 {
 	if (!handle)
 		return -1;
-	return send_event (&handle->event_wfd, data);
+	return ((struct sshtun_parent_st *)handle)->state;
+}
+
+int
+sshtun_event_fd (sshtun_handle_t handle)
+{
+	if (!handle)
+		return -1;
+	return handle->event_rfd.fd;
+}
+
+int
+sshtun_dispatch_event (sshtun_handle_t handle)
+{
+	struct sshtun_parent_st *parent;
+	char *event;
+	int ret;
+
+	if (!handle)
+		return -1;
+
+	parent = (struct sshtun_parent_st *)handle;
+	event = recv_event (&handle->event_rfd);
+
+	if (!strncmp (event, "BEGIN_CONFIG ", 12)) {
+		parent->state = SSHTUN_STATE_CONFIGURING;
+		return 0;
+	}
+
+	if (!strncmp (event, "END_CONFIG", 10)) {
+		parent->state = SSHTUN_STATE_CONFIGURED;
+		ret = config_tun (&handle->params, handle->tun_mode);
+		if (ret < 0) {
+			sshtun_stop (handle);
+			return -1;
+		}
+		return 0;
+	}
+
+	if (parent->state == SSHTUN_STATE_CONFIGURING) {
+		ret = add_config (&handle->params, event);
+		if (ret < 0) {
+			sshtun_stop (handle);
+			return -1;
+		}
+	}
+
+	if (!strncmp (event, "START ", 5)) {
+		parent->state = SSHTUN_STATE_CONNECTED;
+		return 0;
+	}
+
+	return -1;
 }

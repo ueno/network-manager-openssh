@@ -61,7 +61,6 @@ G_DEFINE_TYPE (NMSshtunPlugin, nm_sshtun_plugin, NM_TYPE_VPN_PLUGIN)
 
 typedef struct {
 	sshtun_handle_t handle;
-	guint send_ip4_config_timeout;
 } NMSshtunPluginPrivate;
 
 typedef struct {
@@ -176,46 +175,6 @@ nm_sshtun_properties_validate (NMSettingVPN *s_vpn, GError **error)
 		return FALSE;
 	}
 	return TRUE;
-}
-
-static void
-sshtun_watch_cb (GPid pid, gint status, gpointer user_data)
-{
-	NMVPNPlugin *plugin = NM_VPN_PLUGIN (user_data);
-	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
-	NMVPNPluginFailure failure = NM_VPN_PLUGIN_FAILURE_CONNECT_FAILED;
-	guint error = 0;
-	gboolean good_exit = FALSE;
-
-	if (WIFEXITED (status)) {
-		error = WEXITSTATUS (status);
-		if (error != 0)
-			nm_warning ("sshtun exited with error code %d", error);
-    }
-	else if (WIFSTOPPED (status))
-		nm_warning ("sshtun stopped unexpectedly with signal %d", WSTOPSIG (status));
-	else if (WIFSIGNALED (status))
-		nm_warning ("sshtun died with signal %d", WTERMSIG (status));
-	else
-		nm_warning ("sshtun died from an unknown cause");
-  
-	sshtun_stop (priv->handle);
-	sshtun_del (priv->handle);
-	priv->handle = NULL;
-
-	switch (error) {
-	case 0:
-		good_exit = TRUE;
-		break;
-	default:
-		failure = NM_VPN_PLUGIN_FAILURE_CONNECT_FAILED;
-		break;
-	}
-
-	if (!good_exit)
-		nm_vpn_plugin_failure (plugin, failure);
-
-	nm_vpn_plugin_set_state (plugin, NM_VPN_SERVICE_STATE_STOPPED);
 }
 
 static GValue *
@@ -419,6 +378,62 @@ nm_sshtun_send_ip4_config (sshtun_handle_t handle)
 	return TRUE;
 }
 
+static void
+child_watch_cb (GPid pid, gint status, gpointer user_data)
+{
+	NMVPNPlugin *plugin = NM_VPN_PLUGIN (user_data);
+	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
+	NMVPNPluginFailure failure = NM_VPN_PLUGIN_FAILURE_CONNECT_FAILED;
+	guint error = 0;
+	gboolean good_exit = FALSE;
+
+	if (WIFEXITED (status)) {
+		error = WEXITSTATUS (status);
+		if (error != 0)
+			nm_warning ("sshtun exited with error code %d", error);
+    }
+	else if (WIFSTOPPED (status))
+		nm_warning ("sshtun stopped unexpectedly with signal %d", WSTOPSIG (status));
+	else if (WIFSIGNALED (status))
+		nm_warning ("sshtun died with signal %d", WTERMSIG (status));
+	else
+		nm_warning ("sshtun died from an unknown cause");
+  
+	sshtun_stop (priv->handle);
+	sshtun_del (priv->handle);
+	priv->handle = NULL;
+
+	switch (error) {
+	case 0:
+		good_exit = TRUE;
+		break;
+	default:
+		failure = NM_VPN_PLUGIN_FAILURE_CONNECT_FAILED;
+		break;
+	}
+
+	if (!good_exit)
+		nm_vpn_plugin_failure (plugin, failure);
+
+	nm_vpn_plugin_set_state (plugin, NM_VPN_SERVICE_STATE_STOPPED);
+}
+
+static gboolean
+event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
+{
+	NMVPNPlugin *plugin = (NMVPNPlugin *)user_data;
+	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
+	sshtun_state_t state = sshtun_state (priv->handle);
+
+	nm_info ("event_watch_cb: %d", state);
+	sshtun_dispatch_event (priv->handle);
+	if (state == SSHTUN_STATE_CONFIGURING
+		&& sshtun_state (priv->handle) == SSHTUN_STATE_CONFIGURED)
+		nm_sshtun_send_ip4_config (priv->handle);
+
+	return TRUE;
+}
+
 static gboolean
 nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 {
@@ -430,7 +445,8 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 	const char *val;
 	int ret;
 	gboolean retval = TRUE;
-	GSource *sshtun_watch;
+	GIOChannel *event_channel;
+	GSource *child_watch, *event_watch;
 
 	val = nm_setting_vpn_get_user_name (s_vpn);
 	if (!val) {
@@ -541,11 +557,24 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 	}
 
 	priv->handle = handle;
-	sshtun_watch = g_child_watch_source_new (sshtun_pid (priv->handle));
-	g_source_set_callback (sshtun_watch, (GSourceFunc) sshtun_watch_cb, plugin,
+
+	/* Watch the status change of the sshtun child process. */
+	child_watch = g_child_watch_source_new (sshtun_pid (priv->handle));
+	g_source_set_callback (child_watch,
+						   (GSourceFunc) child_watch_cb, plugin,
 						   NULL);
-	g_source_attach (sshtun_watch, NULL);
-	g_source_unref (sshtun_watch);
+	g_source_attach (child_watch, NULL);
+	g_source_unref (child_watch);
+
+	/* Watch the normal event from the sshtun child process. */
+	event_channel =	g_io_channel_unix_new (sshtun_event_fd (priv->handle));
+	event_watch = g_io_create_watch (event_channel, G_IO_IN);
+	g_source_set_callback (event_watch,
+						   (GSourceFunc) event_watch_cb, plugin,
+						   NULL);
+	g_source_attach (event_watch, NULL);
+	g_source_unref (event_watch);
+	g_io_channel_unref (event_channel);
 
  out:
 	g_free (tun_owner);
@@ -559,27 +588,12 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 }
 
 static gboolean
-nm_sshtun_send_ip4_config_timeout (gpointer user_data)
-{
-	NMVPNPlugin *plugin = (NMVPNPlugin *)user_data;
-	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
-
-	g_source_remove (priv->send_ip4_config_timeout);
-	priv->send_ip4_config_timeout = 0;
-
-	nm_sshtun_send_ip4_config (priv->handle);
-
-	return TRUE;
-}
-
-static gboolean
 real_connect (NMVPNPlugin   *plugin,
               NMConnection  *connection,
               GError       **error)
 {
 	NMSettingVPN *s_vpn;
 	const char *user_name;
-	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
 
 	s_vpn = NM_SETTING_VPN (nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN));
 	if (!s_vpn) {
@@ -608,10 +622,6 @@ real_connect (NMVPNPlugin   *plugin,
 	/* Finally try to start sshtun */
 	if (!nm_sshtun_start (plugin, s_vpn, error))
 		return FALSE;
-
-	/* Defer sending IP config until Connect reply is sent */
-	priv->send_ip4_config_timeout =
-		g_timeout_add_seconds (1, nm_sshtun_send_ip4_config_timeout, plugin);
 
 	return TRUE;
 }

@@ -43,6 +43,14 @@ typedef enum {
 	SSHTUN_PARAM_MTU
 } sshtun_param_t;
 
+typedef enum {
+	SSHTUN_STATE_INITIALIZED,
+	SSHTUN_STATE_CONNECTED,
+	SSHTUN_STATE_CONFIGURING,
+	SSHTUN_STATE_CONFIGURED,
+	SSHTUN_STATE_STOPPED
+} sshtun_state_t;
+
 typedef struct sshtun_common_st *sshtun_handle_t;
 
 int sshtun_new (sshtun_handle_t *);
@@ -51,9 +59,9 @@ int sshtun_start (sshtun_handle_t);
 int sshtun_stop (sshtun_handle_t);
 int sshtun_set_params (sshtun_handle_t, ...);
 const char *sshtun_get_param (sshtun_handle_t, sshtun_param_t);
-int sshtun_event_fd (sshtun_handle_t);
 pid_t sshtun_pid (sshtun_handle_t);
-char *sshtun_recv_event (sshtun_handle_t);
-int sshtun_send_event (sshtun_handle_t, const char *);
+int sshtun_event_fd (sshtun_handle_t);
+int sshtun_dispatch_event (sshtun_handle_t);
+sshtun_state_t sshtun_state (sshtun_handle_t);
 
 #endif	/* SSHTUN_H */
