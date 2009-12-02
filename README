@@ -3,7 +3,7 @@ NetworkManager-sshtun -- Tunnel over SSH (sshtun) VPN plugin for NetworkManager
 *NOTE* This plugin is alpha quality; please use at your own risk.
 
 OpenSSH has a feature to tunnel IP or Ethernet over the SSH protocol.
-This plugin allows you to use that feature from the NetworkManager.
+This plugin allows you to use that feature from NetworkManager.
 
 * Requirements
 
@@ -81,9 +81,9 @@ provides the following API.  All functions async (i.e. should not block).
 
 * References
 
-- How to not override default route with NetworkManager VPN plugins
+- How to not override default route
   https://bugzilla.redhat.com/show_bug.cgi?id=492208
 
 - Davide Brini's precise tutorial on the TUN/TAP interface, which even
-  covers TUNSETOWNER/TUNSETPERSIST.
+  covers TUNSETOWNER/TUNSETPERSIST
   http://waldner.netsons.org/d2-tuntap.php
