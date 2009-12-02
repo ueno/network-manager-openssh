@@ -46,6 +46,8 @@
 #define NM_SSHTUN_KEY_PRIVATE_KEY "private-key"
 #define NM_SSHTUN_KEY_PASSWORD "password"
 
+#define NM_SSHTUN_KEY_NOSECRET "no-secret"
+
 #define NM_SSHTUN_TUN_MODE_TUN 0
 #define NM_SSHTUN_TUN_MODE_TAP 1
 

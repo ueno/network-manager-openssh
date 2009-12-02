@@ -1,0 +1,29 @@
+libexec_PROGRAMS = nm-sshtun-auth-dialog
+
+nm_sshtun_auth_dialog_CPPFLAGS =			\
+	$(GTHREAD_CFLAGS)			\
+	$(GTK_CFLAGS)				\
+	$(GCONF_CFLAGS)				\
+	$(NETWORK_MANAGER_CFLAGS)		\
+	$(GNOMEKEYRING_CFLAGS) \
+	-I$(top_srcdir)/
+	-DICONDIR=\""$(datadir)/pixmaps"\"	\
+	-DGLADEDIR=\""$(gladedir)"\"		\
+	-DBINDIR=\""$(bindir)"\"		\
+	-DG_DISABLE_DEPRECATED			\
+	-DGDK_DISABLE_DEPRECATED		\
+	-DGNOME_DISABLE_DEPRECATED		\
+	-DGNOMELOCALEDIR=\"$(datadir)/locale\"	\
+	-DVERSION=\"$(VERSION)\"
+
+nm_sshtun_auth_dialog_SOURCES =			\
+	main.c					\
+	gnome-two-password-dialog.c		\
+	gnome-two-password-dialog.h
+
+nm_sshtun_auth_dialog_LDADD =			\
+	$(GTK_LIBS)				\
+	$(GCONF_LIBS)				\
+	$(top_builddir)/common-gnome/libnm-sshtun-common-gnome.la
+
+CLEANFILES = *~

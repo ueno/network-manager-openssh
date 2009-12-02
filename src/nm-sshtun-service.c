@@ -61,6 +61,7 @@ G_DEFINE_TYPE (NMSshtunPlugin, nm_sshtun_plugin, NM_TYPE_VPN_PLUGIN)
 
 typedef struct {
 	sshtun_handle_t handle;
+	char *password;
 } NMSshtunPluginPrivate;
 
 typedef struct {
@@ -423,12 +424,21 @@ event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
 {
 	NMVPNPlugin *plugin = (NMVPNPlugin *)user_data;
 	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
-	sshtun_state_t state = sshtun_state (priv->handle);
+	sshtun_state_t old_state = sshtun_state (priv->handle), new_state;
 
-	sshtun_dispatch_event (priv->handle);
-	if (state == SSHTUN_STATE_CONFIGURING
-		&& sshtun_state (priv->handle) == SSHTUN_STATE_CONFIGURED)
+	new_state = sshtun_dispatch_event (priv->handle);
+
+	if (new_state == SSHTUN_STATE_NEED_PASSWORD) {
+		sshtun_send_event (priv->handle, priv->password);
+		g_free (priv->password);
+		return TRUE;
+	}
+
+	if (old_state == SSHTUN_STATE_CONFIGURING
+		&& new_state == SSHTUN_STATE_CONFIGURED) {
 		nm_sshtun_send_ip4_config (priv->handle);
+		return TRUE;
+	}
 
 	return TRUE;
 }
@@ -557,6 +567,9 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 
 	priv->handle = handle;
 
+	val = nm_setting_vpn_get_secret (s_vpn, NM_SSHTUN_KEY_PASSWORD);
+	priv->password = val ? g_strdup (val) : NULL;
+
 	/* Watch the status change of the sshtun child process. */
 	child_watch = g_child_watch_source_new (sshtun_pid (priv->handle));
 	g_source_set_callback (child_watch,
@@ -647,10 +660,8 @@ real_need_secrets (NMVPNPlugin *plugin,
 		return FALSE;
 	}
 
-#if 0
 	if (!nm_setting_vpn_get_secret (s_vpn, NM_SSHTUN_KEY_PASSWORD))
 		need_secrets = TRUE;
-#endif
 
 	if (need_secrets)
 		*setting_name = NM_SETTING_VPN_SETTING_NAME;

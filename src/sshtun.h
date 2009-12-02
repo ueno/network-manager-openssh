@@ -45,6 +45,7 @@ typedef enum {
 
 typedef enum {
 	SSHTUN_STATE_INITIALIZED,
+	SSHTUN_STATE_NEED_PASSWORD,
 	SSHTUN_STATE_CONNECTED,
 	SSHTUN_STATE_CONFIGURING,
 	SSHTUN_STATE_CONFIGURED,
@@ -62,6 +63,7 @@ const char *sshtun_get_param (sshtun_handle_t, sshtun_param_t);
 pid_t sshtun_pid (sshtun_handle_t);
 int sshtun_event_fd (sshtun_handle_t);
 int sshtun_dispatch_event (sshtun_handle_t);
+int sshtun_send_event (sshtun_handle_t, const char *);
 sshtun_state_t sshtun_state (sshtun_handle_t);
 
 #endif	/* SSHTUN_H */

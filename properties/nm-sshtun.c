@@ -32,6 +32,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <glib/gi18n-lib.h>
+#include <gnome-keyring-memory.h>
 #include <string.h>
 #include <gtk/gtk.h>
 #include <glade/glade.h>
@@ -43,6 +44,7 @@
 #include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
 
+#include "common-gnome/keyring-helpers.h"
 #include "src/nm-sshtun-service.h"
 #include "nm-sshtun.h"
 
@@ -176,6 +178,50 @@ check_validity (SshtunPluginUiWidget *self, GError **error)
 }
 
 static void
+show_password_cb (GtkToggleButton *togglebutton, GtkEntry *password_entry)
+{
+	gtk_entry_set_visibility (password_entry, gtk_toggle_button_get_active (togglebutton));
+}
+
+static void
+fill_password (GtkWidget *widget,
+			   NMConnection *connection)
+{
+	char *password;
+
+	if (!connection)
+		return;
+
+	password = NULL;
+
+	if (nm_connection_get_scope (connection) == NM_CONNECTION_SCOPE_SYSTEM) {
+		NMSettingVPN *s_vpn;
+
+		s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+		if (s_vpn) {
+			const char *tmp;
+
+			tmp = nm_setting_vpn_get_secret (s_vpn, NM_SSHTUN_KEY_PASSWORD);
+			if (tmp)
+				password = gnome_keyring_memory_strdup (tmp);
+		}
+	} else {
+		NMSettingConnection *s_con;
+		gboolean unused;
+
+		s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
+		password = keyring_helpers_lookup_secret (nm_setting_connection_get_uuid (s_con),
+		                                          NM_SSHTUN_KEY_PASSWORD,
+		                                          &unused);
+	}
+
+	if (password) {
+		gtk_entry_set_text (GTK_ENTRY (widget), password);
+		gnome_keyring_memory_free (password);
+	}
+}
+
+static void
 stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 {
 	g_signal_emit_by_name (SSHTUN_PLUGIN_UI_WIDGET (user_data), "changed");
@@ -187,6 +233,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	NMSettingVPN *s_vpn;
 	GtkWidget *widget;
+	GtkWidget *show_password;
 	GtkListStore *store;
 	GtkTreeIter iter;
 	int active = -1;
@@ -283,6 +330,23 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 	}
 	g_signal_connect (G_OBJECT (widget), "selection-changed", G_CALLBACK (stuff_changed_cb), self);
 
+	widget = glade_xml_get_widget (priv->xml, "password_entry");
+	if (!widget)
+		return FALSE;
+	gtk_size_group_add_widget (priv->group, widget);
+	if (s_vpn) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_PASSWORD);
+		if (value)
+			gtk_entry_set_text (GTK_ENTRY (widget), value);
+	}
+	fill_password (widget, connection);
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
+
+	show_password = glade_xml_get_widget (priv->xml, "show_password");
+	if (!show_password)
+		return FALSE;
+	g_signal_connect (show_password, "toggled", G_CALLBACK (show_password_cb), widget);
+
 	return TRUE;
 }
 
@@ -368,7 +432,42 @@ save_secrets (NMVpnPluginUiWidgetInterface *iface,
               NMConnection *connection,
               GError **error)
 {
-	return TRUE;
+	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (iface);
+	NMSettingConnection *s_con;
+	GtkWidget *w;
+	const char *secret;
+	GnomeKeyringResult result;
+	const char *uuid, *id;
+	gboolean ret = FALSE;
+
+	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	if (!s_con) {
+		g_set_error (error,
+					 SSHTUN_PLUGIN_UI_ERROR,
+		             SSHTUN_PLUGIN_UI_ERROR_INVALID_CONNECTION,
+		             "%s", "missing 'connection' setting");
+		return FALSE;
+	}
+
+	id = nm_setting_connection_get_id (s_con);
+	uuid = nm_setting_connection_get_uuid (s_con);
+
+	w = glade_xml_get_widget (priv->xml, "password_entry");
+	g_assert (w);
+	secret = gtk_entry_get_text (GTK_ENTRY (w));
+	if (secret && strlen (secret)) {
+		result = keyring_helpers_save_secret (uuid, id, NULL, NM_SSHTUN_KEY_PASSWORD, secret);
+		ret = result == GNOME_KEYRING_RESULT_OK;
+		if (!ret)
+			g_warning ("%s: failed to save user password to keyring.", __func__);
+	} else
+		ret = keyring_helpers_delete_secret (uuid, NM_SSHTUN_KEY_PASSWORD);
+
+	if (!ret)
+		g_set_error (error, SSHTUN_PLUGIN_UI_ERROR,
+					 SSHTUN_PLUGIN_UI_ERROR_UNKNOWN,
+					 "%s", "Saving secrets to gnome keyring failed.");
+	return ret;
 }
 
 static NMVpnPluginUiWidgetInterface *

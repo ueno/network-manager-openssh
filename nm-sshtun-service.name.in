@@ -4,5 +4,6 @@ service=org.freedesktop.NetworkManager.sshtun
 program=@LIBEXECDIR@/nm-sshtun-service
 
 [GNOME]
+auth-dialog=nm-sshtun-auth-dialog
 properties=libnm-sshtun-properties
 

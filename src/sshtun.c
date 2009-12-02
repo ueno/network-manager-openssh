@@ -369,10 +369,8 @@ start_child (struct sshtun_child_st *child)
 		return -1;
 	}
 	send_event (&handle->event_wfd, "TCP_OPEN");
-#if 0
 	send_event (&handle->event_wfd, "NEED_PASSWORD");
 	password = recv_event (&handle->event_rfd);
-#endif
 	ret = open_ssh (&child->ssh_channel, &child->ssh_session,
 					child->tcp_fd,	handle->params.user,
 					handle->params.public_key, handle->params.private_key,
@@ -380,10 +378,8 @@ start_child (struct sshtun_child_st *child)
 					handle->tun_mode,
 					handle->params.config_script,
 					&handle->event_wfd);
-#if 0
 	if (password)
 		memset (password, 0, strlen (password));
-#endif
 	if (ret < 0) {
 		close (child->tcp_fd);
 		close (child->tun_fd);
@@ -1144,7 +1140,12 @@ sshtun_dispatch_event (sshtun_handle_t handle)
 	parent = (struct sshtun_parent_st *)handle;
 	event = recv_event (&handle->event_rfd);
 
-	if (!strncmp (event, "BEGIN_CONFIG ", 12)) {
+	if (!strncmp (event, "NEED_PASSWORD", 13)) {
+		parent->state = SSHTUN_STATE_NEED_PASSWORD;
+		return 0;
+	}
+
+	if (!strncmp (event, "BEGIN_CONFIG", 12)) {
 		parent->state = SSHTUN_STATE_CONFIGURING;
 		return 0;
 	}
@@ -1173,4 +1174,12 @@ sshtun_dispatch_event (sshtun_handle_t handle)
 	}
 
 	return -1;
+}
+
+int
+sshtun_send_event (sshtun_handle_t handle, const char *data)
+{
+	if (!handle)
+		return -1;
+	return send_event (&handle->event_wfd, data);
 }
