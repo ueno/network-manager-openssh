@@ -1,4 +1,6 @@
-Tim Niemueller <tim@niemueller.de>
-Dan Williams <dcbw@redhat.com>
-David Zeuthen <davidz@redhat.com>
-Daiki Ueno <ueno@unixuser.org>
+The implementation based on NetworkManager-openvpn.
+
+Tim Niemueller <tim@niemueller.de> NetworkManager-openvpn
+Dan Williams <dcbw@redhat.com> NetworkManager-openvpn
+David Zeuthen <davidz@redhat.com> NetworkManager-openvpn
+Daiki Ueno <ueno@unixuser.org> NetworkManager-sshtun
