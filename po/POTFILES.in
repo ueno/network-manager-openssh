@@ -1,6 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-properties/auth-helpers.c
+auth-dialog/gnome-two-password-dialog.c
+auth-dialog/main.c
 properties/nm-sshtun.c
 properties/nm-sshtun-dialog.glade
 src/nm-sshtun-service.c
