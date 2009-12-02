@@ -425,7 +425,6 @@ event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
 	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
 	sshtun_state_t state = sshtun_state (priv->handle);
 
-	nm_info ("event_watch_cb: %d", state);
 	sshtun_dispatch_event (priv->handle);
 	if (state == SSHTUN_STATE_CONFIGURING
 		&& sshtun_state (priv->handle) == SSHTUN_STATE_CONFIGURED)
