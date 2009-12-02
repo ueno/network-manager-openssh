@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-24 23:48+0100\n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2009-02-24 19:08+0100\n"
 "Last-Translator: Mads Lundby <lundbymads@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -52,211 +52,204 @@ msgstr "_Husk adgangskode for denne session"
 msgid "_Save password in keyring"
 msgstr "_Gem adgangskode i nøglering"
 
-#: ../auth-dialog/main.c:127
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Du skal opnå godkendelse for at tilgå det virtuelle private netværk \"%s\"."
 
-#: ../auth-dialog/main.c:128
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "VPN-godkendelse"
 
-#: ../auth-dialog/main.c:149
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "Ad_gangskode til certifikat:"
 
-#: ../auth-dialog/main.c:163
-msgid "Certificate password:"
-msgstr "Adgangskode til certifikat:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:160
-msgid "Choose a Certificate Authority certificate..."
-msgstr "Vælg et certifikat fra certifikatautoritet..."
-
-#: ../properties/auth-helpers.c:179
-msgid "Choose your personal certificate..."
-msgstr "Vælg dit personlige certifikat..."
-
-#: ../properties/auth-helpers.c:197
-msgid "Choose your private key..."
-msgstr "Vælg din private nøgle..."
-
-#: ../properties/auth-helpers.c:250
-msgid "Choose an OpenVPN static key..."
-msgstr "Vælg en statisk OpenVPN-nøgle..."
-
-#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:901
-#: ../properties/auth-helpers.c:1054
-msgid "None"
-msgstr "Ingen"
-
-#: ../properties/auth-helpers.c:654
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "PEM-certifikater (*.pem, *.crt, *.key, *.cer)"
-
-#: ../properties/auth-helpers.c:714
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "Statiske OpenVPN-nøgler (*.key)"
-
-#: ../properties/auth-helpers.c:823 ../properties/auth-helpers.c:893
-msgid "Default"
-msgstr "Standard"
-
-#: ../properties/auth-helpers.c:903
-msgid "MD-5"
-msgstr "MD-5"
-
-#: ../properties/auth-helpers.c:905
-msgid "SHA-1"
-msgstr "SHA-1"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "Kompatibel med OpenVPN-serveren."
 
-#: ../properties/nm-openvpn.c:322
-msgid "Certificates (TLS)"
-msgstr "Certifikater (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password"
-msgstr "Adgangskode"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:353
-msgid "Password with Certificates (TLS)"
-msgstr "Adgangskode med certifikater (TLS)"
-
-#: ../properties/nm-openvpn.c:365
-msgid "Static Key"
-msgstr "Statisk nøgle"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>Godkendelse</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>Generelt</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>Godkendelse</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>Hvis nøgleretning anvendes, skal den være den modsatte af den "
-"nøgleretning, som VPN-ligemanden bruger. Hvis ligemanden f.eks. bruger \"1"
-"\", skal denne forbindelse bruge \"0\". Hvis du ikke er sikker på, hvilken "
-"værdi du skal bruge, bør du kontakte din systemadministrator.</i>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "A_vanceret..."
-
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "CA-certifikat:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Cipher:"
-msgstr "Chiffer:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "General"
-msgstr "Generelt"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "HMAC Authentication:"
-msgstr "HMAC-godkendelse:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "Nøgleretning:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "Nøglefil:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "Lokal IP-adresse:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "Avancerede indstillinger til OpenVPN"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "Adgangskode:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Private Key Password:"
-msgstr "Adgangskode til privat nøgle:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "Privat nøgle:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Security"
-msgstr "Sikkerhed"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Show passwords"
-msgstr "Vis adgangskoder"
-
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "Statisk nøgle:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "TLS Authentication"
-msgstr "TLS-godkendelse"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr "_Brugernavn:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "Type:"
-msgstr "Type:"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "Vis adgangskoder"
 
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "Use L_ZO data compression"
-msgstr "Anvend L_ZO-datakomprimering"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "Use a TA_P device"
-msgstr "Anvend en TA_P-enhed"
-
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "Use a _TCP connection"
-msgstr "Anvend en _TCP-forbindelse"
-
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "Use additional TLS authentication"
-msgstr "Anvend yderligere TLS-godkendelse"
-
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "Use custom gateway p_ort:"
-msgstr "Anvend tilpasset p_ort til adgangspunkt:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:27
-msgid "User Certificate:"
-msgstr "Brugercertifikat:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:28
-msgid "User name:"
-msgstr "Brugernavn:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:29
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "Ad_gangspunkt:"
+
+#~ msgid "Certificate password:"
+#~ msgstr "Adgangskode til certifikat:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "Vælg et certifikat fra certifikatautoritet..."
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "Vælg dit personlige certifikat..."
+
+#~ msgid "Choose your private key..."
+#~ msgstr "Vælg din private nøgle..."
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "Vælg en statisk OpenVPN-nøgle..."
+
+#~ msgid "None"
+#~ msgstr "Ingen"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "PEM-certifikater (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "Statiske OpenVPN-nøgler (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "Standard"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "Certifikater (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "Adgangskode"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Adgangskode med certifikater (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Statisk nøgle"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>Hvis nøgleretning anvendes, skal den være den modsatte af den "
+#~ "nøgleretning, som VPN-ligemanden bruger. Hvis ligemanden f.eks. bruger \"1"
+#~ "\", skal denne forbindelse bruge \"0\". Hvis du ikke er sikker på, "
+#~ "hvilken værdi du skal bruge, bør du kontakte din systemadministrator.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "A_vanceret..."
+
+#~ msgid "CA Certificate:"
+#~ msgstr "CA-certifikat:"
+
+#~ msgid "Cipher:"
+#~ msgstr "Chiffer:"
+
+#~ msgid "General"
+#~ msgstr "Generelt"
+
+#~ msgid "HMAC Authentication:"
+#~ msgstr "HMAC-godkendelse:"
+
+#~ msgid "Key Direction:"
+#~ msgstr "Nøgleretning:"
+
+#~ msgid "Key File:"
+#~ msgstr "Nøglefil:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Lokal IP-adresse:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "Avancerede indstillinger til OpenVPN"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "Adgangskode til privat nøgle:"
+
+#~ msgid "Security"
+#~ msgstr "Sikkerhed"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "TLS-godkendelse"
+
+#~ msgid "Type:"
+#~ msgstr "Type:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "Anvend L_ZO-datakomprimering"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "Anvend en TA_P-enhed"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "Anvend en _TCP-forbindelse"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "Anvend yderligere TLS-godkendelse"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "Anvend tilpasset p_ort til adgangspunkt:"
+
+#~ msgid "User Certificate:"
+#~ msgstr "Brugercertifikat:"
+
+#~ msgid "User name:"
+#~ msgstr "Brugernavn:"
 
 #~ msgid "Add, Remove, and Edit VPN Connections"
 #~ msgstr "Tilføj, fjern og redigér VPN-forbindelser"

@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-openvpn.master.mr\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: openvpn\n"
-"POT-Creation-Date: 2009-04-17 15:41+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2009-06-09 14:53+0530\n"
 "Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
 "Language-Team: marathi\n"
@@ -49,212 +49,203 @@ msgstr "या सत्र करीता परवलीचा शब्द �
 msgid "_Save password in keyring"
 msgstr "किरींग अंतर्गत परवलीचा शब्द साठवा (_S)"
 
-#: ../auth-dialog/main.c:127
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Virtual Private Network '%s' करीता प्रवेशसाठी तुम्हाला ओळख पटवावी लागेल."
 
-#: ../auth-dialog/main.c:128
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "VPN करीता ओळख पटवा"
 
-#: ../auth-dialog/main.c:149
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "प्रमाणपत्र परवलीचा शब्द (_w):"
 
-#: ../auth-dialog/main.c:163
-msgid "Certificate password:"
-msgstr "प्रमाणपत्र परवलीचा शब्द:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:160
-msgid "Choose a Certificate Authority certificate..."
-msgstr "Certificate Authority प्रमाणपत्र निवडा..."
-
-#: ../properties/auth-helpers.c:179
-msgid "Choose your personal certificate..."
-msgstr "खाजगी प्रमाणपत्र निवडा..."
-
-#: ../properties/auth-helpers.c:197
-msgid "Choose your private key..."
-msgstr "वैयक्तिक कि निवडा..."
-
-#: ../properties/auth-helpers.c:250
-msgid "Choose an OpenVPN static key..."
-msgstr "OpenVPN स्टॅटीक कि निवडा..."
-
-#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:938
-#: ../properties/auth-helpers.c:1091
-msgid "None"
-msgstr "काहिच नाही"
-
-#: ../properties/auth-helpers.c:691
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "PEM प्रमाणपत्रं (*.pem, *.crt, *.key, *.cer)"
-
-#: ../properties/auth-helpers.c:751
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "OpenVPN स्टॅटीक किज (*.key)"
-
-#: ../properties/auth-helpers.c:860 ../properties/auth-helpers.c:930
-msgid "Default"
-msgstr "मुलभूत"
-
-#: ../properties/auth-helpers.c:940
-msgid "MD-5"
-msgstr "MD-5"
-
-#: ../properties/auth-helpers.c:942
-msgid "SHA-1"
-msgstr "SHA-1"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "OpenVPN सर्वरशी सहत्व."
 
-#: ../properties/nm-openvpn.c:322
-msgid "Certificates (TLS)"
-msgstr "प्रमाणपत्रं (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password"
-msgstr "परवलीचा शब्द"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:353
-msgid "Password with Certificates (TLS)"
-msgstr "प्रमाणपत्र सह परवलीचा शब्द (TLS)"
-
-#: ../properties/nm-openvpn.c:365
-msgid "Static Key"
-msgstr "Static Key"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>ओळख पटवा</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>सर्वसाधारण</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>ओळख पटवा</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>कि दिशा वापरल्यास, ते VPN सम गटाच्या विरूद्ध वापरलेले असायला हवे.  उदाहरणार्थ, सम "
-"गटाच्य विरूद्ध '1' चा वापर केल्यास, जुळवणीने '0' वापरायला हवे.  कुठले मुल्य वापरायचे हे "
-"निश्चित नसल्यास, तुमच्या प्रणाली प्रशासकाशी संपर्क करा.</i>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "प्रगत (_v)..."
-
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "CA प्रमाणपत्र:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Cipher:"
-msgstr "सिफर:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "General"
-msgstr "सर्वसाधारण"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "HMAC Authentication:"
-msgstr "HMAC ओळख पटवा:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "कि दिशा:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "कि फाइल:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "स्थानीय IP पत्ता:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "OpenVPN प्रगत पर्याय"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "परवलीचा शब्द:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Private Key Password:"
-msgstr "वैयक्तिक कि परवलीचा शब्द:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "वैयक्तिक कि:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-#| msgid "Local IP Address:"
-msgid "Remote IP Address:"
-msgstr "दूरस्थ IP पत्ता:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Security"
-msgstr "सुरक्षा"
-
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Show passwords"
-msgstr "परवलीचा शब्द दाखवा"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "स्टॅटीक कि:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "TLS Authentication"
-msgstr "TLS ओळख पटवा"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr "वापरकर्ता नाव (_U):"
 
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "Type:"
-msgstr "प्रकार:"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "परवलीचा शब्द दाखवा"
 
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "Use L_ZO data compression"
-msgstr "LZO माहिती संकोचन वापरा (_Z)"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "Use a TA_P device"
-msgstr "TAP साधनाचा वापरा (_P)"
-
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "Use a _TCP connection"
-msgstr "TCP जुळवणीचा वापरा (_T)"
-
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "Use additional TLS authentication"
-msgstr "अगाऊ TLS ओळख पटवा वापरा"
-
-#: ../properties/nm-openvpn-dialog.glade.h:27
-msgid "Use custom gateway p_ort:"
-msgstr "स्वपसंत गेटवे पोर्ट वापरा (_o):"
-
-#: ../properties/nm-openvpn-dialog.glade.h:28
-msgid "User Certificate:"
-msgstr "वापरकर्ता प्रमाणपत्र:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:29
-msgid "User name:"
-msgstr "वापरकर्ता नाव:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:30
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "गेटवे (_G):"
 
+#~ msgid "Certificate password:"
+#~ msgstr "प्रमाणपत्र परवलीचा शब्द:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "Certificate Authority प्रमाणपत्र निवडा..."
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "खाजगी प्रमाणपत्र निवडा..."
+
+#~ msgid "Choose your private key..."
+#~ msgstr "वैयक्तिक कि निवडा..."
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "OpenVPN स्टॅटीक कि निवडा..."
+
+#~ msgid "None"
+#~ msgstr "काहिच नाही"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "PEM प्रमाणपत्रं (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "OpenVPN स्टॅटीक किज (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "मुलभूत"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "प्रमाणपत्रं (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "परवलीचा शब्द"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "प्रमाणपत्र सह परवलीचा शब्द (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Static Key"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>कि दिशा वापरल्यास, ते VPN सम गटाच्या विरूद्ध वापरलेले असायला हवे.  उदाहरणार्थ, "
+#~ "सम गटाच्य विरूद्ध '1' चा वापर केल्यास, जुळवणीने '0' वापरायला हवे.  कुठले मुल्य "
+#~ "वापरायचे हे निश्चित नसल्यास, तुमच्या प्रणाली प्रशासकाशी संपर्क करा.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "प्रगत (_v)..."
+
+#~ msgid "CA Certificate:"
+#~ msgstr "CA प्रमाणपत्र:"
+
+#~ msgid "Cipher:"
+#~ msgstr "सिफर:"
+
+#~ msgid "General"
+#~ msgstr "सर्वसाधारण"
+
+#~ msgid "HMAC Authentication:"
+#~ msgstr "HMAC ओळख पटवा:"
+
+#~ msgid "Key Direction:"
+#~ msgstr "कि दिशा:"
+
+#~ msgid "Key File:"
+#~ msgstr "कि फाइल:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "स्थानीय IP पत्ता:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "OpenVPN प्रगत पर्याय"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "वैयक्तिक कि परवलीचा शब्द:"
+
+#~| msgid "Local IP Address:"
+#~ msgid "Remote IP Address:"
+#~ msgstr "दूरस्थ IP पत्ता:"
+
+#~ msgid "Security"
+#~ msgstr "सुरक्षा"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "TLS ओळख पटवा"
+
+#~ msgid "Type:"
+#~ msgstr "प्रकार:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "LZO माहिती संकोचन वापरा (_Z)"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "TAP साधनाचा वापरा (_P)"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "TCP जुळवणीचा वापरा (_T)"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "अगाऊ TLS ओळख पटवा वापरा"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "स्वपसंत गेटवे पोर्ट वापरा (_o):"
+
+#~ msgid "User Certificate:"
+#~ msgstr "वापरकर्ता प्रमाणपत्र:"
+
+#~ msgid "User name:"
+#~ msgstr "वापरकर्ता नाव:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-10 17:44+0300\n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2009-09-10 14:12+0200\n"
 "Last-Translator: Jennie Petoumenou <epetoumenou@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
@@ -50,214 +50,206 @@ msgstr "Απομνη_μόνευση συνθηματικού για αυτή τ�
 msgid "_Save password in keyring"
 msgstr "Απο_θήκευση συνθηματικού στην κλειδοθήκη"
 
-#: ../auth-dialog/main.c:127
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Χρειάζεστε πιστοποίηση για να αποκτήσετε πρόσβαση στο Ιδιωτικό Εικονικό "
 "Δίκτυο (VPN) '%s'."
 
-#: ../auth-dialog/main.c:128
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "Πιστοποίηση VPN"
 
-#: ../auth-dialog/main.c:149
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "Σ_υνθηματικό πιστοποιητικού:"
 
-#: ../auth-dialog/main.c:163
-msgid "Certificate password:"
-msgstr "Συνθηματικό πιστοποιητικού:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:160
-msgid "Choose a Certificate Authority certificate..."
-msgstr "Επιλέξτε πιστοποιητικό Αρχής Πιστοποίησης..."
-
-#: ../properties/auth-helpers.c:179
-msgid "Choose your personal certificate..."
-msgstr "Επιλέξτε το προσωπικό σας πιστοποιητικό..."
-
-#: ../properties/auth-helpers.c:197
-msgid "Choose your private key..."
-msgstr "Επιλέξτε το ιδιωτικό σας κλειδί..."
-
-#: ../properties/auth-helpers.c:250
-msgid "Choose an OpenVPN static key..."
-msgstr "Επιλέξτε στατικό κλειδί OpenVPN..."
-
-#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:938
-#: ../properties/auth-helpers.c:1091
-msgid "None"
-msgstr "Χωρίς"
-
-#: ../properties/auth-helpers.c:691
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "Πιστοποιητικά PEM (*.pem, *.crt, *.key, *.cer)"
-
-#: ../properties/auth-helpers.c:751
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "Στατικά κλειδιά OpenVPN (*.key)"
-
-#: ../properties/auth-helpers.c:860 ../properties/auth-helpers.c:930
-msgid "Default"
-msgstr "Προεπιλεγμένο"
-
-#: ../properties/auth-helpers.c:940
-msgid "MD-5"
-msgstr "MD-5"
-
-#: ../properties/auth-helpers.c:942
-msgid "SHA-1"
-msgstr "SHA-1"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "Συμβατό με τον εξυπηρετητή OpenVPN."
 
-#: ../properties/nm-openvpn.c:322
-msgid "Certificates (TLS)"
-msgstr "Πιστοποιητικά (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password"
-msgstr "Συνθηματικό"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:353
-msgid "Password with Certificates (TLS)"
-msgstr "Συνθηματικό με πιστοποιητικά (TLS)"
-
-#: ../properties/nm-openvpn.c:365
-msgid "Static Key"
-msgstr "Στατικό Κλειδί"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>Πιστοποίηση</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>Γενικά</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>Πιστοποίηση</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>Αν χρησιμοποιηθεί η κατεύθυνση του κλειδιού, θα πρέπει να είναι αντίθετη "
-"από την κατεύθυνση του άλλου υπολογιστή. Για παράδειγμα, αν ο άλλος "
-"υπολογιστής χρησιμοποιεί '1', αυτή η σύνδεση θα πρέπει να χρησιμοποιεί '0'. "
-"Αν δεν είστε βέβαιοι για το ποια τιμή πρέπει να χρησιμοποιήσετε, "
-"επικοινωνήστε με το διαχειριστή του συστήματος.</i>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "Για προ_χωρημένους..."
-
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "Πι_στοποιητικό CA:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Cipher:"
-msgstr "Αλγόριθμος κρυπτογράφησης:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "General"
-msgstr "Γενικά"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "HMAC Authentication:"
-msgstr "Πιστοποίηση HMAC:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "Κατεύθυνση κλειδιού:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "Αρχείο κλειδιού:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "Τοπική διεύθυνση IP:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "Προχωρημένες επιλογές OpenVPN"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "Συνθηματικό:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Private Key Password:"
-msgstr "Συνθηματικό ιδιωτικού κλειδιού:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "Ιδιωτικό κλειδί:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Remote IP Address:"
-msgstr "Απομακρυσμένη διεύθυνση IP:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Security"
-msgstr "Ασφάλεια"
-
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Show passwords"
-msgstr "Εμφάνιση συνθηματικών"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "Στατικό Κλειδί:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "TLS Authentication"
-msgstr "Πιστοποίηση TLS:"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr "Ό_νομα χρήστη:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "Type:"
-msgstr "Τύπος:"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "Εμφάνιση συνθηματικών"
 
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "Use L_ZO data compression"
-msgstr "Χρήση συμπίεσης L_ZO"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "Use a TA_P device"
-msgstr "Χρήση συσκευής TA_P"
-
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "Use a _TCP connection"
-msgstr "Χρήση σύνδεσης _TCP"
-
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "Use additional TLS authentication"
-msgstr "Χρήση επιπλέον πιστοποίησης TLS"
-
-#: ../properties/nm-openvpn-dialog.glade.h:27
-msgid "Use custom gateway p_ort:"
-msgstr "Χρήση προσαρμοσμένης _θύρας πύλης:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:28
-msgid "User Certificate:"
-msgstr "Πιστοποιητικό χρήστη:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:29
-msgid "User name:"
-msgstr "Όνομα χρήστη:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:30
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "Πύ_λη:"
+
+#~ msgid "Certificate password:"
+#~ msgstr "Συνθηματικό πιστοποιητικού:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "Επιλέξτε πιστοποιητικό Αρχής Πιστοποίησης..."
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "Επιλέξτε το προσωπικό σας πιστοποιητικό..."
+
+#~ msgid "Choose your private key..."
+#~ msgstr "Επιλέξτε το ιδιωτικό σας κλειδί..."
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "Επιλέξτε στατικό κλειδί OpenVPN..."
+
+#~ msgid "None"
+#~ msgstr "Χωρίς"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "Πιστοποιητικά PEM (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "Στατικά κλειδιά OpenVPN (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "Προεπιλεγμένο"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "Πιστοποιητικά (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "Συνθηματικό"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Συνθηματικό με πιστοποιητικά (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Στατικό Κλειδί"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>Αν χρησιμοποιηθεί η κατεύθυνση του κλειδιού, θα πρέπει να είναι "
+#~ "αντίθετη από την κατεύθυνση του άλλου υπολογιστή. Για παράδειγμα, αν ο "
+#~ "άλλος υπολογιστής χρησιμοποιεί '1', αυτή η σύνδεση θα πρέπει να "
+#~ "χρησιμοποιεί '0'. Αν δεν είστε βέβαιοι για το ποια τιμή πρέπει να "
+#~ "χρησιμοποιήσετε, επικοινωνήστε με το διαχειριστή του συστήματος.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "Για προ_χωρημένους..."
+
+#~ msgid "CA Certificate:"
+#~ msgstr "Πι_στοποιητικό CA:"
+
+#~ msgid "Cipher:"
+#~ msgstr "Αλγόριθμος κρυπτογράφησης:"
+
+#~ msgid "General"
+#~ msgstr "Γενικά"
+
+#~ msgid "HMAC Authentication:"
+#~ msgstr "Πιστοποίηση HMAC:"
+
+#~ msgid "Key Direction:"
+#~ msgstr "Κατεύθυνση κλειδιού:"
+
+#~ msgid "Key File:"
+#~ msgstr "Αρχείο κλειδιού:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Τοπική διεύθυνση IP:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "Προχωρημένες επιλογές OpenVPN"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "Συνθηματικό ιδιωτικού κλειδιού:"
+
+#~ msgid "Remote IP Address:"
+#~ msgstr "Απομακρυσμένη διεύθυνση IP:"
+
+#~ msgid "Security"
+#~ msgstr "Ασφάλεια"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "Πιστοποίηση TLS:"
+
+#~ msgid "Type:"
+#~ msgstr "Τύπος:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "Χρήση συμπίεσης L_ZO"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "Χρήση συσκευής TA_P"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "Χρήση σύνδεσης _TCP"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "Χρήση επιπλέον πιστοποίησης TLS"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "Χρήση προσαρμοσμένης _θύρας πύλης:"
+
+#~ msgid "User Certificate:"
+#~ msgstr "Πιστοποιητικό χρήστη:"
+
+#~ msgid "User name:"
+#~ msgstr "Όνομα χρήστη:"

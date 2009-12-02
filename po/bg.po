@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-openvpn master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-27 12:04+0300\n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2009-09-27 12:04+0300\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -49,215 +49,206 @@ msgstr "_Запомняне на паролата за тази сесия"
 msgid "_Save password in keyring"
 msgstr "Запазване на паролата в клю_чодържателя"
 
-#: ../auth-dialog/main.c:127
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Трябва да се идентифицирате, за да ползвате ВЧМ „%s“."
 
-#: ../auth-dialog/main.c:128
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "Идентифициране пред ВЧМ"
 
-#: ../auth-dialog/main.c:149
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "Парола за _сертификата:"
 
-#: ../auth-dialog/main.c:163
-msgid "Certificate password:"
-msgstr "Парола за сертификата:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:160
-msgid "Choose a Certificate Authority certificate..."
-msgstr "Изберете сертификата на сертифициращата организация…"
-
-#: ../properties/auth-helpers.c:179
-msgid "Choose your personal certificate..."
-msgstr "Изберете личния си сертификат…"
-
-#: ../properties/auth-helpers.c:197
-msgid "Choose your private key..."
-msgstr "Изберете личния си ключ…"
-
-#: ../properties/auth-helpers.c:250
-msgid "Choose an OpenVPN static key..."
-msgstr "Изберете статичния ключ на OpenVPN…"
-
-#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:949
-#: ../properties/auth-helpers.c:1126
-msgid "None"
-msgstr "Няма"
-
-#: ../properties/auth-helpers.c:691
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "Сертификати във формат PEM (*.pem, *.crt, *.key, *.cer)"
-
-#: ../properties/auth-helpers.c:751
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "Статични ключове за OpenVPN (*.key)"
-
-#: ../properties/auth-helpers.c:871 ../properties/auth-helpers.c:941
-msgid "Default"
-msgstr "Стандартно"
-
-#: ../properties/auth-helpers.c:951
-msgid "MD-5"
-msgstr "MD-5"
-
-#: ../properties/auth-helpers.c:953
-msgid "SHA-1"
-msgstr "SHA-1"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "Съвместим със сървърите за OpenVPN."
 
-#: ../properties/nm-openvpn.c:322
-msgid "Certificates (TLS)"
-msgstr "Сертификати (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password"
-msgstr "Парола"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:353
-msgid "Password with Certificates (TLS)"
-msgstr "Парола със сертификати (TLS)"
-
-#: ../properties/nm-openvpn.c:365
-msgid "Static Key"
-msgstr "Статичен ключ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>Идентификация</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>Общи</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>Идентификация</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>Ако се използва посока на ключа, тя трябва да е обратната на използваната "
-"от отсрещната страна по ВЧМ. Например — ако тя ползва „1“, тази връзка "
-"трябва да ползва „0“. Ако не сте сигурни, попитайте системния си "
-"администратор.</i>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "_Допълнителни…"
-
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "Сертификат на сертифициращата организация:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Cipher:"
-msgstr "Шифър:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "General"
-msgstr "Общи"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "HMAC Authentication:"
-msgstr "Идентификация с HMAC:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "Посока на ключа:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "Файл-ключ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "Локален адрес:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "Допълнителни настройки на OpenVPN"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "Парола:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Private Key Password:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "Частен ключ:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Private Key:"
-msgstr "Частен ключ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Remote IP Address:"
-msgstr "Отдалечен адрес:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Security"
-msgstr "Сигурност"
-
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Show passwords"
-msgstr "Показване на паролите"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "Статичен ключ:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "TLS Authentication"
-msgstr "Идентификация с TSL"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr "Потребителско _име:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "Type:"
-msgstr "Вид:"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "Показване на паролите"
 
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "Use L_ZO data compression"
-msgstr "Използване на _компресия LZO"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "Use a TA_P device"
-msgstr "Използване на _устройство TAP"
-
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "Use a _TCP connection"
-msgstr "Използване на _връзка по TCP"
-
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "Use additional TLS authentication"
-msgstr "Използване на допълнителна идентификация с TLS"
-
-#: ../properties/nm-openvpn-dialog.glade.h:27
-msgid "Use custom _renegotiation interval:"
-msgstr "_Различен интервал на предоговаряне:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:28
-msgid "Use custom gateway p_ort:"
-msgstr "_Потребителски порт на шлюза:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:29
-msgid "User Certificate:"
-msgstr "Потребителски сертификат:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:30
-msgid "User name:"
-msgstr "Потребителско име:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:31
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "_Шлюз:"
+
+#~ msgid "Certificate password:"
+#~ msgstr "Парола за сертификата:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "Изберете сертификата на сертифициращата организация…"
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "Изберете личния си сертификат…"
+
+#~ msgid "Choose your private key..."
+#~ msgstr "Изберете личния си ключ…"
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "Изберете статичния ключ на OpenVPN…"
+
+#~ msgid "None"
+#~ msgstr "Няма"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "Сертификати във формат PEM (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "Статични ключове за OpenVPN (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "Стандартно"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "Сертификати (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "Парола"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Парола със сертификати (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Статичен ключ"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>Ако се използва посока на ключа, тя трябва да е обратната на "
+#~ "използваната от отсрещната страна по ВЧМ. Например — ако тя ползва „1“, "
+#~ "тази връзка трябва да ползва „0“. Ако не сте сигурни, попитайте системния "
+#~ "си администратор.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "_Допълнителни…"
+
+#~ msgid "CA Certificate:"
+#~ msgstr "Сертификат на сертифициращата организация:"
+
+#~ msgid "Cipher:"
+#~ msgstr "Шифър:"
+
+#~ msgid "General"
+#~ msgstr "Общи"
+
+#~ msgid "HMAC Authentication:"
+#~ msgstr "Идентификация с HMAC:"
+
+#~ msgid "Key Direction:"
+#~ msgstr "Посока на ключа:"
+
+#~ msgid "Key File:"
+#~ msgstr "Файл-ключ:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Локален адрес:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "Допълнителни настройки на OpenVPN"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "Частен ключ:"
+
+#~ msgid "Remote IP Address:"
+#~ msgstr "Отдалечен адрес:"
+
+#~ msgid "Security"
+#~ msgstr "Сигурност"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "Идентификация с TSL"
+
+#~ msgid "Type:"
+#~ msgstr "Вид:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "Използване на _компресия LZO"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "Използване на _устройство TAP"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "Използване на _връзка по TCP"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "Използване на допълнителна идентификация с TLS"
+
+#~ msgid "Use custom _renegotiation interval:"
+#~ msgstr "_Различен интервал на предоговаряне:"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "_Потребителски порт на шлюза:"
+
+#~ msgid "User Certificate:"
+#~ msgstr "Потребителски сертификат:"
+
+#~ msgid "User name:"
+#~ msgstr "Потребителско име:"

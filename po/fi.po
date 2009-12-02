@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-29 20:22+0300\n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2008-11-29 20:00+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -17,221 +17,220 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:130
 msgid "_Password:"
 msgstr "_Salasana:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:146
+#: ../auth-dialog/gnome-two-password-dialog.c:131
 msgid "_Secondary Password:"
 msgstr "_Toissijainen salasana:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:248
 msgid "_Username:"
 msgstr "_Käyttäjätunnus:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:265
+#: ../auth-dialog/gnome-two-password-dialog.c:250
 msgid "_Domain:"
 msgstr "_Toimialue:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
+#: ../auth-dialog/gnome-two-password-dialog.c:342
 msgid "Connect _anonymously"
 msgstr "Yhdistä _anonyymisti"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:362
+#: ../auth-dialog/gnome-two-password-dialog.c:347
 msgid "Connect as _user:"
 msgstr "Yhdistä _käyttäjänä:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:471
+#: ../auth-dialog/gnome-two-password-dialog.c:456
 msgid "_Remember password for this session"
 msgstr "_Muista salasana istunnon ajan"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:473
+#: ../auth-dialog/gnome-two-password-dialog.c:458
 msgid "_Save password in keyring"
 msgstr "_Tallenna salasana avainrenkaaseen"
 
-#: ../auth-dialog/main.c:127
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Yhteydenotto VPN-verkkoon \"%s\" vaatii kirjautumista."
 
-#: ../auth-dialog/main.c:128
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "Todenna VPN-yhteyden avaus"
 
-#: ../auth-dialog/main.c:149
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "Varmenteen _salasana:"
 
-#: ../auth-dialog/main.c:163
-msgid "Certificate password:"
-msgstr "Varmennettu salasana:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:160
-msgid "Choose a Certificate Authority certificate..."
-msgstr "Valitse CA-varmenne..."
-
-#: ../properties/auth-helpers.c:179
-msgid "Choose your personal certificate..."
-msgstr "Valitse oma varmenteesi..."
-
-#: ../properties/auth-helpers.c:197
-msgid "Choose your private key..."
-msgstr "Valitse salainen avaimesi..."
-
-#: ../properties/auth-helpers.c:250
-msgid "Choose an OpenVPN static key..."
-msgstr "Valitse OpenPVN:n staattinen avain..."
-
-#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:992
-msgid "None"
-msgstr "Ei mitään"
-
-#: ../properties/auth-helpers.c:654
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "PEM-varmenteet (*.pem, *.crt, *.key tai *.cer)"
-
-#: ../properties/auth-helpers.c:714
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "Pysyvät OpenVPN-avaimet (*.key)"
-
-#: ../properties/auth-helpers.c:822
-msgid "Default"
-msgstr "Oletus"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "Yhteensopiva OpenVPN-palvelimen kanssa."
 
-#: ../properties/nm-openvpn.c:322 ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Certificates (TLS)"
-msgstr "Varmenteet (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password"
-msgstr "Salasana"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:353
-msgid "Password with Certificates (TLS)"
-msgstr "Salasana varmenteiden kanssa (TLS)"
-
-#: ../properties/nm-openvpn.c:365
-msgid "Static Key"
-msgstr "Staattinen avain"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>Tunnistautuminen</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>Yleisasetukset</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>Tunnistautuminen</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>Jos avaimen suuntaa käytetään, täytyy annetun arvon olla vastkkainen kuin "
-"VPN-yhteyden toisessa päässä. Jos esimerkiksi vastapäässä on arvo 1, tämän "
-"täytyy olla 0. Jos et tiedä mitä tässä pitäisi olla, kysy VPN-yhteytesi "
-"ylläpitäjältä lisätietoja.</i>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "_Lisäasetukset..."
-
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "CA-varmenne:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "Cipher:"
-msgstr "Salausmenetelmä:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "General"
-msgstr "Yleisasetukset"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "Avaimen suunta:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "Avaintiedosto:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "Oma IP-osoite:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "OpenVPN-lisäasetukset"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "Salasana:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Private Key Password:"
-msgstr "Salaisen avaimen salasana:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "Salainen avain:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Show passwords"
-msgstr "Näytä salasanat"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "Kiinteä avain:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Type:"
-msgstr "Tyyppi:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "Use L_ZO data compression"
-msgstr "Käytä L_ZO-pakkausta"
-
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "Use a TA_P device"
-msgstr "Käytä TA_P-laitetta"
-
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "Use a _TCP connection"
-msgstr "Käytä _TCP-yhteyttä"
-
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "Use additional TLS authentication"
-msgstr "Käytä lisäksi TLS-tunnistatumista"
-
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "Use custom gateway p_ort:"
-msgstr "Käytä _muuta yhdyskäytävän porttia:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "User Certificate:"
-msgstr "Käyttäjän varmenne:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "User name:"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
 msgstr "Käyttäjätunnus:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:27
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "Näytä salasanat"
+
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
+
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "_Yhdyskäytävä:"
+
+#~ msgid "Certificate password:"
+#~ msgstr "Varmennettu salasana:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "Valitse CA-varmenne..."
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "Valitse oma varmenteesi..."
+
+#~ msgid "Choose your private key..."
+#~ msgstr "Valitse salainen avaimesi..."
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "Valitse OpenPVN:n staattinen avain..."
+
+#~ msgid "None"
+#~ msgstr "Ei mitään"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "PEM-varmenteet (*.pem, *.crt, *.key tai *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "Pysyvät OpenVPN-avaimet (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "Oletus"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "Varmenteet (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "Salasana"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Salasana varmenteiden kanssa (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Staattinen avain"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>Jos avaimen suuntaa käytetään, täytyy annetun arvon olla vastkkainen "
+#~ "kuin VPN-yhteyden toisessa päässä. Jos esimerkiksi vastapäässä on arvo 1, "
+#~ "tämän täytyy olla 0. Jos et tiedä mitä tässä pitäisi olla, kysy VPN-"
+#~ "yhteytesi ylläpitäjältä lisätietoja.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "_Lisäasetukset..."
+
+#~ msgid "CA Certificate:"
+#~ msgstr "CA-varmenne:"
+
+#~ msgid "Cipher:"
+#~ msgstr "Salausmenetelmä:"
+
+#~ msgid "General"
+#~ msgstr "Yleisasetukset"
+
+#~ msgid "Key Direction:"
+#~ msgstr "Avaimen suunta:"
+
+#~ msgid "Key File:"
+#~ msgstr "Avaintiedosto:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Oma IP-osoite:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "OpenVPN-lisäasetukset"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "Salaisen avaimen salasana:"
+
+#~ msgid "Type:"
+#~ msgstr "Tyyppi:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "Käytä L_ZO-pakkausta"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "Käytä TA_P-laitetta"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "Käytä _TCP-yhteyttä"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "Käytä lisäksi TLS-tunnistatumista"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "Käytä _muuta yhdyskäytävän porttia:"
+
+#~ msgid "User Certificate:"
+#~ msgstr "Käyttäjän varmenne:"
+
+#~ msgid "User name:"
+#~ msgstr "Käyttäjätunnus:"
 
 #~ msgid "Certificate Password:"
 #~ msgstr "Varmenteen salasana:"
@@ -508,9 +507,6 @@ msgstr "_Yhdyskäytävä:"
 
 #~ msgid "Optional"
 #~ msgstr "Valinnaiset tiedot"
-
-#~ msgid "Username:"
-#~ msgstr "Käyttäjätunnus:"
 
 #~ msgid "X.509"
 #~ msgstr "X.509"

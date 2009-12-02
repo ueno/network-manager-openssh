@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-openvpn.master.kn\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: openvpn\n"
-"POT-Creation-Date: 2009-09-28 11:36+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2009-10-30 12:23+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: Kannada <en@li.org>\n"
@@ -50,216 +50,206 @@ msgstr "ಈ ಅಧಿವೇಶನಕ್ಕಾಗಿ ಗುಪ್ತಪದವನ�
 msgid "_Save password in keyring"
 msgstr "ಗುಪ್ತಪದವನ್ನು ಕೀಲಿಸುರುಳಿಯಲ್ಲಿ ಉಳಿಸು(_S)"
 
-#: ../auth-dialog/main.c:127
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "ನೀವು ವರ್ಚುವಲ್ ಪ್ರೈವೇಟ್ ನೆಟ್‌ವರ್ಕ್ '%s' ಅನ್ನು ನಿಲುಕಿಸಿಕೊಳ್ಳಲು ದೃಢೀಕರಿಸಬೇಕಾಗುತ್ತದೆ."
 
-#: ../auth-dialog/main.c:128
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "VPN ಅನ್ನು ದೃಢೀಕರಿಸಿ"
 
-#: ../auth-dialog/main.c:149
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "ಪ್ರಮಾಣಪತ್ರದ ಗುಪ್ತಪದ(_w):"
 
-#: ../auth-dialog/main.c:163
-msgid "Certificate password:"
-msgstr "ಪ್ರಮಾಣಪತ್ರದ ಗುಪ್ತಪದ:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:160
-msgid "Choose a Certificate Authority certificate..."
-msgstr "ಪ್ರಮಾಣಪತ್ರ ಅಥಾರಿಟಿಯ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
-
-#: ../properties/auth-helpers.c:179
-msgid "Choose your personal certificate..."
-msgstr "ನಿಮ್ಮ ವಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
-
-#: ../properties/auth-helpers.c:197
-msgid "Choose your private key..."
-msgstr "ನಿಮ್ಮ ಖಾಸಗಿ ಕೀಲಿಯನ್ನು ಆರಿಸಿ..."
-
-#: ../properties/auth-helpers.c:250
-msgid "Choose an OpenVPN static key..."
-msgstr "ಒಂದು OpenVPN ಸ್ಥಿರ ಕೀಲಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
-
-#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:949
-#: ../properties/auth-helpers.c:1126
-msgid "None"
-msgstr "ಯಾವುದೂ ಇಲ್ಲ"
-
-#: ../properties/auth-helpers.c:691
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "PEM ಪ್ರಮಾಣಪತ್ರಗಳು (*.pem, *.crt, *.key, *.cer)"
-
-#: ../properties/auth-helpers.c:751
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "OpenVPN ಸ್ಥಿರ ಕೀಲಿಗಳು (*.key)"
-
-#: ../properties/auth-helpers.c:871 ../properties/auth-helpers.c:941
-msgid "Default"
-msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
-
-#: ../properties/auth-helpers.c:951
-msgid "MD-5"
-msgstr "MD-5"
-
-#: ../properties/auth-helpers.c:953
-msgid "SHA-1"
-msgstr "SHA-1"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "OpenVPN ಪರಿಚಾರಕದೊಂದಿಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತದೆ."
 
-#: ../properties/nm-openvpn.c:322
-msgid "Certificates (TLS)"
-msgstr "ಪ್ರಮಾಣಪತ್ರಗಳು (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password"
-msgstr "ಗುಪ್ತಪದ"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:353
-msgid "Password with Certificates (TLS)"
-msgstr "ಪ್ರಮಾಣಪತ್ರಗಳೊಂದಿಗಿನ ಗುಪ್ತಪದ (TLS)"
-
-#: ../properties/nm-openvpn.c:365
-msgid "Static Key"
-msgstr "ಸ್ಥಿರ ಕೀಲಿ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>ದೃಢೀಕರಣ</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>ಸಾಮಾನ್ಯ</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>ದೃಢೀಕರಣ</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>ಕೀಲಿ ದಿಕ್ಕನ್ನು ಬಳಸಿದಲ್ಲಿ, ಅದು VPN ಪೀರ್‌ ನಲ್ಲಿ ಬಳಸಲಾಗಿದುದಕ್ಕೆ ವಿರುದ್ಧವಾಗಿರಬೇಕು.  "
-"ಉದಾಹರಣೆಗೆ, ಪೀರ್ '1' ಅನ್ನು ಬಳಸಿದಲ್ಲಿ, ಈ ಸಂಪರ್ಕವು '0' ಅನ್ನು ಬಳಸಬೇಕು.  ಯಾವುದನ್ನು "
-"ಬಳಸಬೇಕು ಎಂದು ನಿಮಗೆ ಖಚಿತವಾಗಿ ಗೊತ್ತಿರದೆ ಇದ್ದಲ್ಲಿ ನಿಮ್ಮ ಗಣಕ ವ್ಯವಸ್ಥಾಪಕರನ್ನು ಸಂಪರ್ಕಿಸಿ.</"
-"i>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "ಸುಧಾರಿತ(_v)..."
-
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "CA ಪ್ರಮಾಣಪತ್ರ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Cipher:"
-msgstr "ಸಿಫರ್:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "General"
-msgstr "ಸಾಮಾನ್ಯ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "HMAC Authentication:"
-msgstr "HMAC ದೃಢೀಕರಣ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "ಕೀಲಿ ದಿಕ್ಕು:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "ಕೀಲಿ ಕಡತ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "ಸ್ಥಳೀಯ IP ವಿಳಾಸ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "OpenVPN ಸುಧಾರಿತ ಆಯ್ಕೆಗಳು"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "ಗುಪ್ತಪದ:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Private Key Password:"
-msgstr "ಖಾಸಗಿ ಕೀಲಿ ಗುಪ್ತಪದ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "ಖಾಸಗಿ ಕೀಲಿ:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Remote IP Address:"
-msgstr "ದೂರಸ್ಥ IP ವಿಳಾಸ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Security"
-msgstr "ಸುರಕ್ಷತೆ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Show passwords"
-msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "ಸ್ಥಿರ ಕೀಲಿ:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "TLS Authentication"
-msgstr "TLS ದೃಢೀಕರಣ"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr "ಬಳಕೆದಾರಹೆಸರು(_U):"
 
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "Type:"
-msgstr "ಬಗೆ:"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು"
 
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "Use L_ZO data compression"
-msgstr "L_ZO ದತ್ತಾಂಶ ಸಂಕುಚನವನ್ನು ಬಳಸು"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "Use a TA_P device"
-msgstr "ಒಂದು TA_P ಸಾಧನವನ್ನು ಬಳಸು"
-
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "Use a _TCP connection"
-msgstr "ಒಂದು _TCP ಸಂಪರ್ಕವನ್ನು ಬಳಸು"
-
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "Use additional TLS authentication"
-msgstr "ಹೆಚ್ಚುವರಿ TLS ದೃಢೀಕರಣವನ್ನು ಬಳಸಿ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:27
-msgid "Use custom _renegotiation interval:"
-msgstr "ಇಚ್ಛೆಯ ಮರುಸಂಧಾನ ಕಾಲಾವಧಿಯನ್ನು ಬಳಸು(_r):"
-
-#: ../properties/nm-openvpn-dialog.glade.h:28
-msgid "Use custom gateway p_ort:"
-msgstr "ಇಚ್ಛೆಯ ಗೇಟ್‌ವೆ ಸಂಪರ್ಕಸ್ಥಾನವನ್ನು ಬಳಸು(_o):"
-
-#: ../properties/nm-openvpn-dialog.glade.h:29
-msgid "User Certificate:"
-msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:30
-msgid "User name:"
-msgstr "ಬಳಕೆದಾರ ಹೆಸರು:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:31
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "ಗೇಟ್‌ವೇ(_G):"
 
+#~ msgid "Certificate password:"
+#~ msgstr "ಪ್ರಮಾಣಪತ್ರದ ಗುಪ್ತಪದ:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "ಪ್ರಮಾಣಪತ್ರ ಅಥಾರಿಟಿಯ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "ನಿಮ್ಮ ವಯಕ್ತಿಕ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
+
+#~ msgid "Choose your private key..."
+#~ msgstr "ನಿಮ್ಮ ಖಾಸಗಿ ಕೀಲಿಯನ್ನು ಆರಿಸಿ..."
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "ಒಂದು OpenVPN ಸ್ಥಿರ ಕೀಲಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ..."
+
+#~ msgid "None"
+#~ msgstr "ಯಾವುದೂ ಇಲ್ಲ"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "PEM ಪ್ರಮಾಣಪತ್ರಗಳು (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "OpenVPN ಸ್ಥಿರ ಕೀಲಿಗಳು (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "ಪ್ರಮಾಣಪತ್ರಗಳು (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "ಗುಪ್ತಪದ"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "ಪ್ರಮಾಣಪತ್ರಗಳೊಂದಿಗಿನ ಗುಪ್ತಪದ (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "ಸ್ಥಿರ ಕೀಲಿ"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>ಕೀಲಿ ದಿಕ್ಕನ್ನು ಬಳಸಿದಲ್ಲಿ, ಅದು VPN ಪೀರ್‌ ನಲ್ಲಿ ಬಳಸಲಾಗಿದುದಕ್ಕೆ "
+#~ "ವಿರುದ್ಧವಾಗಿರಬೇಕು.  ಉದಾಹರಣೆಗೆ, ಪೀರ್ '1' ಅನ್ನು ಬಳಸಿದಲ್ಲಿ, ಈ ಸಂಪರ್ಕವು '0' ಅನ್ನು "
+#~ "ಬಳಸಬೇಕು.  ಯಾವುದನ್ನು ಬಳಸಬೇಕು ಎಂದು ನಿಮಗೆ ಖಚಿತವಾಗಿ ಗೊತ್ತಿರದೆ ಇದ್ದಲ್ಲಿ ನಿಮ್ಮ ಗಣಕ "
+#~ "ವ್ಯವಸ್ಥಾಪಕರನ್ನು ಸಂಪರ್ಕಿಸಿ.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "ಸುಧಾರಿತ(_v)..."
+
+#~ msgid "CA Certificate:"
+#~ msgstr "CA ಪ್ರಮಾಣಪತ್ರ:"
+
+#~ msgid "Cipher:"
+#~ msgstr "ಸಿಫರ್:"
+
+#~ msgid "General"
+#~ msgstr "ಸಾಮಾನ್ಯ"
+
+#~ msgid "HMAC Authentication:"
+#~ msgstr "HMAC ದೃಢೀಕರಣ:"
+
+#~ msgid "Key Direction:"
+#~ msgstr "ಕೀಲಿ ದಿಕ್ಕು:"
+
+#~ msgid "Key File:"
+#~ msgstr "ಕೀಲಿ ಕಡತ:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "ಸ್ಥಳೀಯ IP ವಿಳಾಸ:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "OpenVPN ಸುಧಾರಿತ ಆಯ್ಕೆಗಳು"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "ಖಾಸಗಿ ಕೀಲಿ ಗುಪ್ತಪದ:"
+
+#~ msgid "Remote IP Address:"
+#~ msgstr "ದೂರಸ್ಥ IP ವಿಳಾಸ:"
+
+#~ msgid "Security"
+#~ msgstr "ಸುರಕ್ಷತೆ"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "TLS ದೃಢೀಕರಣ"
+
+#~ msgid "Type:"
+#~ msgstr "ಬಗೆ:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "L_ZO ದತ್ತಾಂಶ ಸಂಕುಚನವನ್ನು ಬಳಸು"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "ಒಂದು TA_P ಸಾಧನವನ್ನು ಬಳಸು"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "ಒಂದು _TCP ಸಂಪರ್ಕವನ್ನು ಬಳಸು"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "ಹೆಚ್ಚುವರಿ TLS ದೃಢೀಕರಣವನ್ನು ಬಳಸಿ"
+
+#~ msgid "Use custom _renegotiation interval:"
+#~ msgstr "ಇಚ್ಛೆಯ ಮರುಸಂಧಾನ ಕಾಲಾವಧಿಯನ್ನು ಬಳಸು(_r):"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "ಇಚ್ಛೆಯ ಗೇಟ್‌ವೆ ಸಂಪರ್ಕಸ್ಥಾನವನ್ನು ಬಳಸು(_o):"
+
+#~ msgid "User Certificate:"
+#~ msgstr "ಬಳಕೆದಾರ ಪ್ರಮಾಣಪತ್ರ:"
+
+#~ msgid "User name:"
+#~ msgstr "ಬಳಕೆದಾರ ಹೆಸರು:"

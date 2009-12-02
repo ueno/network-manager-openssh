@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-openvpn.master.te\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: openvpn\n"
-"POT-Creation-Date: 2009-09-28 11:36+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2009-10-27 19:25+0530\n"
 "Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <en@li.org>\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"\n"
 "\n"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:130
@@ -51,215 +52,205 @@ msgstr "ఈ సెషన్ కొరకు సంకేతపదమును �
 msgid "_Save password in keyring"
 msgstr "సంకేతపదమును కీరింగ్ నందు దాయుము (_S)"
 
-#: ../auth-dialog/main.c:127
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "వర్చ్యువల్ వ్యక్తిగత నెట్వర్కు '%s'ను యాక్సిస్ చేయుటకు మీరు దృవీకరింపబడవలసి వుంది."
 
-#: ../auth-dialog/main.c:128
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "VPN దృవీకరించుము"
 
-#: ../auth-dialog/main.c:149
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "దృవీకరణపత్రము సంకేతపదము (_w):"
 
-#: ../auth-dialog/main.c:163
-msgid "Certificate password:"
-msgstr "దృవీకరణపత్రము సంకేతపదము:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:160
-msgid "Choose a Certificate Authority certificate..."
-msgstr "దృవీకరణపత్రము అధికారికం దృవీకరణపత్రము యెంచుకొనుము..."
-
-#: ../properties/auth-helpers.c:179
-msgid "Choose your personal certificate..."
-msgstr "మీ వ్యక్తిగత దృవీకరణపత్రమును యెంచుకొనుము..."
-
-#: ../properties/auth-helpers.c:197
-msgid "Choose your private key..."
-msgstr "మీ వ్యక్తిగత కీను యెంచుకొనుము..."
-
-#: ../properties/auth-helpers.c:250
-msgid "Choose an OpenVPN static key..."
-msgstr "OpenVPN స్టాటిక్ కీను యెంచుకొనుము..."
-
-#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:949
-#: ../properties/auth-helpers.c:1126
-msgid "None"
-msgstr "ఏదీకాదు"
-
-#: ../properties/auth-helpers.c:691
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "PEM దృవీకరణపత్రములు (*.pem, *.crt, *.key, *.cer)"
-
-#: ../properties/auth-helpers.c:751
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "OpenVPN స్టాటిక్ కీలు (*.key)"
-
-#: ../properties/auth-helpers.c:871 ../properties/auth-helpers.c:941
-msgid "Default"
-msgstr "అప్రమేయం"
-
-#: ../properties/auth-helpers.c:951
-msgid "MD-5"
-msgstr "MD-5"
-
-#: ../properties/auth-helpers.c:953
-msgid "SHA-1"
-msgstr "SHA-1"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "OpenVPN సేవికతో సారూప్యం."
 
-#: ../properties/nm-openvpn.c:322
-msgid "Certificates (TLS)"
-msgstr "దృవీకరణపత్రములు (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password"
-msgstr "సంకేతపదము"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:353
-msgid "Password with Certificates (TLS)"
-msgstr "దృవీకరణపత్రములు (TLS)తో సంకేతపదము"
-
-#: ../properties/nm-openvpn.c:365
-msgid "Static Key"
-msgstr "స్టాటిక్ కీ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>దృవీకరణము</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>సాదారణ</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>దృవీకరణము</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>కీ దిశానిర్దేశం వుపయోగించుతుంటే, అది తప్పక VPN పీర్ నందు వుపయోగించన దానికి వ్యతిరేకంగా వుండాలి.  "
-"ఉదాహరణకు, పీర్ '1' వుపయోగిస్తుంటే, ఈ అనుసంధానం తప్పక '0' వుపయోగించాలి.  ఏ విలువ వుపయోగించాలో "
-"మీకు ఖచ్చితంగా తెలియకుంటే, మీ సిస్టమ్ నిర్వహణాధికారిని సంప్రదించండి.</i>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "అధునాతన... (_v)"
-
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "CA దృవీకరణపత్రము:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Cipher:"
-msgstr "సైఫర్:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "General"
-msgstr "సాదారణ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "HMAC Authentication:"
-msgstr "HMAC దృవీకరణము:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "కీ దిశ:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "కీ దస్త్రము:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "స్థానిక IP చిరునామా:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "OpenVPN అధునాతన ఐచ్చికములు"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "సంకేతపదము:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Private Key Password:"
-msgstr "వ్యక్తిగత కీ సంకేతపదము:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "వ్యక్తిగత కీ:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Remote IP Address:"
-msgstr "దూరస్థ IP చిరునామా:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Security"
-msgstr "రక్షణ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Show passwords"
-msgstr "సంకేతపదములను చూపుము"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "స్టాటిక్ కీ:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "TLS Authentication"
-msgstr "TLS దృవీకరణ"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr "వినియోగదారినామము (_U):"
 
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "Type:"
-msgstr "రకము:"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "సంకేతపదములను చూపుము"
 
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "Use L_ZO data compression"
-msgstr "L_ZO డాటా కుదింపును వుపయోగించుము"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "Use a TA_P device"
-msgstr "TA_P పరికరాన్ని వుపయోగించుము"
-
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "Use a _TCP connection"
-msgstr "_TCP అనుసంధానమును వుపయోగించుము"
-
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "Use additional TLS authentication"
-msgstr "అదనపు TLS దృవీకరణము వుపయోగించుము"
-
-#: ../properties/nm-openvpn-dialog.glade.h:27
-msgid "Use custom _renegotiation interval:"
-msgstr "మలచుకొనిన అచర్చనీయ విరామంను వుపయోగించుము (_r):"
-
-#: ../properties/nm-openvpn-dialog.glade.h:28
-msgid "Use custom gateway p_ort:"
-msgstr "మలచుకొనిన గేట్‌వే పోర్టు వుపయోగించుము (_o):"
-
-#: ../properties/nm-openvpn-dialog.glade.h:29
-msgid "User Certificate:"
-msgstr "వినియోగదారి దృవీకరణపత్రము:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:30
-msgid "User name:"
-msgstr "వినియోగదారి నామము:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:31
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "గేట్‌వే (_G):"
 
+#~ msgid "Certificate password:"
+#~ msgstr "దృవీకరణపత్రము సంకేతపదము:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "దృవీకరణపత్రము అధికారికం దృవీకరణపత్రము యెంచుకొనుము..."
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "మీ వ్యక్తిగత దృవీకరణపత్రమును యెంచుకొనుము..."
+
+#~ msgid "Choose your private key..."
+#~ msgstr "మీ వ్యక్తిగత కీను యెంచుకొనుము..."
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "OpenVPN స్టాటిక్ కీను యెంచుకొనుము..."
+
+#~ msgid "None"
+#~ msgstr "ఏదీకాదు"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "PEM దృవీకరణపత్రములు (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "OpenVPN స్టాటిక్ కీలు (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "అప్రమేయం"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "దృవీకరణపత్రములు (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "సంకేతపదము"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "దృవీకరణపత్రములు (TLS)తో సంకేతపదము"
+
+#~ msgid "Static Key"
+#~ msgstr "స్టాటిక్ కీ"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>కీ దిశానిర్దేశం వుపయోగించుతుంటే, అది తప్పక VPN పీర్ నందు వుపయోగించన దానికి వ్యతిరేకంగా "
+#~ "వుండాలి.  ఉదాహరణకు, పీర్ '1' వుపయోగిస్తుంటే, ఈ అనుసంధానం తప్పక '0' వుపయోగించాలి.  ఏ విలువ "
+#~ "వుపయోగించాలో మీకు ఖచ్చితంగా తెలియకుంటే, మీ సిస్టమ్ నిర్వహణాధికారిని సంప్రదించండి.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "అధునాతన... (_v)"
+
+#~ msgid "CA Certificate:"
+#~ msgstr "CA దృవీకరణపత్రము:"
+
+#~ msgid "Cipher:"
+#~ msgstr "సైఫర్:"
+
+#~ msgid "General"
+#~ msgstr "సాదారణ"
+
+#~ msgid "HMAC Authentication:"
+#~ msgstr "HMAC దృవీకరణము:"
+
+#~ msgid "Key Direction:"
+#~ msgstr "కీ దిశ:"
+
+#~ msgid "Key File:"
+#~ msgstr "కీ దస్త్రము:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "స్థానిక IP చిరునామా:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "OpenVPN అధునాతన ఐచ్చికములు"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "వ్యక్తిగత కీ సంకేతపదము:"
+
+#~ msgid "Remote IP Address:"
+#~ msgstr "దూరస్థ IP చిరునామా:"
+
+#~ msgid "Security"
+#~ msgstr "రక్షణ"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "TLS దృవీకరణ"
+
+#~ msgid "Type:"
+#~ msgstr "రకము:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "L_ZO డాటా కుదింపును వుపయోగించుము"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "TA_P పరికరాన్ని వుపయోగించుము"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "_TCP అనుసంధానమును వుపయోగించుము"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "అదనపు TLS దృవీకరణము వుపయోగించుము"
+
+#~ msgid "Use custom _renegotiation interval:"
+#~ msgstr "మలచుకొనిన అచర్చనీయ విరామంను వుపయోగించుము (_r):"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "మలచుకొనిన గేట్‌వే పోర్టు వుపయోగించుము (_o):"
+
+#~ msgid "User Certificate:"
+#~ msgstr "వినియోగదారి దృవీకరణపత్రము:"
+
+#~ msgid "User name:"
+#~ msgstr "వినియోగదారి నామము:"

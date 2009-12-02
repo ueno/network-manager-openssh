@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn.head\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-05 03:53+0000\n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2008-08-19 09:14-0800\n"
 "Last-Translator: Zabeeh Khan <zabeehkhan@gmail.com>\n"
 "Language-Team: Pashto <pathanisation@googlegroups.com>\n"
@@ -17,218 +17,214 @@ msgstr ""
 "X-Poedit-Language: Pashto, Pushto\n"
 "X-Poedit-Country: AFGHANISTAN\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:130
 msgid "_Password:"
 msgstr ":تېرنويې_"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:146
+#: ../auth-dialog/gnome-two-password-dialog.c:131
 msgid "_Secondary Password:"
 msgstr ":دويمه تېرنويې_"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:248
 msgid "_Username:"
 msgstr ":کارننوم_"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:265
+#: ../auth-dialog/gnome-two-password-dialog.c:250
 msgid "_Domain:"
 msgstr ":شپول_"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
+#: ../auth-dialog/gnome-two-password-dialog.c:342
 msgid "Connect _anonymously"
 msgstr "بېنومه نښلېدل_"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:362
+#: ../auth-dialog/gnome-two-password-dialog.c:347
 msgid "Connect as _user:"
 msgstr ":لکه _کارن نښلېدل"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:471
+#: ../auth-dialog/gnome-two-password-dialog.c:456
 msgid "_Remember password for this session"
 msgstr "دې ناستې لپاره تېرنويې په ياد ساتل_"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:473
+#: ../auth-dialog/gnome-two-password-dialog.c:458
 msgid "_Save password in keyring"
 msgstr "تېرونویي په کيلۍ رېنګ کې ساتل_"
 
-#: ../auth-dialog/main.c:187
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr ".اوڅاریز ځانی ځال ته د لاسرسي لپاره ځان کره کړﺉ '%s' تاسو ته اړينه ده چې د"
+msgstr ""
+".اوڅاریز ځانی ځال ته د لاسرسي لپاره ځان کره کړﺉ '%s' تاسو ته اړينه ده چې د"
 
-#: ../auth-dialog/main.c:188
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "اوڅاریز ځاني ځال کرول"
 
-#: ../auth-dialog/main.c:201
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "د بريليک تېر_نويې:"
 
-#: ../auth-dialog/main.c:216
-msgid "Certificate password:"
-msgstr "د بريليک تېرنويې:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:68
-msgid "Choose a Certificate Authority certificate..."
-msgstr "د بريليک واک يو برېليک وټاکئ..."
-
-#: ../properties/auth-helpers.c:87
-msgid "Choose your personal certificate..."
-msgstr "خپل وګړيز برېليک وټاکئ..."
-
-#: ../properties/auth-helpers.c:105
-msgid "Choose your private key..."
-msgstr "خپله وګړيزه کيلۍ وټاکئ..."
-
-#: ../properties/auth-helpers.c:158
-msgid "Choose an OpenVPN static key..."
-msgstr "ولاړ کيلۍ وټاکئ... OpenVPN يوه"
-
-#: ../properties/auth-helpers.c:176
-#: ../properties/auth-helpers.c:864
-msgid "None"
-msgstr "هېڅ"
-
-#: ../properties/auth-helpers.c:519
-msgid "PEM certificates (*.pem, *.crt, *.key)"
-msgstr "(*.pem, *.crt, *.key) بريليکونه PEM"
-
-#: ../properties/auth-helpers.c:579
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "(*.key) ولاړ کيلۍ OpenVPN"
-
-#: ../properties/auth-helpers.c:703
-msgid "Default"
-msgstr "تلواله"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr ".پالنګر سره جوړ OpenVPN"
 
-#: ../properties/nm-openvpn.c:311
-#: ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Certificates (TLS)"
-msgstr "(TLS) برېليک"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:323
-msgid "Password"
-msgstr "تېرنويې"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:337
-msgid "Password with Certificates (TLS)"
-msgstr "(TLS) بريليکونو سره تېرنویې "
-
-#: ../properties/nm-openvpn.c:349
-msgid "Static Key"
-msgstr "ولاړه کيلۍ"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>کرونه</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>ټوليز</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid "<i>If key direction is used, it must be the opposite of that used on the VPN peer.  For example, if the peer uses '1', this connection must use '0'.  If you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>کرونه</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "...بر_یونلې"
+#: ../properties/nm-sshtun-dialog.glade.h:5
+#, fuzzy
+msgid "Password:"
+msgstr ":تېرنويې_"
 
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr ":برېليک CA"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "Cipher:"
-msgstr "ټکی:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "General"
-msgstr "ټوليز"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr ":کيلۍ لور"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr ":کيلي دوتنه"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "وګړيزه کيلۍ:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr ":ولاړه کيلۍ"
 
-#: ../properties/nm-openvpn-dialog.glade.h:14
-msgid "Type:"
-msgstr ":ډول"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr ":کارننوم_"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Use L_ZO data compression"
-msgstr "اومتوک زېرنه کارول L_ZO"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "تېرنويې"
 
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Use a TA_P device"
-msgstr "وزله کارول TA_P"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Use a _TCP connection"
-msgstr "نښلېدنه کارول _TCP"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Use additional TLS authentication"
-msgstr "کرونه کارول TLS زياتي "
-
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Use custom gateway p_ort:"
-msgstr ":دوديزې ورلارې در_شل کارول"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "User Certificate:"
-msgstr ":کارن برېليک"
-
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "User name:"
-msgstr ":کارن نوم"
-
-#: ../properties/nm-openvpn-dialog.glade.h:22
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr ":_ورلار"
 
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "gtk-cancel"
-msgstr "بندول-gtk"
+#~ msgid "Certificate password:"
+#~ msgstr "د بريليک تېرنويې:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "gtk-ok"
-msgstr "هوکې-gtk"
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "د بريليک واک يو برېليک وټاکئ..."
 
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "page 1"
-msgstr "۱ پاڼه"
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "خپل وګړيز برېليک وټاکئ..."
 
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "page 2"
-msgstr "۲مه پاڼه"
+#~ msgid "Choose your private key..."
+#~ msgstr "خپله وګړيزه کيلۍ وټاکئ..."
 
-#: ../properties/nm-openvpn-dialog.glade.h:27
-msgid "page 3"
-msgstr "۳مه پاڼه"
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "ولاړ کيلۍ وټاکئ... OpenVPN يوه"
 
-#: ../properties/nm-openvpn-dialog.glade.h:28
-msgid "page 4"
-msgstr "۴مه پاڼه"
+#~ msgid "None"
+#~ msgstr "هېڅ"
 
+#~ msgid "PEM certificates (*.pem, *.crt, *.key)"
+#~ msgstr "(*.pem, *.crt, *.key) بريليکونه PEM"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "(*.key) ولاړ کيلۍ OpenVPN"
+
+#~ msgid "Default"
+#~ msgstr "تلواله"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "(TLS) برېليک"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "(TLS) بريليکونو سره تېرنویې "
+
+#~ msgid "Static Key"
+#~ msgstr "ولاړه کيلۍ"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "...بر_یونلې"
+
+#~ msgid "CA Certificate:"
+#~ msgstr ":برېليک CA"
+
+#~ msgid "Cipher:"
+#~ msgstr "ټکی:"
+
+#~ msgid "General"
+#~ msgstr "ټوليز"
+
+#~ msgid "Key Direction:"
+#~ msgstr ":کيلۍ لور"
+
+#~ msgid "Key File:"
+#~ msgstr ":کيلي دوتنه"
+
+#~ msgid "Type:"
+#~ msgstr ":ډول"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "اومتوک زېرنه کارول L_ZO"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "وزله کارول TA_P"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "نښلېدنه کارول _TCP"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "کرونه کارول TLS زياتي "
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr ":دوديزې ورلارې در_شل کارول"
+
+#~ msgid "User Certificate:"
+#~ msgstr ":کارن برېليک"
+
+#~ msgid "User name:"
+#~ msgstr ":کارن نوم"
+
+#~ msgid "gtk-cancel"
+#~ msgstr "بندول-gtk"
+
+#~ msgid "gtk-ok"
+#~ msgstr "هوکې-gtk"
+
+#~ msgid "page 1"
+#~ msgstr "۱ پاڼه"
+
+#~ msgid "page 2"
+#~ msgstr "۲مه پاڼه"
+
+#~ msgid "page 3"
+#~ msgstr "۳مه پاڼه"
+
+#~ msgid "page 4"
+#~ msgstr "۴مه پاڼه"

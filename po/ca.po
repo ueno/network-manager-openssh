@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-10 18:11+0200\n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2009-05-10 12:43+0200\n"
 "Last-Translator: David Planella <david.planella@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -51,214 +51,206 @@ msgstr "_Recorda la contrasenya per aquesta sessió"
 msgid "_Save password in keyring"
 msgstr "_Desa la contrasenya a l'anell de claus"
 
-#: ../auth-dialog/main.c:127
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Us heu d'autenticar per poder accedir a la xarxa privada virtual «%s»."
 
-#: ../auth-dialog/main.c:128
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "Autentica la VPN"
 
-#: ../auth-dialog/main.c:149
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "Contrasenya del _certificat:"
 
-#: ../auth-dialog/main.c:163
-msgid "Certificate password:"
-msgstr "Contrasenya del certificat:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:160
-msgid "Choose a Certificate Authority certificate..."
-msgstr "Trieu un certificat d'autoritat de certificació..."
-
-#: ../properties/auth-helpers.c:179
-msgid "Choose your personal certificate..."
-msgstr "Trieu el vostre certificat personal..."
-
-#: ../properties/auth-helpers.c:197
-msgid "Choose your private key..."
-msgstr "Trieu la vostra clau privada..."
-
-#: ../properties/auth-helpers.c:250
-msgid "Choose an OpenVPN static key..."
-msgstr "Trieu una clau estàtica OpenVPN..."
-
-#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:938
-#: ../properties/auth-helpers.c:1091
-msgid "None"
-msgstr "Cap"
-
-#: ../properties/auth-helpers.c:691
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "Certificats PEM (*.pem, *.crt, *.key, *.cer)"
-
-#: ../properties/auth-helpers.c:751
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "Claus estàtiques OpenVPN (*.key)"
-
-#: ../properties/auth-helpers.c:860 ../properties/auth-helpers.c:930
-msgid "Default"
-msgstr "Predeterminat"
-
-#: ../properties/auth-helpers.c:940
-msgid "MD-5"
-msgstr "MD-5"
-
-#: ../properties/auth-helpers.c:942
-msgid "SHA-1"
-msgstr "SHA-1"
-
-#: ../properties/nm-openvpn.c:53
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:54
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "Compatible amb el servidor OpenVPN."
 
-#: ../properties/nm-openvpn.c:322
-msgid "Certificates (TLS)"
-msgstr "Certificats (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password"
-msgstr "Contrasenya"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:353
-msgid "Password with Certificates (TLS)"
-msgstr "Contrasenya amb certificats (TLS)"
-
-#: ../properties/nm-openvpn.c:365
-msgid "Static Key"
-msgstr "Clau estàtica"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>Autenticació</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>Autenticació</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>Si s'utilitza una direcció de clau, ha de ser l'oposada que la de "
-"l'homòleg de la VPN. Per exemple, si l'homòleg utilitza «1», aquesta connexió "
-"ha d'utilitzar «0». Si no esteu segurs de quin valor heu d'utilitzar, "
-"contacteu amb l'administrador del sistema.</i>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "A_vançat..."
-
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "Certificat d'autoritat de certificació:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Cipher:"
-msgstr "Criptògraf:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "General"
-msgstr "General"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "HMAC Authentication:"
-msgstr "Autenticació HMAC:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "Direcció de la clau:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "Fitxer de clau:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "Adreça IP local:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "Opcions avançades de l'OpenVPN"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Private Key Password:"
-msgstr "Contrasenya de la clau privada:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "Clau privada:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Remote IP Address:"
-msgstr "Adreça IP remota:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Security"
-msgstr "Seguretat"
-
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Show passwords"
-msgstr "Mostra les contrasenyes"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "Clau estàtica:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "TLS Authentication"
-msgstr "Autenticació TLS"
-
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "Type:"
-msgstr "Tipus:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "Use L_ZO data compression"
-msgstr "Utilitza la compressió de dades L_ZO"
-
-#: ../properties/nm-openvpn-dialog.glade.h:24
-msgid "Use a TA_P device"
-msgstr "Utilitza un dispositiu TA_P"
-
-#: ../properties/nm-openvpn-dialog.glade.h:25
-msgid "Use a _TCP connection"
-msgstr "Utilitza una connexió _TCP"
-
-#: ../properties/nm-openvpn-dialog.glade.h:26
-msgid "Use additional TLS authentication"
-msgstr "Utilitza autenticació TLS addicional"
-
-#: ../properties/nm-openvpn-dialog.glade.h:27
-msgid "Use custom gateway p_ort:"
-msgstr "Utilitza un _port de passarel·la personalitzat:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:28
-msgid "User Certificate:"
-msgstr "Certificat d'usuari:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:29
-msgid "User name:"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
 msgstr "Nom d'usuari:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:30
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "Mostra les contrasenyes"
+
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
+
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "Pas_sarel·la:"
+
+#~ msgid "Certificate password:"
+#~ msgstr "Contrasenya del certificat:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "Trieu un certificat d'autoritat de certificació..."
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "Trieu el vostre certificat personal..."
+
+#~ msgid "Choose your private key..."
+#~ msgstr "Trieu la vostra clau privada..."
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "Trieu una clau estàtica OpenVPN..."
+
+#~ msgid "None"
+#~ msgstr "Cap"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "Certificats PEM (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "Claus estàtiques OpenVPN (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "Predeterminat"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "Certificats (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "Contrasenya"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Contrasenya amb certificats (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Clau estàtica"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>Si s'utilitza una direcció de clau, ha de ser l'oposada que la de "
+#~ "l'homòleg de la VPN. Per exemple, si l'homòleg utilitza «1», aquesta "
+#~ "connexió ha d'utilitzar «0». Si no esteu segurs de quin valor heu "
+#~ "d'utilitzar, contacteu amb l'administrador del sistema.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "A_vançat..."
+
+#~ msgid "CA Certificate:"
+#~ msgstr "Certificat d'autoritat de certificació:"
+
+#~ msgid "Cipher:"
+#~ msgstr "Criptògraf:"
+
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgid "HMAC Authentication:"
+#~ msgstr "Autenticació HMAC:"
+
+#~ msgid "Key Direction:"
+#~ msgstr "Direcció de la clau:"
+
+#~ msgid "Key File:"
+#~ msgstr "Fitxer de clau:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Adreça IP local:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "Opcions avançades de l'OpenVPN"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "Contrasenya de la clau privada:"
+
+#~ msgid "Remote IP Address:"
+#~ msgstr "Adreça IP remota:"
+
+#~ msgid "Security"
+#~ msgstr "Seguretat"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "Autenticació TLS"
+
+#~ msgid "Type:"
+#~ msgstr "Tipus:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "Utilitza la compressió de dades L_ZO"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "Utilitza un dispositiu TA_P"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "Utilitza una connexió _TCP"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "Utilitza autenticació TLS addicional"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "Utilitza un _port de passarel·la personalitzat:"
+
+#~ msgid "User Certificate:"
+#~ msgstr "Certificat d'usuari:"
+
+#~ msgid "User name:"
+#~ msgstr "Nom d'usuari:"
 
 #~ msgid "The following OpenVPN connection will be created:"
 #~ msgstr "Es crearà la següent connexió OpenVPN:"
@@ -509,9 +501,6 @@ msgstr "Pas_sarel·la:"
 
 #~ msgid "<b>Connection Information</b>"
 #~ msgstr "<b>Informació de la connexió</b>"
-
-#~ msgid "Username:"
-#~ msgstr "Nom d'usuari:"
 
 #~ msgid "X.509"
 #~ msgstr "X.509"

@@ -10,9 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&component=VPN: openvpn\n"
-"POT-Creation-Date: 2009-10-30 07:33+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2009-11-01 18:53+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
@@ -20,189 +19,241 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../auth-dialog/gnome-two-password-dialog.c:130
 msgid "_Password:"
 msgstr "_Parool:"
 
+#: ../auth-dialog/gnome-two-password-dialog.c:131
 msgid "_Secondary Password:"
 msgstr "Parool _uuesti:"
 
+#: ../auth-dialog/gnome-two-password-dialog.c:248
 msgid "_Username:"
 msgstr "_Kasutajanimi:"
 
+#: ../auth-dialog/gnome-two-password-dialog.c:250
 msgid "_Domain:"
 msgstr "_Domeen:"
 
+#: ../auth-dialog/gnome-two-password-dialog.c:342
 msgid "Connect _anonymously"
 msgstr "Ühendu _anonüümselt"
 
+#: ../auth-dialog/gnome-two-password-dialog.c:347
 msgid "Connect as _user:"
 msgstr "Ühendu ka_sutajana:"
 
+#: ../auth-dialog/gnome-two-password-dialog.c:456
 msgid "_Remember password for this session"
 msgstr "_Jäta parool selle sessiooni ajaks meelde"
 
+#: ../auth-dialog/gnome-two-password-dialog.c:458
 msgid "_Save password in keyring"
 msgstr "Parooli salvestamine _võtmerõngasse"
 
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "VPN-võrgule '%s' ligipääsuks pead end autentima."
 
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "VPN-i autentimine"
 
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "Sertifikaadi _parool:"
 
-msgid "Certificate password:"
-msgstr "Sertifikaadi parool:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-msgid "Choose a Certificate Authority certificate..."
-msgstr "Vali sertifikaadikeskuse serdifail..."
-
-msgid "Choose your personal certificate..."
-msgstr "Vali isiklik sertifikaat..."
-
-msgid "Choose your private key..."
-msgstr "Vali privaatvõti..."
-
-msgid "Choose an OpenVPN static key..."
-msgstr "Vali OpenVPN püsivõti..."
-
-msgid "None"
-msgstr "Pole"
-
-msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-msgstr "PEM sertifikaadid (*.pem, *.crt, *.key, *.cer)"
-
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "OpenVPN püsivõtmed (*.key)"
-
-msgid "Default"
-msgstr "Vaikimisi"
-
-msgid "MD-5"
-msgstr "MD-5"
-
-msgid "SHA-1"
-msgstr "SHA-1"
-
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "Ühildub OpenVPN serveriga."
 
-msgid "Certificates (TLS)"
-msgstr "Sertifikaadid (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-msgid "Password"
-msgstr "Parool"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-msgid "Password with Certificates (TLS)"
-msgstr "Parool koos sertifikaatidega (TLS)"
-
-msgid "Static Key"
-msgstr "Püsivõti"
-
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-msgid "<b>Authentication</b>"
-msgstr "<b>Autentimine</b>"
-
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>Üldine</b>"
 
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>Autentimine</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>Kui kasutatakse võtme suunda, peab see olema vastupidine teise VPN'i "
-"võtme suunale. Näitaks, kui teine masina kasutab '1', peab siin olema '0'. "
-"Kui sa ei tea millist väärtust kasutada, küsi süsteemiadministraatorilt.</i>"
 
-msgid "Ad_vanced..."
-msgstr "_Laiendatud..."
-
-msgid "CA Certificate:"
-msgstr "Sertifikaadikeskuse serdifail:"
-
-msgid "Cipher:"
-msgstr "Šiffer:"
-
-msgid "General"
-msgstr "Üldine"
-
-msgid "HMAC Authentication:"
-msgstr "HMAC'iga autentimine"
-
-msgid "Key Direction:"
-msgstr "Võtme suund:"
-
-msgid "Key File:"
-msgstr "Võtmefail:"
-
-msgid "Local IP Address:"
-msgstr "Kohalik IP-aadress:"
-
-msgid "OpenVPN Advanced Options"
-msgstr "OpenVPN laiendatud sätted"
-
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Password:"
 msgstr "Parool:"
 
-msgid "Private Key Password:"
-msgstr "Privaatvõtme parool:"
-
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "Privaatvõti:"
 
-msgid "Remote IP Address:"
-msgstr "Kaugmasina IP-aadress:"
-
-msgid "Security"
-msgstr "Turvalisus"
-
-msgid "Show passwords"
-msgstr "Näita paroole"
-
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "Püsivõti:"
 
-msgid "TLS Authentication"
-msgstr "TLS'iga autentimine"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr "_Kasutajanimi:"
 
-msgid "Type:"
-msgstr "Tüüp:"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "Näita paroole"
 
-msgid "Use L_ZO data compression"
-msgstr "L_ZO-pakkimise kasutamine"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-msgid "Use a TA_P device"
-msgstr "TA_P-seadme kasutamine"
-
-msgid "Use a _TCP connection"
-msgstr "_TCP-ühenduse kasutamine"
-
-msgid "Use additional TLS authentication"
-msgstr "Lisaks TLS-autentimise kasutamine"
-
-msgid "Use custom _renegotiation interval:"
-msgstr "Kohandatud _kordusläbirääkimiste intervall:"
-
-msgid "Use custom gateway p_ort:"
-msgstr "Kasuta muud gateway _porti:"
-
-msgid "User Certificate:"
-msgstr "Kasutaja sertifikaat:"
-
-msgid "User name:"
-msgstr "Kasutajanimi:"
-
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "_Gateway:"
+
+#~ msgid "Certificate password:"
+#~ msgstr "Sertifikaadi parool:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "Vali sertifikaadikeskuse serdifail..."
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "Vali isiklik sertifikaat..."
+
+#~ msgid "Choose your private key..."
+#~ msgstr "Vali privaatvõti..."
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "Vali OpenVPN püsivõti..."
+
+#~ msgid "None"
+#~ msgstr "Pole"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "PEM sertifikaadid (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "OpenVPN püsivõtmed (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "Vaikimisi"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "Sertifikaadid (TLS)"
+
+#~ msgid "Password"
+#~ msgstr "Parool"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Parool koos sertifikaatidega (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Püsivõti"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>Kui kasutatakse võtme suunda, peab see olema vastupidine teise VPN'i "
+#~ "võtme suunale. Näitaks, kui teine masina kasutab '1', peab siin olema "
+#~ "'0'. Kui sa ei tea millist väärtust kasutada, küsi "
+#~ "süsteemiadministraatorilt.</i>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "_Laiendatud..."
+
+#~ msgid "CA Certificate:"
+#~ msgstr "Sertifikaadikeskuse serdifail:"
+
+#~ msgid "Cipher:"
+#~ msgstr "Šiffer:"
+
+#~ msgid "General"
+#~ msgstr "Üldine"
+
+#~ msgid "HMAC Authentication:"
+#~ msgstr "HMAC'iga autentimine"
+
+#~ msgid "Key Direction:"
+#~ msgstr "Võtme suund:"
+
+#~ msgid "Key File:"
+#~ msgstr "Võtmefail:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Kohalik IP-aadress:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "OpenVPN laiendatud sätted"
+
+#~ msgid "Private Key Password:"
+#~ msgstr "Privaatvõtme parool:"
+
+#~ msgid "Remote IP Address:"
+#~ msgstr "Kaugmasina IP-aadress:"
+
+#~ msgid "Security"
+#~ msgstr "Turvalisus"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "TLS'iga autentimine"
+
+#~ msgid "Type:"
+#~ msgstr "Tüüp:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "L_ZO-pakkimise kasutamine"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "TA_P-seadme kasutamine"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "_TCP-ühenduse kasutamine"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "Lisaks TLS-autentimise kasutamine"
+
+#~ msgid "Use custom _renegotiation interval:"
+#~ msgstr "Kohandatud _kordusläbirääkimiste intervall:"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "Kasuta muud gateway _porti:"
+
+#~ msgid "User Certificate:"
+#~ msgstr "Kasutaja sertifikaat:"
+
+#~ msgid "User name:"
+#~ msgstr "Kasutajanimi:"
 
 #~ msgid "Certificate Password:"
 #~ msgstr "Sertifikaadi parool:"

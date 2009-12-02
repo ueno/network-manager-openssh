@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-15 10:58+0200\n"
+"POT-Creation-Date: 2009-12-03 07:17+0900\n"
 "PO-Revision-Date: 2008-09-15 10:58+0200\n"
 "Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -21,209 +21,215 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:130
 msgid "_Password:"
 msgstr "_Wachtwoord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:146
+#: ../auth-dialog/gnome-two-password-dialog.c:131
 msgid "_Secondary Password:"
 msgstr "_Tweede wachtwoord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:248
 msgid "_Username:"
 msgstr "_Gebruikersnaam:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:265
+#: ../auth-dialog/gnome-two-password-dialog.c:250
 msgid "_Domain:"
 msgstr "_Domein:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
+#: ../auth-dialog/gnome-two-password-dialog.c:342
 msgid "Connect _anonymously"
 msgstr "_Anoniem verbinden"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:362
+#: ../auth-dialog/gnome-two-password-dialog.c:347
 msgid "Connect as _user:"
 msgstr "Verbinden als _gebruiker:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:471
+#: ../auth-dialog/gnome-two-password-dialog.c:456
 msgid "_Remember password for this session"
 msgstr "Wa_chtwoord voor deze sessie onthouden"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:473
+#: ../auth-dialog/gnome-two-password-dialog.c:458
 msgid "_Save password in keyring"
 msgstr "Wachtwoord op_slaan in sleutelbos"
 
 # dient zich aan te melden/moet zich aanmelden
-#: ../auth-dialog/main.c:210
+#: ../auth-dialog/main.c:80
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "U moet zich aanmelden om toegang te krijgen tot het Virtual Private Netwerk "
 "'%s'."
 
-#: ../auth-dialog/main.c:211
+#: ../auth-dialog/main.c:81
 msgid "Authenticate VPN"
 msgstr "Aanmeldingscontrole VPN"
 
-#: ../auth-dialog/main.c:232
+#: ../auth-dialog/main.c:102
 msgid "Certificate pass_word:"
 msgstr "Certificaat-_wachtwoord:"
 
-#: ../auth-dialog/main.c:246
-msgid "Certificate password:"
-msgstr "Certificaat-wachtwoord:"
+#: ../properties/nm-sshtun.c:51
+msgid "Tunnel over SSH (sshtun)"
+msgstr ""
 
-#: ../properties/auth-helpers.c:69
-msgid "Choose a Certificate Authority certificate..."
-msgstr "Kies certificaat van certificaatauthoriteit (CA)…"
-
-#: ../properties/auth-helpers.c:88
-msgid "Choose your personal certificate..."
-msgstr "Kies uw persoonlijke certificate…"
-
-#: ../properties/auth-helpers.c:106
-msgid "Choose your private key..."
-msgstr "Kies uw privé-sleutel…"
-
-#: ../properties/auth-helpers.c:159
-msgid "Choose an OpenVPN static key..."
-msgstr "Kies een vaste OpenVPN-sleutel…"
-
-#: ../properties/auth-helpers.c:183 ../properties/auth-helpers.c:862
-msgid "None"
-msgstr "Geen"
-
-#: ../properties/auth-helpers.c:518
-msgid "PEM certificates (*.pem, *.crt, *.key)"
-msgstr "PEM-certificaten (*.pem, *.crt, *.key)"
-
-#: ../properties/auth-helpers.c:578
-msgid "OpenVPN Static Keys (*.key)"
-msgstr "Vaste OpenVPN-sleutels (*.key)"
-
-#: ../properties/auth-helpers.c:689
-msgid "Default"
-msgstr "Standaard"
-
-#: ../properties/nm-openvpn.c:52
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../properties/nm-openvpn.c:53
-msgid "Compatible with the OpenVPN server."
+#: ../properties/nm-sshtun.c:52
+#, fuzzy
+msgid "Compatible with the OpenSSH server."
 msgstr "Geschikt voor OpenVPN-servers."
 
-#: ../properties/nm-openvpn.c:310 ../properties/nm-openvpn-dialog.glade.h:7
-msgid "Certificates (TLS)"
-msgstr "Certificaten (TLS)"
+#: ../properties/nm-sshtun.c:272
+msgid "Point-to-Point"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:322
-msgid "Password"
-msgstr "Wachtwoord"
+#: ../properties/nm-sshtun.c:279
+msgid "Ethernet"
+msgstr ""
 
-#: ../properties/nm-openvpn.c:336
-msgid "Password with Certificates (TLS)"
-msgstr "Wachtwoord met certificaten (TLS)"
-
-#: ../properties/nm-openvpn.c:348
-msgid "Static Key"
-msgstr "Vaste sleutel"
-
-#: ../properties/nm-openvpn-dialog.glade.h:1
+#: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-openvpn-dialog.glade.h:2
-msgid "<b>Authentication</b>"
-msgstr "<b>Authenticatie</b>"
-
-#: ../properties/nm-openvpn-dialog.glade.h:3
+#: ../properties/nm-sshtun-dialog.glade.h:2
 msgid "<b>General</b>"
 msgstr "<b>Algemeen</b>"
 
-#: ../properties/nm-openvpn-dialog.glade.h:4
-msgid ""
-"<i>If key direction is used, it must be the opposite of that used on the VPN "
-"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
-"you are unsure what value to use, contact your system administrator.</i>"
+#: ../properties/nm-sshtun-dialog.glade.h:3
+#, fuzzy
+msgid "<b>Options</b>"
+msgstr "<b>Authenticatie</b>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:4
+msgid "Config Script:"
 msgstr ""
-"<i>Als een sleutelrichting wordt gebruikt, moet deze tegenovergesteld zijn "
-"dan die van de VPN-peer. Bijvoorbeeld: als de andere machine ‘1’ gebruikt, "
-"moet deze verbinding ‘0’ gebruiken. Neem contact op met uw systeembeheerder "
-"als u niet weet welke waarde te gebruiken."
 
-#: ../properties/nm-openvpn-dialog.glade.h:5
-msgid "Ad_vanced..."
-msgstr "_Geavanceerd…"
+#: ../properties/nm-sshtun-dialog.glade.h:5
+#, fuzzy
+msgid "Password:"
+msgstr "_Wachtwoord:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:6
-msgid "CA Certificate:"
-msgstr "CA-certificaat:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:8
-msgid "Cipher:"
-msgstr "Codering:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:9
-msgid "General"
-msgstr "Algemeen"
-
-#: ../properties/nm-openvpn-dialog.glade.h:10
-msgid "Key Direction:"
-msgstr "Sleutelrichting:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:11
-msgid "Key File:"
-msgstr "Sleutelbestand:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:12
-msgid "Local IP Address:"
-msgstr "Lokaal IP-adres:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:13
-msgid "OpenVPN Advanced Options"
-msgstr "OpenVPN geavanceerde opties"
-
-#: ../properties/nm-openvpn-dialog.glade.h:14
-msgid "Private Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key:"
 msgstr "Privé-sleutel:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:15
-msgid "Static Key:"
+#: ../properties/nm-sshtun-dialog.glade.h:7
+#, fuzzy
+msgid "SSH Public Key:"
 msgstr "Vaste sleutel:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:16
-msgid "Type:"
-msgstr "Type:"
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
+msgid "SSH Usename:"
+msgstr "_Gebruikersnaam:"
 
-#: ../properties/nm-openvpn-dialog.glade.h:17
-msgid "Use L_ZO data compression"
-msgstr "_LZO-datacompressie gebruiken"
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
+msgid "Show Password"
+msgstr "Wachtwoord"
 
-#: ../properties/nm-openvpn-dialog.glade.h:18
-msgid "Use a TA_P device"
-msgstr "T_AP-apparaat gebruiken"
+#: ../properties/nm-sshtun-dialog.glade.h:10
+msgid "Tunnel Mode:"
+msgstr ""
 
-#: ../properties/nm-openvpn-dialog.glade.h:19
-msgid "Use a _TCP connection"
-msgstr "_TCP-verbinding gebruiken"
-
-#: ../properties/nm-openvpn-dialog.glade.h:20
-msgid "Use additional TLS authentication"
-msgstr "Aanvullende TLS-authenticatie gebruiken"
-
-#: ../properties/nm-openvpn-dialog.glade.h:21
-msgid "Use custom gateway p_ort:"
-msgstr "Aangepaste gateway-_poort:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:22
-msgid "User Certificate:"
-msgstr "Gebruikerscertificaat:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:23
-msgid "User name:"
-msgstr "Gebruikersnaam:"
-
-#: ../properties/nm-openvpn-dialog.glade.h:24
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "_Gateway:"
 msgstr "_Gateway:"
+
+#~ msgid "Certificate password:"
+#~ msgstr "Certificaat-wachtwoord:"
+
+#~ msgid "Choose a Certificate Authority certificate..."
+#~ msgstr "Kies certificaat van certificaatauthoriteit (CA)…"
+
+#~ msgid "Choose your personal certificate..."
+#~ msgstr "Kies uw persoonlijke certificate…"
+
+#~ msgid "Choose your private key..."
+#~ msgstr "Kies uw privé-sleutel…"
+
+#~ msgid "Choose an OpenVPN static key..."
+#~ msgstr "Kies een vaste OpenVPN-sleutel…"
+
+#~ msgid "None"
+#~ msgstr "Geen"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key)"
+#~ msgstr "PEM-certificaten (*.pem, *.crt, *.key)"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "Vaste OpenVPN-sleutels (*.key)"
+
+#~ msgid "Default"
+#~ msgstr "Standaard"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "Certificates (TLS)"
+#~ msgstr "Certificaten (TLS)"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Wachtwoord met certificaten (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Vaste sleutel"
+
+#~ msgid ""
+#~ "<i>If key direction is used, it must be the opposite of that used on the "
+#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
+#~ "'0'.  If you are unsure what value to use, contact your system "
+#~ "administrator.</i>"
+#~ msgstr ""
+#~ "<i>Als een sleutelrichting wordt gebruikt, moet deze tegenovergesteld "
+#~ "zijn dan die van de VPN-peer. Bijvoorbeeld: als de andere machine ‘1’ "
+#~ "gebruikt, moet deze verbinding ‘0’ gebruiken. Neem contact op met uw "
+#~ "systeembeheerder als u niet weet welke waarde te gebruiken."
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "_Geavanceerd…"
+
+#~ msgid "CA Certificate:"
+#~ msgstr "CA-certificaat:"
+
+#~ msgid "Cipher:"
+#~ msgstr "Codering:"
+
+#~ msgid "General"
+#~ msgstr "Algemeen"
+
+#~ msgid "Key Direction:"
+#~ msgstr "Sleutelrichting:"
+
+#~ msgid "Key File:"
+#~ msgstr "Sleutelbestand:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Lokaal IP-adres:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "OpenVPN geavanceerde opties"
+
+#~ msgid "Type:"
+#~ msgstr "Type:"
+
+#~ msgid "Use L_ZO data compression"
+#~ msgstr "_LZO-datacompressie gebruiken"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "T_AP-apparaat gebruiken"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "_TCP-verbinding gebruiken"
+
+#~ msgid "Use additional TLS authentication"
+#~ msgstr "Aanvullende TLS-authenticatie gebruiken"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "Aangepaste gateway-_poort:"
+
+#~ msgid "User Certificate:"
+#~ msgstr "Gebruikerscertificaat:"
+
+#~ msgid "User name:"
+#~ msgstr "Gebruikersnaam:"
