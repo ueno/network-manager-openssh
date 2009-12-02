@@ -43,6 +43,7 @@
 #include <stdarg.h>
 
 #include <pwd.h>
+#include <poll.h>
 #include "sshtun.h"
 
 #define TUN_CLONE_DEVICE "/dev/net/tun"
@@ -354,6 +355,7 @@ start_child (struct sshtun_child_st *child)
 	sshtun_handle_t handle;
 	struct ifreq ifr;
 	char *password = NULL;
+	struct pollfd pfd;
 	int ret;
 
 	handle = (sshtun_handle_t)child;
@@ -369,8 +371,19 @@ start_child (struct sshtun_child_st *child)
 		return -1;
 	}
 	send_event (&handle->event_wfd, "TCP_OPEN");
+
+	/* Wait for a password. */
 	send_event (&handle->event_wfd, "NEED_PASSWORD");
+	pfd.fd = handle->event_rfd.fd;
+	pfd.events = POLLIN;
+	ret = poll (&pfd, 1, -1);
+	if (ret < 0)  {
+		close (child->tcp_fd);
+		close (child->tun_fd);
+		return -1;
+	}
 	password = recv_event (&handle->event_rfd);
+
 	ret = open_ssh (&child->ssh_channel, &child->ssh_session,
 					child->tcp_fd,	handle->params.user,
 					handle->params.public_key, handle->params.private_key,
