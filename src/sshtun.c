@@ -43,7 +43,6 @@
 #include <stdarg.h>
 
 #include <pwd.h>
-#include <assert.h>
 #include "sshtun.h"
 
 #define TUN_CLONE_DEVICE "/dev/net/tun"
