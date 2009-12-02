@@ -1,1 +1,3 @@
-- auth-dialog
+- simplify properties dialog
+-- prompt the default location of the config script
+-- prompt the default user name
