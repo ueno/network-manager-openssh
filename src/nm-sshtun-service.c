@@ -331,6 +331,8 @@ nm_sshtun_send_ip4_config (sshtun_handle_t handle)
 	GError *err = NULL;
 	GHashTable *config;
 	GValue *val;
+	struct in_addr temp_addr;
+	const char *tmp;
 
 	connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &err);
 	if (!connection)
@@ -377,6 +379,38 @@ nm_sshtun_send_ip4_config (sshtun_handle_t handle)
 		helper_failed (connection, "IP4 PTP Address");
 		dbus_g_connection_unref (connection);
 		return FALSE;
+	}
+
+	/* PTP address; for openconnect PTP address == internal IP4 address */
+	val = addr_to_gvalue (sshtun_get_param (handle, SSHTUN_PARAM_PEER_ADDR));
+	if (val)
+		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_PTP, val);
+	else {
+		helper_failed (connection, "IP4 PTP Address");
+		dbus_g_connection_unref (connection);
+		return FALSE;
+	}
+
+	/* Netmask */
+	tmp = sshtun_get_param (handle, SSHTUN_PARAM_NETMASK);
+	if (tmp && inet_pton (AF_INET, tmp, &temp_addr) > 0) {
+		val = uint_to_gvalue (nm_utils_ip4_netmask_to_prefix (temp_addr.s_addr));
+		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_PREFIX, val);
+	}
+
+	/* MTU */
+	tmp = sshtun_get_param (handle, SSHTUN_PARAM_MTU);
+	if (tmp && strlen (tmp)) {
+		long int mtu;
+
+		errno = 0;
+		mtu = strtol (tmp, NULL, 10);
+		if (errno || mtu < 0 || mtu > 20000) {
+			nm_warning ("Ignoring invalid tunnel MTU '%s'", tmp);
+		} else {
+			val = uint_to_gvalue ((guint32) mtu);
+			g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_MTU, val);
+		}
 	}
 
 	send_ip4_config (connection, config);
