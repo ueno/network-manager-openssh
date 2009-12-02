@@ -48,7 +48,7 @@ This plugin allows you to use that feature from NetworkManager.
 
 Now you can create a VPN connection from NetworkManager applet.
 
-* How it works
+* How does it work
 
 NetworkManager-sshtun is based on a small library sshtun.[ch], which
 provides the following API.  All functions are async (i.e. should
