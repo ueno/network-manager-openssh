@@ -372,11 +372,11 @@ start_child (struct sshtun_child_st *child)
 	}
 	send_event (&handle->event_wfd, "TCP_OPEN");
 
-	/* Wait for a password. */
+	/* Wait a second for getting a password from the parent process. */
 	send_event (&handle->event_wfd, "NEED_PASSWORD");
 	pfd.fd = handle->event_rfd.fd;
 	pfd.events = POLLIN;
-	ret = poll (&pfd, 1, -1);
+	ret = poll (&pfd, 1, 1000);
 	if (ret < 0)  {
 		close (child->tcp_fd);
 		close (child->tun_fd);
