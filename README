@@ -50,8 +50,15 @@ Now you can create a VPN connection from NetworkManager applet.
 
 * How does it work
 
-NetworkManager-sshtun is based on a small library sshtun.[ch], which
-provides the following API.  All functions are async (i.e. should
+The core of NetworkManager-sshtun is a small library sshtun.c.  It
+internally spawns a setuid'ed process which does the actual job of
+relaying IP/Ethernet packets over SSH.
+
+The child process first opens "tun@openssh.com" channel (see
+openssh/PROTOCOL), and then opens another channel to get the IP
+configuration.
+
+The library API is as follows.  All functions are async (i.e. should
 return in a short time).
 
  /* Allocate memory for a handle */
@@ -63,11 +70,19 @@ return in a short time).
                     SSHTUN_PARAM_TUN_OWNER, tun_owner, ...
                     0);
 
- /* Start tunneling task; the actual job is done by a seperate process
- setuid'ed to tun_owner. */
+ /* Start a tunneling task */
  sshtun_start (handle);
 
- /* Stop tunneling */
+ /* Dispatch events from the child process */
+ pfds[0].fd = sshtun_event_fd (handle);
+ while (1) {
+   pfds[0].events = POLLIN;
+   ret = poll (pfds, 1, -1);
+   if (ret > 0 && pfds[0].revents & POLLIN)
+     sshtun_dispatch_event (handle);
+ }
+
+ /* Stop the tunneling task */
  sshtun_stop (handle);
 
  /* Deallocate memory for the handle */
@@ -75,8 +90,7 @@ return in a short time).
 
 * References
 
-- Davide Brini's precise tutorial on the TUN/TAP interface, which even
-  covers TUNSETOWNER/TUNSETPERSIST
+- Davide Brini's precise tutorial on the TUN/TAP interface:
   http://waldner.netsons.org/d2-tuntap.php
 
 * Disclaimer
