@@ -58,7 +58,8 @@ Now you can create a VPN connection from NetworkManager applet.
 * How it works
 
 NetworkManager-sshtun is based on a small library sshtun.[ch], which
-provides the following API.  All functions async (i.e. should not block).
+provides the following API.  All functions are async (i.e. should
+return in a short time).
 
  /* Allocate memory for a handle */
  sshtun_new (&handle);
