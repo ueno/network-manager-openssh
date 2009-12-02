@@ -1,0 +1,89 @@
+NetworkManager-sshtun -- Tunnel over SSH (sshtun) VPN plugin for NetworkManager
+
+*NOTE* This plugin is alpha quality; please use at your own risk.
+
+OpenSSH has a feature to tunnel IP or Ethernet over the SSH protocol.
+This plugin allows you to use that feature from the NetworkManager.
+
+* Requirements
+
+- libssh2-1-dev
+- libnm-glib-vpn-dev
+
+* Build
+
+ $ sudo apt-get install libssh2-1-dev libnm-glib-vpn-dev
+ $ ./autogen.sh --prefix=/usr --sysconfdir=/etc
+ $ make
+ $ sudo make install
+
+* Setup
+
+ # Build tunctl program with "pointopoint" support.
+ remote$ apt-get source uml-utilities
+ remote$ cd uml-utilities-*
+ remote$ patch -p0 < tunctl-pointopoint.patch
+ remote$ cd tunctl && make
+
+ # Create a tun device and initialize it.
+ remote$ sudo modprobe tun
+ remote$ sudo ./tunctl -u $USER -m pointopoint
+ remote$ sudo ip addr add 10.0.1.3 peer 10.0.1.1 dev tun0
+ remote$ sudo ip link set tun0 up
+
+ # Enable "PermitTunnel" in /etc/ssh/sshd_config and restart sshd.
+ remote$ sudo sh -c 'echo PermitTunnel yes >> /etc/sshd/sshd_config'
+ remote$ sudo /etc/init.d/ssh restart
+
+ # Create a client IP config script
+ remote$ cat > sshtun_config
+ #!/bin/sh
+
+ cat <<EOF
+ ADDR 10.0.1.1
+ PEER_ADDR 10.0.1.3
+ NETMASK 255.255.255.0
+ GW_ADDR <remote-ip>
+ EOF
+ ^D
+ remote$ chmod +x sshtun_config
+
+ # Create a keypair with an empty passphrase.
+ local$ ssh-keygen -t rsa -N '' -f ~/.ssh/tun
+ local$ { echo -n 'tunnel=0 '; cat ~/.ssh/tun.pub } | \
+        ssh remote 'cat >> ~/.ssh/authorized_keys'
+
+Now you can create a VPN connection from NetworkManager applet.
+
+* How it works
+
+NetworkManager-sshtun is based on a small library sshtun.[ch], which
+provides the following API.  All functions async (i.e. should not block).
+
+ /* Allocate memory for a handle */
+ sshtun_new (&handle);
+
+ /* Set parameters of the handle */
+ sshtun_set_params (handle,
+                    SSHTUN_PARAM_TUN_MODE, tun_mode, ...
+                    SSHTUN_PARAM_TUN_OWNER, tun_owner, ...
+                    0);
+
+ /* Start tunneling task; the actual job is done by a seperate process
+ setuid'ed to tun_owner. */
+ sshtun_start (handle);
+
+ /* Stop tunneling */
+ sshtun_stop (handle);
+
+ /* Deallocate memory for the handle */
+ sshtun_del (handle);
+
+* References
+
+- How to not override default route with NetworkManager VPN plugins
+  https://bugzilla.redhat.com/show_bug.cgi?id=492208
+
+- Davide Brini's precise tutorial on the TUN/TAP interface, which even
+  covers TUNSETOWNER/TUNSETPERSIST.
+  http://waldner.netsons.org/d2-tuntap.php

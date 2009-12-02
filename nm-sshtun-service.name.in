@@ -1,0 +1,8 @@
+[VPN Connection]
+name=sshtun
+service=org.freedesktop.NetworkManager.sshtun
+program=@LIBEXECDIR@/nm-sshtun-service
+
+[GNOME]
+properties=libnm-sshtun-properties
+

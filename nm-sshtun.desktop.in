@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=VPN Connection Manager (SSHTUN)
+GenericName=VPN Connection Manager (SSHTUN)
+Comment=Add, Remove, and Edit VPN Connections
+Exec=nm-vpn-properties --import-service org.freedesktop.NetworkManager.sshtun --import-file %f
+Icon=gnome-mime-application-x-sshtun-settings
+Terminal=false
+Type=Application
+Categories=GNOME;Network;
+MimeType=application/x-sshtun-settings;
+NoDisplay=true

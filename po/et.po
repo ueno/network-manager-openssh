@@ -1,0 +1,418 @@
+# GNOME NetworkManager - OpenVPN klient
+#
+# Copyright (C) 2007 The GNOME Project.
+# This file is distributed under the same license as the NetworkManager-openvpn package.
+#
+# Priit Laes <amd@store20.com>, 2007.
+# Ivar Smolin <okul@linux.ee>, 2007.
+# Mattias Põldaru <mahfiaz@gmail.com>, 2007-2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-openvpn\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&component=VPN: openvpn\n"
+"POT-Creation-Date: 2009-10-30 07:33+0000\n"
+"PO-Revision-Date: 2009-11-01 18:53+0300\n"
+"Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
+"Language-Team: Estonian <gnome-et@linux.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "_Password:"
+msgstr "_Parool:"
+
+msgid "_Secondary Password:"
+msgstr "Parool _uuesti:"
+
+msgid "_Username:"
+msgstr "_Kasutajanimi:"
+
+msgid "_Domain:"
+msgstr "_Domeen:"
+
+msgid "Connect _anonymously"
+msgstr "Ühendu _anonüümselt"
+
+msgid "Connect as _user:"
+msgstr "Ühendu ka_sutajana:"
+
+msgid "_Remember password for this session"
+msgstr "_Jäta parool selle sessiooni ajaks meelde"
+
+msgid "_Save password in keyring"
+msgstr "Parooli salvestamine _võtmerõngasse"
+
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "VPN-võrgule '%s' ligipääsuks pead end autentima."
+
+msgid "Authenticate VPN"
+msgstr "VPN-i autentimine"
+
+msgid "Certificate pass_word:"
+msgstr "Sertifikaadi _parool:"
+
+msgid "Certificate password:"
+msgstr "Sertifikaadi parool:"
+
+msgid "Choose a Certificate Authority certificate..."
+msgstr "Vali sertifikaadikeskuse serdifail..."
+
+msgid "Choose your personal certificate..."
+msgstr "Vali isiklik sertifikaat..."
+
+msgid "Choose your private key..."
+msgstr "Vali privaatvõti..."
+
+msgid "Choose an OpenVPN static key..."
+msgstr "Vali OpenVPN püsivõti..."
+
+msgid "None"
+msgstr "Pole"
+
+msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+msgstr "PEM sertifikaadid (*.pem, *.crt, *.key, *.cer)"
+
+msgid "OpenVPN Static Keys (*.key)"
+msgstr "OpenVPN püsivõtmed (*.key)"
+
+msgid "Default"
+msgstr "Vaikimisi"
+
+msgid "MD-5"
+msgstr "MD-5"
+
+msgid "SHA-1"
+msgstr "SHA-1"
+
+msgid "OpenVPN"
+msgstr "OpenVPN"
+
+msgid "Compatible with the OpenVPN server."
+msgstr "Ühildub OpenVPN serveriga."
+
+msgid "Certificates (TLS)"
+msgstr "Sertifikaadid (TLS)"
+
+msgid "Password"
+msgstr "Parool"
+
+msgid "Password with Certificates (TLS)"
+msgstr "Parool koos sertifikaatidega (TLS)"
+
+msgid "Static Key"
+msgstr "Püsivõti"
+
+msgid " "
+msgstr " "
+
+msgid "<b>Authentication</b>"
+msgstr "<b>Autentimine</b>"
+
+msgid "<b>General</b>"
+msgstr "<b>Üldine</b>"
+
+msgid ""
+"<i>If key direction is used, it must be the opposite of that used on the VPN "
+"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
+"you are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Kui kasutatakse võtme suunda, peab see olema vastupidine teise VPN'i "
+"võtme suunale. Näitaks, kui teine masina kasutab '1', peab siin olema '0'. "
+"Kui sa ei tea millist väärtust kasutada, küsi süsteemiadministraatorilt.</i>"
+
+msgid "Ad_vanced..."
+msgstr "_Laiendatud..."
+
+msgid "CA Certificate:"
+msgstr "Sertifikaadikeskuse serdifail:"
+
+msgid "Cipher:"
+msgstr "Šiffer:"
+
+msgid "General"
+msgstr "Üldine"
+
+msgid "HMAC Authentication:"
+msgstr "HMAC'iga autentimine"
+
+msgid "Key Direction:"
+msgstr "Võtme suund:"
+
+msgid "Key File:"
+msgstr "Võtmefail:"
+
+msgid "Local IP Address:"
+msgstr "Kohalik IP-aadress:"
+
+msgid "OpenVPN Advanced Options"
+msgstr "OpenVPN laiendatud sätted"
+
+msgid "Password:"
+msgstr "Parool:"
+
+msgid "Private Key Password:"
+msgstr "Privaatvõtme parool:"
+
+msgid "Private Key:"
+msgstr "Privaatvõti:"
+
+msgid "Remote IP Address:"
+msgstr "Kaugmasina IP-aadress:"
+
+msgid "Security"
+msgstr "Turvalisus"
+
+msgid "Show passwords"
+msgstr "Näita paroole"
+
+msgid "Static Key:"
+msgstr "Püsivõti:"
+
+msgid "TLS Authentication"
+msgstr "TLS'iga autentimine"
+
+msgid "Type:"
+msgstr "Tüüp:"
+
+msgid "Use L_ZO data compression"
+msgstr "L_ZO-pakkimise kasutamine"
+
+msgid "Use a TA_P device"
+msgstr "TA_P-seadme kasutamine"
+
+msgid "Use a _TCP connection"
+msgstr "_TCP-ühenduse kasutamine"
+
+msgid "Use additional TLS authentication"
+msgstr "Lisaks TLS-autentimise kasutamine"
+
+msgid "Use custom _renegotiation interval:"
+msgstr "Kohandatud _kordusläbirääkimiste intervall:"
+
+msgid "Use custom gateway p_ort:"
+msgstr "Kasuta muud gateway _porti:"
+
+msgid "User Certificate:"
+msgstr "Kasutaja sertifikaat:"
+
+msgid "User name:"
+msgstr "Kasutajanimi:"
+
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#~ msgid "Certificate Password:"
+#~ msgstr "Sertifikaadi parool:"
+
+#~ msgid "Select A File"
+#~ msgstr "Vali fail"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "VPN-ühenduste lisamine, muutmine ja eemaldamine"
+
+#~ msgid "VPN Connection Manager (OpenVPN)"
+#~ msgstr "VPN ühenduse haldaja (OpenVPN)"
+
+#~ msgid "The following OpenVPN connection will be created:"
+#~ msgstr "Luuakse järgnev OpenVPN ühendus:"
+
+#~ msgid "Name:  %s"
+#~ msgstr "Nimi:  %s"
+
+#~ msgid "Connection Type: X.509 Certificates"
+#~ msgstr "Ühenduse tüüp: X.509 Sertifikaadid"
+
+#~ msgid "CA:  %s"
+#~ msgstr "CA: %s"
+
+#~ msgid "Cert:  %s"
+#~ msgstr "Sertif.:  %s"
+
+#~ msgid "Key:  %s"
+#~ msgstr "Võti:  %s"
+
+#~ msgid "Connection Type: Shared Key"
+#~ msgstr "Ühenduse tüüp: Jagatud võti"
+
+#~ msgid "Shared Key:  %s"
+#~ msgstr "Jagatud võti:  %s"
+
+#~ msgid "Remote IP:  %s"
+#~ msgstr "Kaug-IP:  %s"
+
+#~ msgid "Connection Type: Password"
+#~ msgstr "Ühenduse tüüp: parooliga"
+
+#~ msgid "Username:  %s"
+#~ msgstr "Kasutajanimi:  %s"
+
+#~ msgid "Connection Type: X.509 with Password Authentication"
+#~ msgstr "Ühenduse tüüp: X.509 parooliga autentimisega"
+
+#~ msgid "Remote:  %s"
+#~ msgstr "Kauglogimine:  %s"
+
+#~ msgid "Port:  %s"
+#~ msgstr "Port:  %s"
+
+#~ msgid "Device: %s"
+#~ msgstr "Seade: %s"
+
+#~ msgid "TAP"
+#~ msgstr "TAP"
+
+#~ msgid "TUN"
+#~ msgstr "TUN"
+
+#~ msgid "Protocol: %s"
+#~ msgstr "Protokoll: %s"
+
+#~ msgid "TCP"
+#~ msgstr "TCP"
+
+#~ msgid "UDP"
+#~ msgstr "UDP"
+
+#~ msgid "Routes:  %s"
+#~ msgstr "Marsruudid:  %s"
+
+#~ msgid "Use LZO Compression: %s"
+#~ msgstr "LZO pakkimise kasutamine: %s"
+
+#~ msgid "Yes"
+#~ msgstr "Jah"
+
+#~ msgid "TLS auth:  %s %s"
+#~ msgstr "TLS autentimine:  %s %s"
+
+#~ msgid "The connection details can be changed using the \"Edit\" button."
+#~ msgstr "Ühenduse üksikasju saab muuta kasutades \"Muuda\" nuppu."
+
+#~ msgid "Cannot import settings"
+#~ msgstr "Sätteid ei saa importida"
+
+#~ msgid "The VPN settings file '%s' does not contain valid data."
+#~ msgstr "VPN-seadete fail '%s' ei sisalda sobivat teavet."
+
+#~ msgid "Select file to import"
+#~ msgstr "Vali imporditav fail"
+
+#~ msgid "Select certificate to use"
+#~ msgstr "Vali kasutatav sertifikaat"
+
+#~ msgid "Select key to use"
+#~ msgstr "Vali võti"
+
+#~ msgid "Select shared key to use"
+#~ msgstr "Vali jagatud võti"
+
+#~ msgid "Select TA to use"
+#~ msgstr "Vali TA"
+
+#~ msgid "Save as..."
+#~ msgstr "Salvesta kui..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "Fail nimega \"%s\" on juba olemas."
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "Kas soovid seda salvestatava failiga asendada?"
+
+#~ msgid "Failed to export configuration"
+#~ msgstr "Tõrge seadistuste eksportimisel"
+
+#~ msgid "Failed to save file %s"
+#~ msgstr "Faili %s salvestamine nurjus"
+
+#~ msgid "65536"
+#~ msgstr "65536"
+
+#~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>näide: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid "C_A file:"
+#~ msgstr "C_A fail:"
+
+#~ msgid "Co_nnection type:"
+#~ msgstr "Ühe_nduse tüüp:"
+
+#~ msgid "Connection na_me:"
+#~ msgstr "Üh_enduse nimi:"
+
+#~ msgid "Import _Saved Configuration..."
+#~ msgstr "_Impordi salvestatud seaded..."
+
+#~ msgid ""
+#~ "Name used to identify the connection to the private network, e.g. "
+#~ "\"Campus VPN\" or \"Corporate Network\""
+#~ msgstr "VPN-võrgu nimi, näiteks \"Kool\" või \"Ametivõrk\"."
+
+#~ msgid "Network"
+#~ msgstr "Võrk"
+
+#~ msgid "Only use _VPN connection for these addresses:"
+#~ msgstr "_Kasuta VPN-ühendust ainult nende aadresside jaoks:"
+
+#~ msgid "OpenVPN Configuration"
+#~ msgstr "OpenVPN sätted"
+
+#~ msgid ""
+#~ "Please enter the information provided by your system administrator below. "
+#~ "Do not enter your password here as you will be prompted when connecting."
+#~ msgstr ""
+#~ "Palun sisesta süsteemi administraatorilt saadud teave. Ära siia parooli "
+#~ "sisesta, seda küsitakse ühendumisel."
+
+#~ msgid ""
+#~ "Please note that the file you import is not an OpenVPN configuration "
+#~ "file. Ask your administrator for the file."
+#~ msgstr ""
+#~ "Imporditav fail ei ole OpenVPN-i seadete fail. Küsi administraatorilt "
+#~ "õiget faili."
+
+#~ msgid "Shared _key:"
+#~ msgstr "Jagatud _võti:"
+
+#~ msgid "TLS-Auth"
+#~ msgstr "TLS-Auth"
+
+#~ msgid "Use _TLS auth:"
+#~ msgstr "_TLS autentimise kasutamine:"
+
+#~ msgid "Use cip_her:"
+#~ msgstr "_Kasutatav šiffer:"
+
+#~ msgid ""
+#~ "X.509 Certificates\n"
+#~ "Pre-shared key\n"
+#~ "Password Authentication\n"
+#~ "X.509 with Password Authentication"
+#~ msgstr ""
+#~ "X.509 Sertifikaadid\n"
+#~ "Eeljagatud võti\n"
+#~ "Parooliga autentimine\n"
+#~ "X.509 parooliga autentimisega"
+
+#~ msgid "_0"
+#~ msgstr "_0"
+
+#~ msgid "_1"
+#~ msgstr "_1"
+
+#~ msgid "_Gateway address:"
+#~ msgstr "_Gateway aadress:"
+
+#~ msgid "_Key:"
+#~ msgstr "_Võti:"
+
+#~ msgid "_Local IP:"
+#~ msgstr "_Kohalik IP:"
+
+#~ msgid "_Remote IP:"
+#~ msgstr "_Kaug-IP:"
+
+#~ msgid "_none"
+#~ msgstr "_puudub"

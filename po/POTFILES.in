@@ -1,0 +1,6 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+properties/auth-helpers.c
+properties/nm-sshtun.c
+properties/nm-sshtun-dialog.glade
+src/nm-sshtun-service.c

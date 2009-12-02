@@ -1,0 +1,495 @@
+# NetworkManager-openvpn's Portuguese translation.
+# Copyright © 2007, 2009 NetworkManager-openvpn
+# This file is distributed under the same license as the NetworkManager-openvpn package.
+# Duarte Loreto <happyguy_pt@hotmail.com>, 2007.
+# Filipe Gomes <filipefgomes@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.26\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-31 22:56+0100\n"
+"PO-Revision-Date: 2009-08-31 12:51+0100\n"
+"Last-Translator: Filipe Gomes <filipefgomes@gmail.com>\n"
+"Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:130
+msgid "_Password:"
+msgstr "_Senha:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:131
+msgid "_Secondary Password:"
+msgstr "S_enha Secundária:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:248
+msgid "_Username:"
+msgstr "_Utilizador:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:250
+msgid "_Domain:"
+msgstr "_Domínio:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:342
+msgid "Connect _anonymously"
+msgstr "Ligar-se _anonimamente"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:347
+msgid "Connect as _user:"
+msgstr "Ligar-se como o _utilizador:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:456
+msgid "_Remember password for this session"
+msgstr "_Recordar a senha durante esta sessão"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:458
+msgid "_Save password in keyring"
+msgstr "_Gravar a senha no chaveiro"
+
+#: ../auth-dialog/main.c:127
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Tem de se autenticar para aceder à Rede Privada Virtual (VPN) '%s'."
+
+#: ../auth-dialog/main.c:128
+msgid "Authenticate VPN"
+msgstr "Autenticar na VPN"
+
+#: ../auth-dialog/main.c:149
+msgid "Certificate pass_word:"
+msgstr "Sen_ha do Certificado:"
+
+#: ../auth-dialog/main.c:163
+msgid "Certificate password:"
+msgstr "Senha do certificado:"
+
+#: ../properties/auth-helpers.c:160
+msgid "Choose a Certificate Authority certificate..."
+msgstr "Escolha um certificado de Autoridade de Certificação..."
+
+#: ../properties/auth-helpers.c:179
+msgid "Choose your personal certificate..."
+msgstr "Escolha o seu certificado pessoal..."
+
+#: ../properties/auth-helpers.c:197
+msgid "Choose your private key..."
+msgstr "Escolha a sua chave privada..."
+
+#: ../properties/auth-helpers.c:250
+msgid "Choose an OpenVPN static key..."
+msgstr "Escolha um chave estática OpenVPN..."
+
+#: ../properties/auth-helpers.c:274 ../properties/auth-helpers.c:938
+#: ../properties/auth-helpers.c:1091
+msgid "None"
+msgstr "Nenhuma"
+
+#: ../properties/auth-helpers.c:691
+msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+msgstr "Certificados PEM (*.pem, *.crt, *.key, *.cer)"
+
+#: ../properties/auth-helpers.c:751
+msgid "OpenVPN Static Keys (*.key)"
+msgstr "Chaves Estáticas OpenVPN (*.key)"
+
+#: ../properties/auth-helpers.c:860 ../properties/auth-helpers.c:930
+msgid "Default"
+msgstr "Omissão"
+
+#: ../properties/auth-helpers.c:940
+msgid "MD-5"
+msgstr "MD-5"
+
+#: ../properties/auth-helpers.c:942
+msgid "SHA-1"
+msgstr "SHA-1"
+
+#: ../properties/nm-openvpn.c:53
+msgid "OpenVPN"
+msgstr "OpenVPN"
+
+#: ../properties/nm-openvpn.c:54
+msgid "Compatible with the OpenVPN server."
+msgstr "Compatível com o servidor OpenVPN."
+
+#: ../properties/nm-openvpn.c:322
+msgid "Certificates (TLS)"
+msgstr "Certificados (TLS)"
+
+#: ../properties/nm-openvpn.c:336
+msgid "Password"
+msgstr "Senha"
+
+#: ../properties/nm-openvpn.c:353
+msgid "Password with Certificates (TLS)"
+msgstr "Senha com Certificados (TLS)"
+
+#: ../properties/nm-openvpn.c:365
+msgid "Static Key"
+msgstr "Chave Estática"
+
+#: ../properties/nm-openvpn-dialog.glade.h:1
+msgid " "
+msgstr " "
+
+#: ../properties/nm-openvpn-dialog.glade.h:2
+msgid "<b>Authentication</b>"
+msgstr "<b>Autenticação</b>"
+
+#: ../properties/nm-openvpn-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>Geral</b>"
+
+#: ../properties/nm-openvpn-dialog.glade.h:4
+msgid ""
+"<i>If key direction is used, it must be the opposite of that used on the VPN "
+"peer.  For example, if the peer uses '1', this connection must use '0'.  If "
+"you are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Se a direcção de chave for utilizada, tem de ser a oposta da utilizada no "
+"par VPN.  Por exemplo, se o par utiliza '1', esta ligação deve utilizar "
+"'0'.  Se não tem a certeza de que valor utilizar, contacte o administrador "
+"do sistema.</i>"
+
+#: ../properties/nm-openvpn-dialog.glade.h:5
+msgid "Ad_vanced..."
+msgstr "A_vançado..."
+
+#: ../properties/nm-openvpn-dialog.glade.h:6
+msgid "CA Certificate:"
+msgstr "Certificado CA:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:7
+msgid "Cipher:"
+msgstr "Cifra:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:8
+msgid "General"
+msgstr "Geral"
+
+#: ../properties/nm-openvpn-dialog.glade.h:9
+msgid "HMAC Authentication:"
+msgstr "Autenticação HMAC:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:10
+msgid "Key Direction:"
+msgstr "Direcção da chave:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:11
+msgid "Key File:"
+msgstr "Ficheiro da Chave:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:12
+msgid "Local IP Address:"
+msgstr "Endereço IP Local:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:13
+msgid "OpenVPN Advanced Options"
+msgstr "Opções Avançadas do OpenVPN"
+
+#: ../properties/nm-openvpn-dialog.glade.h:14
+msgid "Password:"
+msgstr "Senha:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:15
+msgid "Private Key Password:"
+msgstr "Senha da Chave Privada:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:16
+msgid "Private Key:"
+msgstr "Chave Privada:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:17
+msgid "Remote IP Address:"
+msgstr "Endereço IP Remoto:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:18
+msgid "Security"
+msgstr "Segurança"
+
+#: ../properties/nm-openvpn-dialog.glade.h:19
+msgid "Show passwords"
+msgstr "Apresentar senhas"
+
+#: ../properties/nm-openvpn-dialog.glade.h:20
+msgid "Static Key:"
+msgstr "Chave Estática:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:21
+msgid "TLS Authentication"
+msgstr "Autenticação TLS"
+
+#: ../properties/nm-openvpn-dialog.glade.h:22
+msgid "Type:"
+msgstr "Tipo:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:23
+msgid "Use L_ZO data compression"
+msgstr "Utilizar compressão L_ZO"
+
+#: ../properties/nm-openvpn-dialog.glade.h:24
+msgid "Use a TA_P device"
+msgstr "Utilizar um dispositivo TA_P"
+
+#: ../properties/nm-openvpn-dialog.glade.h:25
+msgid "Use a _TCP connection"
+msgstr "Utilizar uma ligação _TCP"
+
+#: ../properties/nm-openvpn-dialog.glade.h:26
+msgid "Use additional TLS authentication"
+msgstr "Utilizar autenticação TLS adicional"
+
+#: ../properties/nm-openvpn-dialog.glade.h:27
+msgid "Use custom gateway p_ort:"
+msgstr "Utilizar p_orta de gateway personalizada:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:28
+msgid "User Certificate:"
+msgstr "Certificado do Utilizador:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:29
+msgid "User name:"
+msgstr "Nome de utilizador:"
+
+#: ../properties/nm-openvpn-dialog.glade.h:30
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Adicionar, Remover e Editar Ligações VPN"
+
+#~ msgid "VPN Connection Manager (OpenVPN)"
+#~ msgstr "Gestor de Ligações VPN (OpenVPN)"
+
+#~ msgid "The following OpenVPN connection will be created:"
+#~ msgstr "Serão criadas as seguintes ligações OpenVPN:"
+
+#~ msgid "Name:  %s"
+#~ msgstr "Nome:  %s"
+
+#~ msgid "Connection Type: X.509 Certificates"
+#~ msgstr "Tipo de Ligação: Certificados X.509"
+
+#~ msgid "CA:  %s"
+#~ msgstr "AC:  %s"
+
+#~ msgid "Cert:  %s"
+#~ msgstr "Cert:  %s"
+
+#~ msgid "Key:  %s"
+#~ msgstr "Chave:  %s"
+
+#~ msgid "Connection Type: Shared Key"
+#~ msgstr "Tipo de Ligação: Chave Partilhada"
+
+#~ msgid "Shared Key:  %s"
+#~ msgstr "Chave Partilhada:  %s"
+
+#~ msgid "Local IP:  %s"
+#~ msgstr "IP Local:  %s"
+
+#~ msgid "Remote IP:  %s"
+#~ msgstr "IP Remoto:  %s"
+
+#~ msgid "Connection Type: Password"
+#~ msgstr "Tipo de Ligação: Senha"
+
+#~ msgid "Username:  %s"
+#~ msgstr "Utilizador:  %s"
+
+#~ msgid "Connection Type: X.509 with Password Authentication"
+#~ msgstr "Tipo de Ligação: X.509 com Autenticação por Senha"
+
+#~ msgid "Remote:  %s"
+#~ msgstr "Remoto:  %s"
+
+#~ msgid "Device: %s"
+#~ msgstr "Dispositivo: %s"
+
+#~ msgid "TAP"
+#~ msgstr "TAP"
+
+#~ msgid "TUN"
+#~ msgstr "TUN"
+
+#~ msgid "Protocol: %s"
+#~ msgstr "Protocolo: %s"
+
+#~ msgid "TCP"
+#~ msgstr "TCP"
+
+#~ msgid "UDP"
+#~ msgstr "UDP"
+
+#~ msgid "Routes:  %s"
+#~ msgstr "Rotas:  %s"
+
+#~ msgid "Use LZO Compression: %s"
+#~ msgstr "Utilizar Compressão LZO: %s"
+
+#~ msgid "Yes"
+#~ msgstr "Sim"
+
+#~ msgid "No"
+#~ msgstr "Não"
+
+#~ msgid "TLS auth:  %s %s"
+#~ msgstr "Autenticação TLS:  %s %s"
+
+#~ msgid "The connection details can be changed using the \"Edit\" button."
+#~ msgstr ""
+#~ "Os detalhes da ligação podem ser alterados utilizando o botão \"Editar\"."
+
+#~ msgid "Cannot import settings"
+#~ msgstr "Incapaz de importar as definições"
+
+#~ msgid "The VPN settings file '%s' does not contain valid data."
+#~ msgstr "O ficheiro de definições da VPN '%s' não contém dados válidos."
+
+#~ msgid "Select file to import"
+#~ msgstr "Seleccionar o ficheiro a importar"
+
+#~ msgid "Select CA to use"
+#~ msgstr "Seleccionar a AC a utilizar"
+
+#~ msgid "Select certificate to use"
+#~ msgstr "Seleccionar o certificado a utilizar"
+
+#~ msgid "Select key to use"
+#~ msgstr "Seleccionar a chave a utilizar"
+
+#~ msgid "Select shared key to use"
+#~ msgstr "Seleccionar a chave partilhada a utilizar"
+
+#~ msgid "Select TA to use"
+#~ msgstr "Seleccionar a TA a utilizar"
+
+#~ msgid "Save as..."
+#~ msgstr "Gravar como..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "Já existe um ficheiro denominado \"%s\"."
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "Deseja substituí-lo pelo que está a gravar?"
+
+#~ msgid "Failed to export configuration"
+#~ msgstr "Falha ao exportar a configuração"
+
+#~ msgid "Failed to save file %s"
+#~ msgstr "Falha ao gravar o ficheiro %s"
+
+#~ msgid "0"
+#~ msgstr "0"
+
+#~ msgid "1"
+#~ msgstr "1"
+
+#~ msgid "<b>Connection Name</b>"
+#~ msgstr "<b>Nome da Ligação</b>"
+
+#~ msgid "<b>Optional Information</b>"
+#~ msgstr "<b>Informação Opcional</b>"
+
+#~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>exemplo: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid "CA  file:"
+#~ msgstr "Ficheiro  AC:"
+
+#~ msgid "CA file:"
+#~ msgstr "Ficheiro AC:"
+
+#~ msgid "Connection Type:"
+#~ msgstr "Tipo de Ligação:"
+
+#~ msgid ""
+#~ "Please enter the information provided by your system administrator below. "
+#~ "Do not enter your password here as you will be prompted when connecting."
+#~ msgstr ""
+#~ "Introduza abaixo a informação disponibilizada pelo administrador do seu "
+#~ "sistema. Não introduza aqui a sua senha pois essa ser-lhe-á pedida quando "
+#~ "se ligar."
+
+#~ msgid ""
+#~ "Please note that the file you import is not an OpenVPN configuration "
+#~ "file. Ask your administrator for the file."
+#~ msgstr ""
+#~ "Note que o ficheiro que importou não é um ficheiro de configuração "
+#~ "OpenVPN. Peça o ficheiro ao administrador do seu sistema."
+
+#~ msgid "Remote IP:"
+#~ msgstr "IP Remoto:"
+
+#~ msgid "Shared key"
+#~ msgstr "Chave partilhada"
+
+#~ msgid "Use TLS auth:"
+#~ msgstr "Utilizar autenticação TLS:"
+
+#~ msgid "Use cipher:"
+#~ msgstr "Utilizar cifra:"
+
+#~ msgid "X.509"
+#~ msgstr "X.509"
+
+#~ msgid ""
+#~ "X.509 Certificates\n"
+#~ "Pre-shared key\n"
+#~ "Password Authentication\n"
+#~ "X.509 with Password Authentication"
+#~ msgstr ""
+#~ "Certificados X.509\n"
+#~ "Chave pré-partilhada\n"
+#~ "Autenticação por Senha\n"
+#~ "X.509 com Autenticação por Senha"
+
+#~ msgid "_Import Saved Configuration..."
+#~ msgstr "_Importar Configuração Gravada..."
+
+#~ msgid ""
+#~ "_Name used to identify the connection to the private network, e.g. "
+#~ "\"Campus VPN\" or \"Corporate Network\""
+#~ msgstr ""
+#~ "_Nome utilizado para identificar a ligação à rede privada, por. ex. \"VPN "
+#~ "da Universidade\" ou \"Rede da Empresa\""
+
+#~ msgid "_Only use VPN connection for these addresses"
+#~ msgstr "_Apenas utilizar ligação VPN para estes endereços"
+
+#~ msgid ""
+#~ "The VPN login failed because the user name and password were not accepted "
+#~ "or the certificate password was wrong."
+#~ msgstr ""
+#~ "O início de sessão VPN falhou porque o utilizador e senha não foram "
+#~ "aceites ou a senha de certificado estava incorrecta."
+
+#~ msgid "The VPN login failed because the VPN program could not be started."
+#~ msgstr ""
+#~ "O início de sessão VPN falhou porque não foi possível iniciar a aplicação "
+#~ "de VPN."
+
+#~ msgid ""
+#~ "The VPN login failed because the VPN program could not connect to the VPN "
+#~ "server."
+#~ msgstr ""
+#~ "O início de sessão VPN falhou porque a aplicação de VPN foi incapaz de se "
+#~ "ligar ao servidor de VPN."
+
+#~ msgid ""
+#~ "The VPN login failed because the VPN configuration options were invalid."
+#~ msgstr ""
+#~ "O início de sessão VPN falhou porque as opções de configuração são "
+#~ "inválidas."
+
+#~ msgid ""
+#~ "The VPN login failed because the VPN program received an invalid "
+#~ "configuration from the VPN server."
+#~ msgstr ""
+#~ "O início de sessão VPN falhou porque a aplicação de VPN recebeu uma "
+#~ "configuração inválida do servidor de VPN."
+
+#~ msgid "VPN connection failed"
+#~ msgstr "Falhou a ligação VPN"
