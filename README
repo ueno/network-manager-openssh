@@ -55,11 +55,11 @@ internally spawns a setuid'ed process which does the actual job of
 relaying IP/Ethernet packets over SSH.
 
 The child process first opens "tun@openssh.com" channel (see
-openssh/PROTOCOL), and then opens another channel to get the IP
+openssh/PROTOCOL), and then opens another channel to get an IP
 configuration.
 
-The library API is as follows.  All functions are async (i.e. should
-return in a short time).
+The library API can be used as follows.  All functions are async
+(i.e. should return in a short time).
 
  /* Allocate memory for a handle */
  sshtun_new (&handle);
