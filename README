@@ -6,7 +6,8 @@ This plugin allows you to use that feature from NetworkManager.
 * Build
 
  $ sudo apt-get install libssh2-1-dev libnm-glib-vpn-dev
- $ ./autogen.sh --prefix=/usr --sysconfdir=/etc --libexecdir=/usr/lib/NetworkManager
+ $ ./autogen.sh --prefix=/usr --sysconfdir=/etc \
+                --libexecdir=/usr/lib/NetworkManager
  $ make
  $ sudo make install
 
