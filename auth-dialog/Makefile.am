@@ -1,6 +1,6 @@
-libexec_PROGRAMS = nm-sshtun-auth-dialog
+libexec_PROGRAMS = nm-openssh-auth-dialog
 
-nm_sshtun_auth_dialog_CPPFLAGS =			\
+nm_openssh_auth_dialog_CPPFLAGS =			\
 	$(GTHREAD_CFLAGS)			\
 	$(GTK_CFLAGS)				\
 	$(GCONF_CFLAGS)				\
@@ -16,14 +16,14 @@ nm_sshtun_auth_dialog_CPPFLAGS =			\
 	-DGNOMELOCALEDIR=\"$(datadir)/locale\"	\
 	-DVERSION=\"$(VERSION)\"
 
-nm_sshtun_auth_dialog_SOURCES =			\
+nm_openssh_auth_dialog_SOURCES =			\
 	main.c					\
 	gnome-two-password-dialog.c		\
 	gnome-two-password-dialog.h
 
-nm_sshtun_auth_dialog_LDADD =			\
+nm_openssh_auth_dialog_LDADD =			\
 	$(GTK_LIBS)				\
 	$(GCONF_LIBS)				\
-	$(top_builddir)/common-gnome/libnm-sshtun-common-gnome.la
+	$(top_builddir)/common-gnome/libnm-openssh-common-gnome.la
 
 CLEANFILES = *~

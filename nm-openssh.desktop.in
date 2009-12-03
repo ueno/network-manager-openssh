@@ -1,11 +1,11 @@
 [Desktop Entry]
-Name=VPN Connection Manager (SSHTUN)
-GenericName=VPN Connection Manager (SSHTUN)
+Name=VPN Connection Manager (OpenSSH)
+GenericName=VPN Connection Manager (OpenSSH)
 Comment=Add, Remove, and Edit VPN Connections
-Exec=nm-vpn-properties --import-service org.freedesktop.NetworkManager.sshtun --import-file %f
-Icon=gnome-mime-application-x-sshtun-settings
+Exec=nm-vpn-properties --import-service org.freedesktop.NetworkManager.openssh --import-file %f
+Icon=gnome-mime-application-x-openssh-settings
 Terminal=false
 Type=Application
 Categories=GNOME;Network;
-MimeType=application/x-sshtun-settings;
+MimeType=application/x-openssh-settings;
 NoDisplay=true

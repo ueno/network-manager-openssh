@@ -1,7 +1,8 @@
-NetworkManager-sshtun -- Tunnel over SSH (sshtun) VPN plugin for NetworkManager
+NetworkManager-openssh -- OpenSSH pseudo VPN plugin for NetworkManager
 
-OpenSSH has a feature to tunnel IP or Ethernet over the SSH protocol.
-This plugin allows you to use that feature from NetworkManager.
+OpenSSH has a feature to tunnel IP/Ethernet packets over the SSH
+protocol using the TUN/TAP interface.  This plugin allows you to use
+that feature from NetworkManager.
 
 * Build
 
@@ -30,7 +31,7 @@ This plugin allows you to use that feature from NetworkManager.
  remote$ sudo /etc/init.d/ssh restart
 
  # Create a client IP config script
- remote$ cat > sshtun_config
+ remote$ cat > nm_openssh_config
  #!/bin/sh
 
  cat <<EOF
@@ -40,7 +41,7 @@ This plugin allows you to use that feature from NetworkManager.
  GW_ADDR <remote-ip>
  EOF
  ^D
- remote$ chmod +x sshtun_config
+ remote$ chmod +x nm_openssh_config
 
  # Create a keypair with an empty passphrase.
  local$ ssh-keygen -t rsa -N '' -f ~/.ssh/tun
@@ -51,7 +52,7 @@ Now you can create a VPN connection from NetworkManager applet.
 
 * How does it work
 
-The core of NetworkManager-sshtun is a small library sshtun.c.  It
+The core of NetworkManager-openssh is a small library sshtun.c.  It
 internally spawns a setuid'ed process which does the actual job of
 relaying IP/Ethernet packets over SSH.
 

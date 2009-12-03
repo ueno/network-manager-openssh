@@ -36,7 +36,7 @@
 #include <nm-setting-connection.h>
 
 #include "common-gnome/keyring-helpers.h"
-#include "src/nm-sshtun-service.h"
+#include "src/nm-openssh-service.h"
 #include "gnome-two-password-dialog.h"
 
 typedef struct {
@@ -68,7 +68,7 @@ get_secrets (PasswordsInfo *info, gboolean retry)
 	g_return_val_if_fail (info->vpn_name != NULL, FALSE);
 
 	if (info->need_password) {
-		info->password = keyring_helpers_lookup_secret (info->vpn_uuid, NM_SSHTUN_KEY_PASSWORD, &is_session);
+		info->password = keyring_helpers_lookup_secret (info->vpn_uuid, NM_OPENSSH_KEY_PASSWORD, &is_session);
 		if (!info->password)
 			need_secret = TRUE;
 	}
@@ -137,7 +137,7 @@ get_secrets (PasswordsInfo *info, gboolean retry)
 		if (save) {
 			if (info->password) {
 				keyring_helpers_save_secret (info->vpn_uuid, info->vpn_name,
-											 keyring, NM_SSHTUN_KEY_PASSWORD, info->password);
+											 keyring, NM_OPENSSH_KEY_PASSWORD, info->password);
 			}
 		}
 
@@ -192,8 +192,8 @@ get_password_types (PasswordsInfo *info)
 		 return EXIT_FAILURE;
 	 }
 
-	 if (strcmp (vpn_service, NM_DBUS_SERVICE_SSHTUN) != 0) {
-		 fprintf (stderr, "This dialog only works with the '%s' service\n", NM_DBUS_SERVICE_SSHTUN);
+	 if (strcmp (vpn_service, NM_DBUS_SERVICE_OPENSSH) != 0) {
+		 fprintf (stderr, "This dialog only works with the '%s' service\n", NM_DBUS_SERVICE_OPENSSH);
 		 return EXIT_FAILURE;
 	 }
 
@@ -207,13 +207,13 @@ get_password_types (PasswordsInfo *info)
 	 }
 
 	 if (!info.need_password) {
-		 printf ("%s\n%s\n\n\n", NM_SSHTUN_KEY_NOSECRET, "true");
+		 printf ("%s\n%s\n\n\n", NM_OPENSSH_KEY_NOSECRET, "true");
 		 return EXIT_SUCCESS;
 	 }
 
 	 if (get_secrets (&info, retry)) {
 		 if (info.need_password)
-			 printf ("%s\n%s\n", NM_SSHTUN_KEY_PASSWORD, info.password);
+			 printf ("%s\n%s\n", NM_OPENSSH_KEY_PASSWORD, info.password);
 	 }
 	 printf ("\n\n");
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /***************************************************************************
- * nm-sshtun.h : GNOME UI dialogs for configuring sshtun VPN connections
+ * nm-openssh.h : GNOME UI dialogs for configuring openssh VPN connections
  *
  * Copyright (C) 2008 Dan Williams, <dcbw@redhat.com>
  *
@@ -20,67 +20,67 @@
  *
  **************************************************************************/
 
-#ifndef _NM_SSHTUN_H_
-#define _NM_SSHTUN_H_
+#ifndef _NM_OPENSSH_H_
+#define _NM_OPENSSH_H_
 
 #include <glib-object.h>
 
 typedef enum
 {
-	SSHTUN_PLUGIN_UI_ERROR_UNKNOWN = 0,
-	SSHTUN_PLUGIN_UI_ERROR_INVALID_CONNECTION,
-	SSHTUN_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-	SSHTUN_PLUGIN_UI_ERROR_MISSING_PROPERTY,
-	SSHTUN_PLUGIN_UI_ERROR_FILE_NOT_READABLE
-} SshtunPluginUiError;
+	OPENSSH_PLUGIN_UI_ERROR_UNKNOWN = 0,
+	OPENSSH_PLUGIN_UI_ERROR_INVALID_CONNECTION,
+	OPENSSH_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+	OPENSSH_PLUGIN_UI_ERROR_MISSING_PROPERTY,
+	OPENSSH_PLUGIN_UI_ERROR_FILE_NOT_READABLE
+} OpensshPluginUiError;
 
-#define SSHTUN_TYPE_PLUGIN_UI_ERROR (sshtun_plugin_ui_error_get_type ()) 
-GType sshtun_plugin_ui_error_get_type (void);
+#define OPENSSH_TYPE_PLUGIN_UI_ERROR (openssh_plugin_ui_error_get_type ()) 
+GType openssh_plugin_ui_error_get_type (void);
 
-#define SSHTUN_PLUGIN_UI_ERROR (sshtun_plugin_ui_error_quark ())
-GQuark sshtun_plugin_ui_error_quark (void);
+#define OPENSSH_PLUGIN_UI_ERROR (openssh_plugin_ui_error_quark ())
+GQuark openssh_plugin_ui_error_quark (void);
 
 
-#define SSHTUN_TYPE_PLUGIN_UI            (sshtun_plugin_ui_get_type ())
-#define SSHTUN_PLUGIN_UI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), SSHTUN_TYPE_PLUGIN_UI, SshtunPluginUi))
-#define SSHTUN_PLUGIN_UI_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), SSHTUN_TYPE_PLUGIN_UI, SshtunPluginUiClass))
-#define SSHTUN_IS_PLUGIN_UI(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SSHTUN_TYPE_PLUGIN_UI))
-#define SSHTUN_IS_PLUGIN_UI_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), SSHTUN_TYPE_PLUGIN_UI))
-#define SSHTUN_PLUGIN_UI_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), SSHTUN_TYPE_PLUGIN_UI, SshtunPluginUiClass))
+#define OPENSSH_TYPE_PLUGIN_UI            (openssh_plugin_ui_get_type ())
+#define OPENSSH_PLUGIN_UI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), OPENSSH_TYPE_PLUGIN_UI, OpensshPluginUi))
+#define OPENSSH_PLUGIN_UI_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), OPENSSH_TYPE_PLUGIN_UI, OpensshPluginUiClass))
+#define OPENSSH_IS_PLUGIN_UI(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), OPENSSH_TYPE_PLUGIN_UI))
+#define OPENSSH_IS_PLUGIN_UI_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), OPENSSH_TYPE_PLUGIN_UI))
+#define OPENSSH_PLUGIN_UI_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), OPENSSH_TYPE_PLUGIN_UI, OpensshPluginUiClass))
 
-typedef struct _SshtunPluginUi SshtunPluginUi;
-typedef struct _SshtunPluginUiClass SshtunPluginUiClass;
+typedef struct _OpensshPluginUi OpensshPluginUi;
+typedef struct _OpensshPluginUiClass OpensshPluginUiClass;
 
-struct _SshtunPluginUi {
+struct _OpensshPluginUi {
 	GObject parent;
 };
 
-struct _SshtunPluginUiClass {
+struct _OpensshPluginUiClass {
 	GObjectClass parent;
 };
 
-GType sshtun_plugin_ui_get_type (void);
+GType openssh_plugin_ui_get_type (void);
 
 
-#define SSHTUN_TYPE_PLUGIN_UI_WIDGET            (sshtun_plugin_ui_widget_get_type ())
-#define SSHTUN_PLUGIN_UI_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), SSHTUN_TYPE_PLUGIN_UI_WIDGET, SshtunPluginUiWidget))
-#define SSHTUN_PLUGIN_UI_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), SSHTUN_TYPE_PLUGIN_UI_WIDGET, SshtunPluginUiWidgetClass))
-#define SSHTUN_IS_PLUGIN_UI_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SSHTUN_TYPE_PLUGIN_UI_WIDGET))
-#define SSHTUN_IS_PLUGIN_UI_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), SSHTUN_TYPE_PLUGIN_UI_WIDGET))
-#define SSHTUN_PLUGIN_UI_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), SSHTUN_TYPE_PLUGIN_UI_WIDGET, SshtunPluginUiWidgetClass))
+#define OPENSSH_TYPE_PLUGIN_UI_WIDGET            (openssh_plugin_ui_widget_get_type ())
+#define OPENSSH_PLUGIN_UI_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), OPENSSH_TYPE_PLUGIN_UI_WIDGET, OpensshPluginUiWidget))
+#define OPENSSH_PLUGIN_UI_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), OPENSSH_TYPE_PLUGIN_UI_WIDGET, OpensshPluginUiWidgetClass))
+#define OPENSSH_IS_PLUGIN_UI_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), OPENSSH_TYPE_PLUGIN_UI_WIDGET))
+#define OPENSSH_IS_PLUGIN_UI_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), OPENSSH_TYPE_PLUGIN_UI_WIDGET))
+#define OPENSSH_PLUGIN_UI_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), OPENSSH_TYPE_PLUGIN_UI_WIDGET, OpensshPluginUiWidgetClass))
 
-typedef struct _SshtunPluginUiWidget SshtunPluginUiWidget;
-typedef struct _SshtunPluginUiWidgetClass SshtunPluginUiWidgetClass;
+typedef struct _OpensshPluginUiWidget OpensshPluginUiWidget;
+typedef struct _OpensshPluginUiWidgetClass OpensshPluginUiWidgetClass;
 
-struct _SshtunPluginUiWidget {
+struct _OpensshPluginUiWidget {
 	GObject parent;
 };
 
-struct _SshtunPluginUiWidgetClass {
+struct _OpensshPluginUiWidgetClass {
 	GObjectClass parent;
 };
 
-GType sshtun_plugin_ui_widget_get_type (void);
+GType openssh_plugin_ui_widget_get_type (void);
 
-#endif	/* _NM_SSHTUN_H_ */
+#endif	/* _NM_OPENSSH_H_ */
 

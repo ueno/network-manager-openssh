@@ -26,7 +26,7 @@
 #include <nm-setting-vpn.h>
 
 #include "keyring-helpers.h"
-#include "../src/nm-sshtun-service.h"
+#include "../src/nm-openssh-service.h"
 
 #define KEYRING_UUID_TAG "connection-uuid"
 #define KEYRING_SN_TAG "setting-name"
@@ -85,7 +85,7 @@ keyring_helpers_save_secret (const char *vpn_uuid,
 	display_name = g_strdup_printf ("VPN %s secret for %s/%s/" NM_SETTING_VPN_SETTING_NAME,
 	                                secret_name,
 	                                vpn_name,
-	                                NM_DBUS_SERVICE_SSHTUN);
+	                                NM_DBUS_SERVICE_OPENSSH);
 
 	attrs = gnome_keyring_attribute_list_new ();
 	gnome_keyring_attribute_list_append_string (attrs,

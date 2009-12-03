@@ -27,8 +27,8 @@ m4/intltool.m4
 m4/libtool.m4
 m4/lt*.m4
 
-auth-dialog/nm-sshtun-auth-dialog
-nm-sshtun-service.name
-nm-sshtun.desktop
-src/nm-sshtun-service
+auth-dialog/nm-openssh-auth-dialog
+nm-openssh-service.name
+nm-openssh.desktop
+src/nm-openssh-service
 

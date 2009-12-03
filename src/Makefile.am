@@ -12,15 +12,15 @@ AM_CPPFLAGS =					\
 	-DLOCALSTATEDIR=\""$(localstatedir)"\"	\
 	-DDATADIR=\"$(datadir)\"
 
-libexec_PROGRAMS = nm-sshtun-service
+libexec_PROGRAMS = nm-openssh-service
 
-nm_sshtun_service_SOURCES =				\
-				nm-sshtun-service.c	\
-				nm-sshtun-service.h	\
+nm_openssh_service_SOURCES =				\
+				nm-openssh-service.c	\
+				nm-openssh-service.h	\
 				sshtun.c		\
 				sshtun.h
 
 
-nm_sshtun_service_LDADD = $(NETWORK_MANAGER_LIBS) $(LIBSSH2_LIBS)
+nm_openssh_service_LDADD = $(NETWORK_MANAGER_LIBS) $(LIBSSH2_LIBS)
 
 CLEANFILES = *~

@@ -2,10 +2,10 @@
 <glade-interface>
   <!-- interface-requires gtk+ 2.16 -->
   <!-- interface-naming-policy toplevel-contextual -->
-  <widget class="GtkWindow" id="sshtun-widget">
+  <widget class="GtkWindow" id="openssh-widget">
     <property name="title" translatable="yes">window1</property>
     <child>
-      <widget class="GtkVBox" id="sshtun-vbox">
+      <widget class="GtkVBox" id="openssh-vbox">
         <property name="visible">True</property>
         <property name="border_width">12</property>
         <property name="spacing">16</property>

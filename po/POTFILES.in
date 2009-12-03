@@ -2,6 +2,6 @@
 # Please keep this file sorted alphabetically.
 auth-dialog/gnome-two-password-dialog.c
 auth-dialog/main.c
-properties/nm-sshtun.c
-properties/nm-sshtun-dialog.glade
-src/nm-sshtun-service.c
+properties/nm-openssh.c
+properties/nm-openssh-dialog.glade
+src/nm-openssh-service.c

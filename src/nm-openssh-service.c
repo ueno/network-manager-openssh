@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* nm-sshtun-service - sshtun integration with NetworkManager
+/* nm-openssh-service - OpenSSH VPN integration with NetworkManager
  *
  * Copyright (C) 2005 - 2008 Tim Niemueller <tim@niemueller.de>
  * Copyright (C) 2005 - 2008 Dan Williams <dcbw@redhat.com>
@@ -51,18 +51,18 @@
 #include <NetworkManagerVPN.h>
 #include <nm-setting-vpn.h>
 
-#include "nm-sshtun-service.h"
+#include "nm-openssh-service.h"
 #include "nm-utils.h"
 #include "sshtun.h"
 
-G_DEFINE_TYPE (NMSshtunPlugin, nm_sshtun_plugin, NM_TYPE_VPN_PLUGIN)
+G_DEFINE_TYPE (NMOpensshPlugin, nm_openssh_plugin, NM_TYPE_VPN_PLUGIN)
 
-#define NM_SSHTUN_PLUGIN_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_SSHTUN_PLUGIN, NMSshtunPluginPrivate))
+#define NM_OPENSSH_PLUGIN_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_OPENSSH_PLUGIN, NMOpensshPluginPrivate))
 
 typedef struct {
 	sshtun_handle_t handle;
 	char *password;
-} NMSshtunPluginPrivate;
+} NMOpensshPluginPrivate;
 
 typedef struct {
 	const char *name;
@@ -72,12 +72,12 @@ typedef struct {
 } ValidProperty;
 
 static ValidProperty valid_properties[] = {
-	{ NM_SSHTUN_KEY_TUN_USE_TAP,          G_TYPE_BOOLEAN, 0, 0 },
-	{ NM_SSHTUN_KEY_CONFIG_SCRIPT,        G_TYPE_STRING, 0, 0 },
-	{ NM_SSHTUN_KEY_USER,                 G_TYPE_STRING, 0, 0 },
-	{ NM_SSHTUN_KEY_HOST,                 G_TYPE_STRING, 0, 0 },
-	{ NM_SSHTUN_KEY_PUBLIC_KEY,           G_TYPE_STRING, 0, 0 },
-	{ NM_SSHTUN_KEY_PRIVATE_KEY,          G_TYPE_STRING, 0, 0 },
+	{ NM_OPENSSH_KEY_TUN_USE_TAP,          G_TYPE_BOOLEAN, 0, 0 },
+	{ NM_OPENSSH_KEY_CONFIG_SCRIPT,        G_TYPE_STRING, 0, 0 },
+	{ NM_OPENSSH_KEY_USER,                 G_TYPE_STRING, 0, 0 },
+	{ NM_OPENSSH_KEY_HOST,                 G_TYPE_STRING, 0, 0 },
+	{ NM_OPENSSH_KEY_PUBLIC_KEY,           G_TYPE_STRING, 0, 0 },
+	{ NM_OPENSSH_KEY_PRIVATE_KEY,          G_TYPE_STRING, 0, 0 },
 	{ NULL,                               G_TYPE_NONE }
 };
 
@@ -155,7 +155,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 }
 
 static gboolean
-nm_sshtun_properties_validate (NMSettingVPN *s_vpn, GError **error)
+nm_openssh_properties_validate (NMSettingVPN *s_vpn, GError **error)
 {
 	GError *validate_error = NULL;
 	ValidateInfo info = { &valid_properties[0], &validate_error, FALSE };
@@ -240,7 +240,7 @@ helper_failed (DBusGConnection *connection, const char *reason)
 	GError *err = NULL;
 
 	proxy = dbus_g_proxy_new_for_name (connection,
-								NM_DBUS_SERVICE_SSHTUN,
+								NM_DBUS_SERVICE_OPENSSH,
 								NM_VPN_DBUS_PLUGIN_PATH,
 								NM_VPN_DBUS_PLUGIN_INTERFACE);
 
@@ -266,7 +266,7 @@ send_ip4_config (DBusGConnection *connection, GHashTable *config)
 	GError *err = NULL;
 
 	proxy = dbus_g_proxy_new_for_name (connection,
-								NM_DBUS_SERVICE_SSHTUN,
+								NM_DBUS_SERVICE_OPENSSH,
 								NM_VPN_DBUS_PLUGIN_PATH,
 								NM_VPN_DBUS_PLUGIN_INTERFACE);
 
@@ -285,7 +285,7 @@ send_ip4_config (DBusGConnection *connection, GHashTable *config)
 }
 
 static gboolean
-nm_sshtun_send_ip4_config (sshtun_handle_t handle)
+nm_openssh_send_ip4_config (sshtun_handle_t handle)
 {
 	DBusGConnection *connection;
 	GError *err = NULL;
@@ -368,7 +368,7 @@ static void
 child_watch_cb (GPid pid, gint status, gpointer user_data)
 {
 	NMVPNPlugin *plugin = NM_VPN_PLUGIN (user_data);
-	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
+	NMOpensshPluginPrivate *priv = NM_OPENSSH_PLUGIN_GET_PRIVATE (plugin);
 	NMVPNPluginFailure failure = NM_VPN_PLUGIN_FAILURE_CONNECT_FAILED;
 	guint error = 0;
 	gboolean good_exit = FALSE;
@@ -408,7 +408,7 @@ static gboolean
 event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
 {
 	NMVPNPlugin *plugin = (NMVPNPlugin *)user_data;
-	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
+	NMOpensshPluginPrivate *priv = NM_OPENSSH_PLUGIN_GET_PRIVATE (plugin);
 
 	while (1) {
 		sshtun_state_t old_state = sshtun_state (priv->handle);
@@ -425,7 +425,7 @@ event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
 			break;
 		case SSHTUN_STATE_CONFIGURED:
 			if (old_state == SSHTUN_STATE_CONFIGURING)
-				nm_sshtun_send_ip4_config (priv->handle);
+				nm_openssh_send_ip4_config (priv->handle);
 			break;
 		default:
 			break;
@@ -436,9 +436,9 @@ event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
 }
 
 static gboolean
-nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
+nm_openssh_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 {
-	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE(plugin);
+	NMOpensshPluginPrivate *priv = NM_OPENSSH_PLUGIN_GET_PRIVATE(plugin);
 	sshtun_handle_t handle;
 	const char *tun_mode;
 	char *tun_owner = NULL, *host = NULL, *user = NULL,
@@ -461,13 +461,13 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 	}
 	tun_owner = g_strdup (val);
 
-	val = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_TUN_USE_TAP);
+	val = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_TUN_USE_TAP);
 	tun_mode = val && !strcmp (val, "yes") ? "ethernet" : "pointopoint";
 
-	val = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_USER);
+	val = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_USER);
 	user = val ? g_strdup (val) : g_strdup (tun_owner);
 
-	val = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_HOST);
+	val = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_HOST);
 	if (!val) {
 		g_set_error (error,
 					 NM_VPN_PLUGIN_ERROR,
@@ -479,7 +479,7 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 	}
 	host = g_strdup (val);
 
-	val = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_PUBLIC_KEY);
+	val = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_PUBLIC_KEY);
 	if (!val) {
 		g_set_error (error,
 					 NM_VPN_PLUGIN_ERROR,
@@ -491,7 +491,7 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 	}
 	public_key = g_strdup (val);
 
-	val = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_PRIVATE_KEY);
+	val = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_PRIVATE_KEY);
 	if (!val) {
 		g_set_error (error,
 					 NM_VPN_PLUGIN_ERROR,
@@ -503,7 +503,7 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 	}
 	private_key = g_strdup (val);
 
-	val = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_CONFIG_SCRIPT);
+	val = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_CONFIG_SCRIPT);
 	if (!val) {
 		g_set_error (error,
 					 NM_VPN_PLUGIN_ERROR,
@@ -559,7 +559,7 @@ nm_sshtun_start (NMVPNPlugin *plugin, NMSettingVPN *s_vpn, GError **error)
 
 	priv->handle = handle;
 
-	val = nm_setting_vpn_get_secret (s_vpn, NM_SSHTUN_KEY_PASSWORD);
+	val = nm_setting_vpn_get_secret (s_vpn, NM_OPENSSH_KEY_PASSWORD);
 	priv->password = val ? g_strdup (val) : NULL;
 
 	/* Watch the status change of the sshtun child process. */
@@ -610,7 +610,7 @@ real_connect (NMVPNPlugin   *plugin,
 	}
 
 	user_name = nm_setting_vpn_get_user_name (s_vpn);
-	if (!user_name && !nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_USER)) {
+	if (!user_name && !nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_USER)) {
 		g_set_error (error,
 					 NM_VPN_PLUGIN_ERROR,
 					 NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
@@ -620,11 +620,11 @@ real_connect (NMVPNPlugin   *plugin,
 	}
 
 	/* Validate the properties */
-	if (!nm_sshtun_properties_validate (s_vpn, error))
+	if (!nm_openssh_properties_validate (s_vpn, error))
 		return FALSE;
 
 	/* Finally try to start sshtun */
-	if (!nm_sshtun_start (plugin, s_vpn, error))
+	if (!nm_openssh_start (plugin, s_vpn, error))
 		return FALSE;
 
 	return TRUE;
@@ -652,7 +652,7 @@ real_need_secrets (NMVPNPlugin *plugin,
 		return FALSE;
 	}
 
-	if (!nm_setting_vpn_get_secret (s_vpn, NM_SSHTUN_KEY_PASSWORD))
+	if (!nm_setting_vpn_get_secret (s_vpn, NM_OPENSSH_KEY_PASSWORD))
 		need_secrets = TRUE;
 
 	if (need_secrets)
@@ -665,7 +665,7 @@ static gboolean
 real_disconnect (NMVPNPlugin	 *plugin,
 				 GError		**err)
 {
-	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
+	NMOpensshPluginPrivate *priv = NM_OPENSSH_PLUGIN_GET_PRIVATE (plugin);
 
 	sshtun_stop (priv->handle);
 	sshtun_del (priv->handle);
@@ -675,17 +675,17 @@ real_disconnect (NMVPNPlugin	 *plugin,
 }
 
 static void
-nm_sshtun_plugin_init (NMSshtunPlugin *plugin)
+nm_openssh_plugin_init (NMOpensshPlugin *plugin)
 {
 }
 
 static void
-nm_sshtun_plugin_class_init (NMSshtunPluginClass *plugin_class)
+nm_openssh_plugin_class_init (NMOpensshPluginClass *plugin_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (plugin_class);
 	NMVPNPluginClass *parent_class = NM_VPN_PLUGIN_CLASS (plugin_class);
 
-	g_type_class_add_private (object_class, sizeof (NMSshtunPluginPrivate));
+	g_type_class_add_private (object_class, sizeof (NMOpensshPluginPrivate));
 
 	/* virtual methods */
 	parent_class->connect      = real_connect;
@@ -694,20 +694,20 @@ nm_sshtun_plugin_class_init (NMSshtunPluginClass *plugin_class)
 }
 
 static void
-plugin_state_changed (NMSshtunPlugin *plugin,
+plugin_state_changed (NMOpensshPlugin *plugin,
                       NMVPNServiceState state,
                       gpointer user_data)
 {
 }
 
-NMSshtunPlugin *
-nm_sshtun_plugin_new (void)
+NMOpensshPlugin *
+nm_openssh_plugin_new (void)
 {
-	NMSshtunPlugin *plugin;
+	NMOpensshPlugin *plugin;
 
-	plugin = (NMSshtunPlugin *) g_object_new (NM_TYPE_SSHTUN_PLUGIN,
+	plugin = (NMOpensshPlugin *) g_object_new (NM_TYPE_OPENSSH_PLUGIN,
 											  NM_VPN_PLUGIN_DBUS_SERVICE_NAME,
-											  NM_DBUS_SERVICE_SSHTUN,
+											  NM_DBUS_SERVICE_OPENSSH,
 											  NULL);
 	if (plugin)
 		g_signal_connect (G_OBJECT (plugin), "state-changed", G_CALLBACK (plugin_state_changed), NULL);
@@ -724,7 +724,7 @@ quit_mainloop (NMVPNPlugin *plugin, gpointer user_data)
 int
 main (int argc, char *argv[])
 {
-	NMSshtunPlugin *plugin;
+	NMOpensshPlugin *plugin;
 	GMainLoop *main_loop;
 
 	g_type_init ();
@@ -732,7 +732,7 @@ main (int argc, char *argv[])
 	if (system ("/sbin/modprobe tun") == -1)
 		exit (EXIT_FAILURE);
 
-	plugin = nm_sshtun_plugin_new ();
+	plugin = nm_openssh_plugin_new ();
 	if (!plugin)
 		exit (EXIT_FAILURE);
 

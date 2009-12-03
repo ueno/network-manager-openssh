@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* nm-sshtun-service - sshtun integration with NetworkManager
+/* nm-openssh-service - OpenSSH VPN integration with NetworkManager
  *
  * Copyright (C) 2005 - 2008 Tim Niemueller <tim@niemueller.de>
  * Copyright (C) 2005 - 2008 Dan Williams <dcbw@redhat.com>
@@ -20,47 +20,47 @@
  *
  */
 
-#ifndef NM_SSHTUN_SERVICE_H
-#define NM_SSHTUN_SERVICE_H
+#ifndef NM_OPENSSH_SERVICE_H
+#define NM_OPENSSH_SERVICE_H
 
 #include <glib.h>
 #include <glib-object.h>
 #include <nm-vpn-plugin.h>
 
-#define NM_TYPE_SSHTUN_PLUGIN            (nm_sshtun_plugin_get_type ())
-#define NM_SSHTUN_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NM_TYPE_SSHTUN_PLUGIN, NMSshtunPlugin))
-#define NM_SSHTUN_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NM_TYPE_SSHTUN_PLUGIN, NMSshtunPluginClass))
-#define NM_IS_SSHTUN_PLUGIN(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NM_TYPE_SSHTUN_PLUGIN))
-#define NM_IS_SSHTUN_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), NM_TYPE_SSHTUN_PLUGIN))
-#define NM_SSHTUN_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NM_TYPE_SSHTUN_PLUGIN, NMSshtunPluginClass))
+#define NM_TYPE_OPENSSH_PLUGIN            (nm_openssh_plugin_get_type ())
+#define NM_OPENSSH_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NM_TYPE_OPENSSH_PLUGIN, NMOpensshPlugin))
+#define NM_OPENSSH_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NM_TYPE_OPENSSH_PLUGIN, NMOpensshPluginClass))
+#define NM_IS_OPENSSH_PLUGIN(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NM_TYPE_OPENSSH_PLUGIN))
+#define NM_IS_OPENSSH_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), NM_TYPE_OPENSSH_PLUGIN))
+#define NM_OPENSSH_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NM_TYPE_OPENSSH_PLUGIN, NMOpensshPluginClass))
 
-#define NM_DBUS_SERVICE_SSHTUN    "org.freedesktop.NetworkManager.sshtun"
-#define NM_DBUS_INTERFACE_SSHTUN  "org.freedesktop.NetworkManager.sshtun"
-#define NM_DBUS_PATH_SSHTUN       "/org/freedesktop/NetworkManager/sshtun"
+#define NM_DBUS_SERVICE_OPENSSH    "org.freedesktop.NetworkManager.openssh"
+#define NM_DBUS_INTERFACE_OPENSSH  "org.freedesktop.NetworkManager.openssh"
+#define NM_DBUS_PATH_OPENSSH       "/org/freedesktop/NetworkManager/openssh"
 
-#define NM_SSHTUN_KEY_TUN_USE_TAP "use-tap"
-#define NM_SSHTUN_KEY_CONFIG_SCRIPT "config-script"
-#define NM_SSHTUN_KEY_USER "user"
-#define NM_SSHTUN_KEY_HOST "host"
-#define NM_SSHTUN_KEY_PUBLIC_KEY "public-key"
-#define NM_SSHTUN_KEY_PRIVATE_KEY "private-key"
-#define NM_SSHTUN_KEY_PASSWORD "password"
+#define NM_OPENSSH_KEY_TUN_USE_TAP "use-tap"
+#define NM_OPENSSH_KEY_CONFIG_SCRIPT "config-script"
+#define NM_OPENSSH_KEY_USER "user"
+#define NM_OPENSSH_KEY_HOST "host"
+#define NM_OPENSSH_KEY_PUBLIC_KEY "public-key"
+#define NM_OPENSSH_KEY_PRIVATE_KEY "private-key"
+#define NM_OPENSSH_KEY_PASSWORD "password"
 
-#define NM_SSHTUN_KEY_NOSECRET "no-secret"
+#define NM_OPENSSH_KEY_NOSECRET "no-secret"
 
-#define NM_SSHTUN_TUN_MODE_TUN 0
-#define NM_SSHTUN_TUN_MODE_TAP 1
+#define NM_OPENSSH_TUN_MODE_TUN 0
+#define NM_OPENSSH_TUN_MODE_TAP 1
 
 typedef struct {
 	NMVPNPlugin parent;
-} NMSshtunPlugin;
+} NMOpensshPlugin;
 
 typedef struct {
 	NMVPNPluginClass parent;
-} NMSshtunPluginClass;
+} NMOpensshPluginClass;
 
-GType nm_sshtun_plugin_get_type (void);
+GType nm_openssh_plugin_get_type (void);
 
-NMSshtunPlugin *nm_sshtun_plugin_new (void);
+NMOpensshPlugin *nm_openssh_plugin_new (void);
 
-#endif /* NM_SSHTUN_SERVICE_H */
+#endif /* NM_OPENSSH_SERVICE_H */

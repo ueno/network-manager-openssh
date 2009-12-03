@@ -1,14 +1,14 @@
 plugindir = $(libdir)/NetworkManager
-plugin_LTLIBRARIES = libnm-sshtun-properties.la
+plugin_LTLIBRARIES = libnm-openssh-properties.la
 
-libnm_sshtun_properties_la_SOURCES = \
-	nm-sshtun.c \
-	nm-sshtun.h
+libnm_openssh_properties_la_SOURCES = \
+	nm-openssh.c \
+	nm-openssh.h
 
-gladedir = $(datadir)/gnome-vpn-properties/sshtun
-glade_DATA = nm-sshtun-dialog.glade
+gladedir = $(datadir)/gnome-vpn-properties/openssh
+glade_DATA = nm-openssh-dialog.glade
 
-libnm_sshtun_properties_la_CFLAGS =                    \
+libnm_openssh_properties_la_CFLAGS =                    \
         $(GLADE_CFLAGS)                                 \
         $(GTK_CFLAGS)                                   \
         $(GCONF_CFLAGS)                                 \
@@ -24,14 +24,14 @@ libnm_sshtun_properties_la_CFLAGS =                    \
         -DGNOMELOCALEDIR=\"$(datadir)/locale\"          \
         -DVERSION=\"$(VERSION)\"
 
-libnm_sshtun_properties_la_LIBADD =					\
+libnm_openssh_properties_la_LIBADD =					\
         $(GLADE_LIBS)							\
         $(GTK_LIBS)							\
         $(GCONF_LIBS)							\
         $(NETWORK_MANAGER_LIBS)						\
-	$(top_builddir)/common-gnome/libnm-sshtun-common-gnome.la
+	$(top_builddir)/common-gnome/libnm-openssh-common-gnome.la
 
-libnm_sshtun_properties_la_LDFLAGS =   \
+libnm_openssh_properties_la_LDFLAGS =   \
         -avoid-version
 
 CLEANFILES = *.bak *.gladep *~

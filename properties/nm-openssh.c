@@ -1,7 +1,7 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /***************************************************************************
  *
- * nm-sshtun.c : GNOME UI dialogs for configuring sshtun VPN connections
+ * nm-openssh.c : GNOME UI dialogs for configuring OpenSSH VPN connections
  *
  * Copyright (C) 2005 Tim Niemueller <tim@niemueller.de>
  * Copyright (C) 2008 Dan Williams, <dcbw@redhat.com>
@@ -45,31 +45,31 @@
 #include <nm-setting-ip4-config.h>
 
 #include "common-gnome/keyring-helpers.h"
-#include "src/nm-sshtun-service.h"
-#include "nm-sshtun.h"
+#include "src/nm-openssh-service.h"
+#include "nm-openssh.h"
 
-#define SSHTUN_PLUGIN_NAME    _("Tunnel over SSH (sshtun)")
-#define SSHTUN_PLUGIN_DESC    _("Compatible with the OpenSSH server.")
-#define SSHTUN_PLUGIN_SERVICE NM_DBUS_SERVICE_SSHTUN 
+#define OPENSSH_PLUGIN_NAME    _("OpenSSH pseudo VPN")
+#define OPENSSH_PLUGIN_DESC    _("Compatible with the OpenSSH server.")
+#define OPENSSH_PLUGIN_SERVICE NM_DBUS_SERVICE_OPENSSH 
 
 
 /************** plugin class **************/
 
-static void sshtun_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class);
+static void openssh_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class);
 
-G_DEFINE_TYPE_EXTENDED (SshtunPluginUi, sshtun_plugin_ui, G_TYPE_OBJECT, 0,
+G_DEFINE_TYPE_EXTENDED (OpensshPluginUi, openssh_plugin_ui, G_TYPE_OBJECT, 0,
 						G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_PLUGIN_UI_INTERFACE,
-											   sshtun_plugin_ui_interface_init))
+											   openssh_plugin_ui_interface_init))
 
 /************** UI widget class **************/
 
-static void sshtun_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class);
+static void openssh_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class);
 
-G_DEFINE_TYPE_EXTENDED (SshtunPluginUiWidget, sshtun_plugin_ui_widget, G_TYPE_OBJECT, 0,
+G_DEFINE_TYPE_EXTENDED (OpensshPluginUiWidget, openssh_plugin_ui_widget, G_TYPE_OBJECT, 0,
 						G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_PLUGIN_UI_WIDGET_INTERFACE,
-											   sshtun_plugin_ui_widget_interface_init))
+											   openssh_plugin_ui_widget_interface_init))
 
-#define SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), SSHTUN_TYPE_PLUGIN_UI_WIDGET, SshtunPluginUiWidgetPrivate))
+#define OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), OPENSSH_TYPE_PLUGIN_UI_WIDGET, OpensshPluginUiWidgetPrivate))
 
 typedef struct {
 	GladeXML *xml;
@@ -77,19 +77,19 @@ typedef struct {
 	GtkSizeGroup *group;
 	GtkWindowGroup *window_group;
 	gboolean window_added;
-} SshtunPluginUiWidgetPrivate;
+} OpensshPluginUiWidgetPrivate;
 
 
 #define COL_TUN_MODE_NAME 0
 #define COL_TUN_MODE 1
 
 GQuark
-sshtun_plugin_ui_error_quark (void)
+openssh_plugin_ui_error_quark (void)
 {
 	static GQuark error_quark = 0;
 
 	if (G_UNLIKELY (error_quark == 0))
-		error_quark = g_quark_from_static_string ("sshtun-plugin-ui-error-quark");
+		error_quark = g_quark_from_static_string ("openssh-plugin-ui-error-quark");
 
 	return error_quark;
 }
@@ -98,33 +98,33 @@ sshtun_plugin_ui_error_quark (void)
 #define ENUM_ENTRY(NAME, DESC) { NAME, "" #NAME "", DESC }
 
 GType
-sshtun_plugin_ui_error_get_type (void)
+openssh_plugin_ui_error_get_type (void)
 {
 	static GType etype = 0;
 
 	if (etype == 0) {
 		static const GEnumValue values[] = {
 			/* Unknown error. */
-			ENUM_ENTRY (SSHTUN_PLUGIN_UI_ERROR_UNKNOWN, "UnknownError"),
+			ENUM_ENTRY (OPENSSH_PLUGIN_UI_ERROR_UNKNOWN, "UnknownError"),
 			/* The connection was missing invalid. */
-			ENUM_ENTRY (SSHTUN_PLUGIN_UI_ERROR_INVALID_CONNECTION, "InvalidConnection"),
+			ENUM_ENTRY (OPENSSH_PLUGIN_UI_ERROR_INVALID_CONNECTION, "InvalidConnection"),
 			/* The specified property was invalid. */
-			ENUM_ENTRY (SSHTUN_PLUGIN_UI_ERROR_INVALID_PROPERTY, "InvalidProperty"),
+			ENUM_ENTRY (OPENSSH_PLUGIN_UI_ERROR_INVALID_PROPERTY, "InvalidProperty"),
 			/* The specified property was missing and is required. */
-			ENUM_ENTRY (SSHTUN_PLUGIN_UI_ERROR_MISSING_PROPERTY, "MissingProperty"),
+			ENUM_ENTRY (OPENSSH_PLUGIN_UI_ERROR_MISSING_PROPERTY, "MissingProperty"),
 			/* The file to import could not be read. */
-			ENUM_ENTRY (SSHTUN_PLUGIN_UI_ERROR_FILE_NOT_READABLE, "FileNotReadable"),
+			ENUM_ENTRY (OPENSSH_PLUGIN_UI_ERROR_FILE_NOT_READABLE, "FileNotReadable"),
 			{ 0, 0, 0 }
 		};
-		etype = g_enum_register_static ("SshtunPluginUiError", values);
+		etype = g_enum_register_static ("OpensshPluginUiError", values);
 	}
 	return etype;
 }
 
 static gboolean
-check_validity (SshtunPluginUiWidget *self, GError **error)
+check_validity (OpensshPluginUiWidget *self, GError **error)
 {
-	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	OpensshPluginUiWidgetPrivate *priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	GtkWidget *widget;
 	const char *str;
 
@@ -132,36 +132,36 @@ check_validity (SshtunPluginUiWidget *self, GError **error)
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
-		             SSHTUN_PLUGIN_UI_ERROR,
-		             SSHTUN_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-		             NM_SSHTUN_KEY_HOST);
+		             OPENSSH_PLUGIN_UI_ERROR,
+		             OPENSSH_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+		             NM_OPENSSH_KEY_HOST);
 		return FALSE;
 	}
 	widget = glade_xml_get_widget (priv->xml, "config_script_entry");
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
-		             SSHTUN_PLUGIN_UI_ERROR,
-		             SSHTUN_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-		             NM_SSHTUN_KEY_CONFIG_SCRIPT);
+		             OPENSSH_PLUGIN_UI_ERROR,
+		             OPENSSH_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+		             NM_OPENSSH_KEY_CONFIG_SCRIPT);
 		return FALSE;
 	}
 	widget = glade_xml_get_widget (priv->xml, "public_key_chooser");
 	str = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
-		             SSHTUN_PLUGIN_UI_ERROR,
-		             SSHTUN_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-		             NM_SSHTUN_KEY_PUBLIC_KEY);
+		             OPENSSH_PLUGIN_UI_ERROR,
+		             OPENSSH_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+		             NM_OPENSSH_KEY_PUBLIC_KEY);
 		return FALSE;
 	}
 	widget = glade_xml_get_widget (priv->xml, "private_key_chooser");
 	str = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
-		             SSHTUN_PLUGIN_UI_ERROR,
-		             SSHTUN_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-		             NM_SSHTUN_KEY_PRIVATE_KEY);
+		             OPENSSH_PLUGIN_UI_ERROR,
+		             OPENSSH_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+		             NM_OPENSSH_KEY_PRIVATE_KEY);
 		return FALSE;
 	}
 
@@ -187,7 +187,7 @@ fill_password (GtkWidget *widget,
 		if (s_vpn) {
 			const char *tmp;
 
-			tmp = nm_setting_vpn_get_secret (s_vpn, NM_SSHTUN_KEY_PASSWORD);
+			tmp = nm_setting_vpn_get_secret (s_vpn, NM_OPENSSH_KEY_PASSWORD);
 			if (tmp)
 				password = gnome_keyring_memory_strdup (tmp);
 		}
@@ -197,7 +197,7 @@ fill_password (GtkWidget *widget,
 
 		s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
 		password = keyring_helpers_lookup_secret (nm_setting_connection_get_uuid (s_con),
-		                                          NM_SSHTUN_KEY_PASSWORD,
+		                                          NM_OPENSSH_KEY_PASSWORD,
 		                                          &unused);
 	}
 
@@ -210,14 +210,14 @@ fill_password (GtkWidget *widget,
 static void
 stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 {
-	g_signal_emit_by_name (SSHTUN_PLUGIN_UI_WIDGET (user_data), "changed");
+	g_signal_emit_by_name (OPENSSH_PLUGIN_UI_WIDGET (user_data), "changed");
 }
 
 static void
 public_key_selection_changed_cb (GtkWidget *widget, gpointer user_data)
 {
-	SshtunPluginUiWidget *self = SSHTUN_PLUGIN_UI_WIDGET (user_data);
-	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	OpensshPluginUiWidget *self = OPENSSH_PLUGIN_UI_WIDGET (user_data);
+	OpensshPluginUiWidgetPrivate *priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	GtkWidget *private_key_chooser;
 	const char *public_key;
 	char *private_key;
@@ -247,9 +247,9 @@ public_key_selection_changed_cb (GtkWidget *widget, gpointer user_data)
 }
 
 static gboolean
-init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **error)
+init_plugin_ui (OpensshPluginUiWidget *self, NMConnection *connection, GError **error)
 {
-	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	OpensshPluginUiWidgetPrivate *priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	NMSettingVPN *s_vpn;
 	GtkWidget *widget;
 	GtkWidget *show_password;
@@ -263,7 +263,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 
 	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_TUN_USE_TAP);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_TUN_USE_TAP);
 		if (value && !strcmp (value, "yes"))
 			is_tap = TRUE;
 	}
@@ -275,7 +275,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
 	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_HOST);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_HOST);
 		if (value)
 			gtk_entry_set_text (GTK_ENTRY (widget), value);
 	}
@@ -290,14 +290,14 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter,
 	                    COL_TUN_MODE_NAME, _("Point-to-Point"),
-	                    COL_TUN_MODE, NM_SSHTUN_TUN_MODE_TUN,
+	                    COL_TUN_MODE, NM_OPENSSH_TUN_MODE_TUN,
 	                    -1);
 	if (active == -1 && !is_tap)
 		active = 0;
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter,
 	                    COL_TUN_MODE_NAME, _("Ethernet"),
-	                    COL_TUN_MODE, NM_SSHTUN_TUN_MODE_TAP,
+	                    COL_TUN_MODE, NM_OPENSSH_TUN_MODE_TAP,
 	                    -1);
 	if (active == -1 && is_tap)
 		active = 1;
@@ -312,7 +312,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
 	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_CONFIG_SCRIPT);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_CONFIG_SCRIPT);
 		if (value)
 			gtk_entry_set_text (GTK_ENTRY (widget), value);
 	}
@@ -322,7 +322,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
 	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_USER);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_USER);
 		if (value)
 			gtk_entry_set_text (GTK_ENTRY (widget), value);
 	}
@@ -333,7 +333,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
 	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_PUBLIC_KEY);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_PUBLIC_KEY);
 		if (value)
 			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
 	}
@@ -351,7 +351,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
 	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_PRIVATE_KEY);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_PRIVATE_KEY);
 		if (value)
 			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
 	}
@@ -363,7 +363,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
 	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_SSHTUN_KEY_PASSWORD);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_OPENSSH_KEY_PASSWORD);
 		if (value)
 			gtk_entry_set_text (GTK_ENTRY (widget), value);
 	}
@@ -381,8 +381,8 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 static GObject *
 get_widget (NMVpnPluginUiWidgetInterface *iface)
 {
-	SshtunPluginUiWidget *self = SSHTUN_PLUGIN_UI_WIDGET (iface);
-	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	OpensshPluginUiWidget *self = OPENSSH_PLUGIN_UI_WIDGET (iface);
+	OpensshPluginUiWidgetPrivate *priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 
 	return G_OBJECT (priv->widget);
 }
@@ -392,8 +392,8 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
                    NMConnection *connection,
                    GError **error)
 {
-	SshtunPluginUiWidget *self = SSHTUN_PLUGIN_UI_WIDGET (iface);
-	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	OpensshPluginUiWidget *self = OPENSSH_PLUGIN_UI_WIDGET (iface);
+	OpensshPluginUiWidgetPrivate *priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	NMSettingVPN *s_vpn;
 	GtkWidget *widget;
 	GtkTreeModel *model;
@@ -406,13 +406,13 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 		return FALSE;
 
 	s_vpn = NM_SETTING_VPN (nm_setting_vpn_new ());
-	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_SSHTUN, NULL);
+	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_OPENSSH, NULL);
 
 	/* Gateway */
 	widget = glade_xml_get_widget (priv->xml, "gateway_entry");
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_SSHTUN_KEY_HOST, str);
+		nm_setting_vpn_add_data_item (s_vpn, NM_OPENSSH_KEY_HOST, str);
 
 	/* Tunnel mode */
 	widget = glade_xml_get_widget (priv->xml, "tun_mode_combo");
@@ -421,33 +421,33 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	g_assert (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter));
 
 	gtk_tree_model_get (model, &iter, COL_TUN_MODE, &tun_mode, -1);
-	nm_setting_vpn_add_data_item (s_vpn, NM_SSHTUN_KEY_TUN_USE_TAP,
-								  tun_mode == NM_SSHTUN_TUN_MODE_TAP
+	nm_setting_vpn_add_data_item (s_vpn, NM_OPENSSH_KEY_TUN_USE_TAP,
+								  tun_mode == NM_OPENSSH_TUN_MODE_TAP
 								  ? "yes" : "no");
 
 	/* Config script */
 	widget = glade_xml_get_widget (priv->xml, "config_script_entry");
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_SSHTUN_KEY_CONFIG_SCRIPT, str);
+		nm_setting_vpn_add_data_item (s_vpn, NM_OPENSSH_KEY_CONFIG_SCRIPT, str);
 
 	/* SSH user */
 	widget = glade_xml_get_widget (priv->xml, "user_entry");
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_SSHTUN_KEY_USER, str);
+		nm_setting_vpn_add_data_item (s_vpn, NM_OPENSSH_KEY_USER, str);
 
 	/* SSH public key */
 	widget = glade_xml_get_widget (priv->xml, "public_key_chooser");
 	str = (char *) gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
 	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_SSHTUN_KEY_PUBLIC_KEY, str);
+		nm_setting_vpn_add_data_item (s_vpn, NM_OPENSSH_KEY_PUBLIC_KEY, str);
 
 	/* SSH private key */
 	widget = glade_xml_get_widget (priv->xml, "private_key_chooser");
 	str = (char *) gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
 	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_SSHTUN_KEY_PRIVATE_KEY, str);
+		nm_setting_vpn_add_data_item (s_vpn, NM_OPENSSH_KEY_PRIVATE_KEY, str);
 
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
 	valid = TRUE;
@@ -460,7 +460,7 @@ save_secrets (NMVpnPluginUiWidgetInterface *iface,
               NMConnection *connection,
               GError **error)
 {
-	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (iface);
+	OpensshPluginUiWidgetPrivate *priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (iface);
 	NMSettingConnection *s_con;
 	GtkWidget *w;
 	const char *secret;
@@ -471,8 +471,8 @@ save_secrets (NMVpnPluginUiWidgetInterface *iface,
 	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
 	if (!s_con) {
 		g_set_error (error,
-					 SSHTUN_PLUGIN_UI_ERROR,
-		             SSHTUN_PLUGIN_UI_ERROR_INVALID_CONNECTION,
+					 OPENSSH_PLUGIN_UI_ERROR,
+		             OPENSSH_PLUGIN_UI_ERROR_INVALID_CONNECTION,
 		             "%s", "missing 'connection' setting");
 		return FALSE;
 	}
@@ -484,16 +484,16 @@ save_secrets (NMVpnPluginUiWidgetInterface *iface,
 	g_assert (w);
 	secret = gtk_entry_get_text (GTK_ENTRY (w));
 	if (secret && strlen (secret)) {
-		result = keyring_helpers_save_secret (uuid, id, NULL, NM_SSHTUN_KEY_PASSWORD, secret);
+		result = keyring_helpers_save_secret (uuid, id, NULL, NM_OPENSSH_KEY_PASSWORD, secret);
 		ret = result == GNOME_KEYRING_RESULT_OK;
 		if (!ret)
 			g_warning ("%s: failed to save user password to keyring.", __func__);
 	} else
-		ret = keyring_helpers_delete_secret (uuid, NM_SSHTUN_KEY_PASSWORD);
+		ret = keyring_helpers_delete_secret (uuid, NM_OPENSSH_KEY_PASSWORD);
 
 	if (!ret)
-		g_set_error (error, SSHTUN_PLUGIN_UI_ERROR,
-					 SSHTUN_PLUGIN_UI_ERROR_UNKNOWN,
+		g_set_error (error, OPENSSH_PLUGIN_UI_ERROR,
+					 OPENSSH_PLUGIN_UI_ERROR_UNKNOWN,
 					 "%s", "Saving secrets to gnome keyring failed.");
 	return ret;
 }
@@ -502,24 +502,24 @@ static NMVpnPluginUiWidgetInterface *
 nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 {
 	NMVpnPluginUiWidgetInterface *object;
-	SshtunPluginUiWidgetPrivate *priv;
+	OpensshPluginUiWidgetPrivate *priv;
 	char *glade_file;
 
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);
 
-	object = NM_VPN_PLUGIN_UI_WIDGET_INTERFACE (g_object_new (SSHTUN_TYPE_PLUGIN_UI_WIDGET, NULL));
+	object = NM_VPN_PLUGIN_UI_WIDGET_INTERFACE (g_object_new (OPENSSH_TYPE_PLUGIN_UI_WIDGET, NULL));
 	if (!object) {
-		g_set_error (error, SSHTUN_PLUGIN_UI_ERROR, 0, "could not create sshtun object");
+		g_set_error (error, OPENSSH_PLUGIN_UI_ERROR, 0, "could not create openssh object");
 		return NULL;
 	}
 
-	priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (object);
+	priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (object);
 
-	glade_file = g_strdup_printf ("%s/%s", GLADEDIR, "nm-sshtun-dialog.glade");
-	priv->xml = glade_xml_new (glade_file, "sshtun-vbox", GETTEXT_PACKAGE);
+	glade_file = g_strdup_printf ("%s/%s", GLADEDIR, "nm-openssh-dialog.glade");
+	priv->xml = glade_xml_new (glade_file, "openssh-vbox", GETTEXT_PACKAGE);
 	if (priv->xml == NULL) {
-		g_set_error (error, SSHTUN_PLUGIN_UI_ERROR, 0,
+		g_set_error (error, OPENSSH_PLUGIN_UI_ERROR, 0,
 		             "could not load required resources at %s", glade_file);
 		g_free (glade_file);
 		g_object_unref (object);
@@ -527,9 +527,9 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 	}
 	g_free (glade_file);
 
-	priv->widget = glade_xml_get_widget (priv->xml, "sshtun-vbox");
+	priv->widget = glade_xml_get_widget (priv->xml, "openssh-vbox");
 	if (!priv->widget) {
-		g_set_error (error, SSHTUN_PLUGIN_UI_ERROR, 0, "could not load UI widget");
+		g_set_error (error, OPENSSH_PLUGIN_UI_ERROR, 0, "could not load UI widget");
 		g_object_unref (object);
 		return NULL;
 	}
@@ -537,7 +537,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	priv->window_group = gtk_window_group_new ();
 
-	if (!init_plugin_ui (SSHTUN_PLUGIN_UI_WIDGET (object), connection, error)) {
+	if (!init_plugin_ui (OPENSSH_PLUGIN_UI_WIDGET (object), connection, error)) {
 		g_object_unref (object);
 		return NULL;
 	}
@@ -548,8 +548,8 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 static void
 dispose (GObject *object)
 {
-	SshtunPluginUiWidget *plugin = SSHTUN_PLUGIN_UI_WIDGET (object);
-	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (plugin);
+	OpensshPluginUiWidget *plugin = OPENSSH_PLUGIN_UI_WIDGET (object);
+	OpensshPluginUiWidgetPrivate *priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (plugin);
 
 	if (priv->group)
 		g_object_unref (priv->group);
@@ -563,26 +563,26 @@ dispose (GObject *object)
 	if (priv->xml)
 		g_object_unref (priv->xml);
 
-	G_OBJECT_CLASS (sshtun_plugin_ui_widget_parent_class)->dispose (object);
+	G_OBJECT_CLASS (openssh_plugin_ui_widget_parent_class)->dispose (object);
 }
 
 static void
-sshtun_plugin_ui_widget_class_init (SshtunPluginUiWidgetClass *req_class)
+openssh_plugin_ui_widget_class_init (OpensshPluginUiWidgetClass *req_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (req_class);
 
-	g_type_class_add_private (req_class, sizeof (SshtunPluginUiWidgetPrivate));
+	g_type_class_add_private (req_class, sizeof (OpensshPluginUiWidgetPrivate));
 
 	object_class->dispose = dispose;
 }
 
 static void
-sshtun_plugin_ui_widget_init (SshtunPluginUiWidget *plugin)
+openssh_plugin_ui_widget_init (OpensshPluginUiWidget *plugin)
 {
 }
 
 static void
-sshtun_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class)
+openssh_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class)
 {
 	/* interface implementation */
 	iface_class->get_widget = get_widget;
@@ -616,13 +616,13 @@ get_property (GObject *object, guint prop_id,
 {
 	switch (prop_id) {
 	case NM_VPN_PLUGIN_UI_INTERFACE_PROP_NAME:
-		g_value_set_string (value, SSHTUN_PLUGIN_NAME);
+		g_value_set_string (value, OPENSSH_PLUGIN_NAME);
 		break;
 	case NM_VPN_PLUGIN_UI_INTERFACE_PROP_DESC:
-		g_value_set_string (value, SSHTUN_PLUGIN_DESC);
+		g_value_set_string (value, OPENSSH_PLUGIN_DESC);
 		break;
 	case NM_VPN_PLUGIN_UI_INTERFACE_PROP_SERVICE:
-		g_value_set_string (value, SSHTUN_PLUGIN_SERVICE);
+		g_value_set_string (value, OPENSSH_PLUGIN_SERVICE);
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -631,7 +631,7 @@ get_property (GObject *object, guint prop_id,
 }
 
 static void
-sshtun_plugin_ui_class_init (SshtunPluginUiClass *req_class)
+openssh_plugin_ui_class_init (OpensshPluginUiClass *req_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (req_class);
 
@@ -651,12 +651,12 @@ sshtun_plugin_ui_class_init (SshtunPluginUiClass *req_class)
 }
 
 static void
-sshtun_plugin_ui_init (SshtunPluginUi *plugin)
+openssh_plugin_ui_init (OpensshPluginUi *plugin)
 {
 }
 
 static void
-sshtun_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class)
+openssh_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class)
 {
 	/* interface implementation */
 	iface_class->ui_factory = ui_factory;
@@ -671,6 +671,6 @@ nm_vpn_plugin_ui_factory (GError **error)
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);
 
-	return NM_VPN_PLUGIN_UI_INTERFACE (g_object_new (SSHTUN_TYPE_PLUGIN_UI, NULL));
+	return NM_VPN_PLUGIN_UI_INTERFACE (g_object_new (OPENSSH_TYPE_PLUGIN_UI, NULL));
 }
 

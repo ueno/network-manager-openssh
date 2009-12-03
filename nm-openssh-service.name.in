@@ -1,9 +1,9 @@
 [VPN Connection]
-name=sshtun
-service=org.freedesktop.NetworkManager.sshtun
-program=@LIBEXECDIR@/nm-sshtun-service
+name=openssh
+service=org.freedesktop.NetworkManager.openssh
+program=@LIBEXECDIR@/nm-openssh-service
 
 [GNOME]
-auth-dialog=nm-sshtun-auth-dialog
-properties=libnm-sshtun-properties
+auth-dialog=nm-openssh-auth-dialog
+properties=libnm-openssh-properties
 
