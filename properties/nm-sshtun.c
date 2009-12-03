@@ -137,15 +137,6 @@ check_validity (SshtunPluginUiWidget *self, GError **error)
 		             NM_SSHTUN_KEY_HOST);
 		return FALSE;
 	}
-	widget = glade_xml_get_widget (priv->xml, "user_entry");
-	str = gtk_entry_get_text (GTK_ENTRY (widget));
-	if (!str || !strlen (str)) {
-		g_set_error (error,
-		             SSHTUN_PLUGIN_UI_ERROR,
-		             SSHTUN_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-		             NM_SSHTUN_KEY_USER);
-		return FALSE;
-	}
 	widget = glade_xml_get_widget (priv->xml, "config_script_entry");
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str)) {
@@ -222,6 +213,39 @@ stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 	g_signal_emit_by_name (SSHTUN_PLUGIN_UI_WIDGET (user_data), "changed");
 }
 
+static void
+public_key_selection_changed_cb (GtkWidget *widget, gpointer user_data)
+{
+	SshtunPluginUiWidget *self = SSHTUN_PLUGIN_UI_WIDGET (user_data);
+	SshtunPluginUiWidgetPrivate *priv = SSHTUN_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	GtkWidget *private_key_chooser;
+	const char *public_key;
+	char *private_key;
+
+	public_key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
+	if (!public_key || !strlen (public_key)) {
+		stuff_changed_cb (widget, user_data);
+		return;
+	}
+
+	/* Construct the private key filename from the public key filename. */
+	private_key_chooser = glade_xml_get_widget (priv->xml, "private_key_chooser");
+	private_key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (private_key_chooser));
+	if (!private_key || !strlen (private_key)) {
+		char *p;
+
+		private_key = g_strdup (public_key);
+		p = strrchr (private_key, '.');
+		if (p && !strcmp (p, ".pub")) {
+			*p = '\0';
+			if (g_file_test (private_key, G_FILE_TEST_EXISTS))
+				gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (private_key_chooser), private_key);
+		}
+		g_free (private_key);
+	}
+	stuff_changed_cb (widget, user_data);
+}
+
 static gboolean
 init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **error)
 {
@@ -231,6 +255,7 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 	GtkWidget *show_password;
 	GtkListStore *store;
 	GtkTreeIter iter;
+	GtkFileFilter *public_key_filter;
 	int active = -1;
 	gboolean is_tap = FALSE;
 	const char *value;
@@ -312,7 +337,14 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 		if (value)
 			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
 	}
-	g_signal_connect (G_OBJECT (widget), "selection-changed", G_CALLBACK (stuff_changed_cb), self);
+	public_key_filter = gtk_file_filter_new ();
+	gtk_file_filter_set_name (GTK_FILE_FILTER (public_key_filter),
+							  _("SSH public key (*.pub)"));
+	gtk_file_filter_add_pattern (GTK_FILE_FILTER (public_key_filter), "*.pub");
+	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget),
+								 GTK_FILE_FILTER (public_key_filter));
+	g_signal_connect (G_OBJECT (widget), "selection-changed",
+					  G_CALLBACK (public_key_selection_changed_cb), self);
 
 	widget = glade_xml_get_widget (priv->xml, "private_key_chooser");
 	if (!widget)
@@ -323,7 +355,8 @@ init_plugin_ui (SshtunPluginUiWidget *self, NMConnection *connection, GError **e
 		if (value)
 			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
 	}
-	g_signal_connect (G_OBJECT (widget), "selection-changed", G_CALLBACK (stuff_changed_cb), self);
+	g_signal_connect (G_OBJECT (widget), "selection-changed",
+					  G_CALLBACK (stuff_changed_cb), self);
 
 	widget = glade_xml_get_widget (priv->xml, "password_entry");
 	if (!widget)
