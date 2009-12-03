@@ -376,7 +376,7 @@ start_child (struct sshtun_child_st *child)
 	send_event (&handle->event_wfd, "NEED_PASSWORD");
 	pfd.fd = handle->event_rfd.fd;
 	pfd.events = POLLIN;
-	ret = poll (&pfd, 1, 10000);
+	ret = poll (&pfd, 1, 1000);
 	if (ret < 0)  {
 		close (child->tcp_fd);
 		close (child->tun_fd);
@@ -384,13 +384,6 @@ start_child (struct sshtun_child_st *child)
 	}
 	if (ret > 0)
 		password = recv_event (&handle->event_rfd);
-
-	{
-		FILE *fp;
-		fp = fopen ("/tmp/sshtun.log", "a");
-		fprintf (fp, "password: %s\n", password);
-		fclose (fp);
-	}
 	ret = open_ssh (&child->ssh_channel, &child->ssh_session,
 					child->tcp_fd,	handle->params.user,
 					handle->params.public_key, handle->params.private_key,
@@ -1156,12 +1149,12 @@ sshtun_dispatch_event (sshtun_handle_t handle)
 	else if (!strncmp (event, "BEGIN_CONFIG", 12))
 		parent->state = SSHTUN_STATE_CONFIGURING;
 	else if (!strncmp (event, "END_CONFIG", 10)) {
-		parent->state = SSHTUN_STATE_CONFIGURED;
 		ret = config_tun (&handle->params, handle->tun_mode);
 		if (ret < 0) {
 			sshtun_stop (handle);
 			return -1;
 		}
+		parent->state = SSHTUN_STATE_CONFIGURED;
 	} else if (parent->state == SSHTUN_STATE_CONFIGURING) {
 		ret = add_config (&handle->params, event);
 		if (ret < 0) {

@@ -428,8 +428,10 @@ event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
 
 	while (1) {
 		old_state = sshtun_state (priv->handle);
+		
 		if (sshtun_dispatch_event (priv->handle) < 0)
 			break;
+
 		new_state = sshtun_state (priv->handle);
 
 		if (new_state == SSHTUN_STATE_NEED_PASSWORD && priv->password) {
