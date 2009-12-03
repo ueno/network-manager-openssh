@@ -331,25 +331,10 @@ nm_sshtun_send_ip4_config (sshtun_handle_t handle)
 		return FALSE;
 	}
 
-	/* PTP address; for openconnect PTP address == internal IP4 address */
+	/* PTP address */
 	val = addr_to_gvalue (sshtun_get_param (handle, SSHTUN_PARAM_PEER_ADDR));
 	if (val)
 		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_PTP, val);
-	else {
-		helper_failed (connection, "IP4 PTP Address");
-		dbus_g_connection_unref (connection);
-		return FALSE;
-	}
-
-	/* PTP address; for openconnect PTP address == internal IP4 address */
-	val = addr_to_gvalue (sshtun_get_param (handle, SSHTUN_PARAM_PEER_ADDR));
-	if (val)
-		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_PTP, val);
-	else {
-		helper_failed (connection, "IP4 PTP Address");
-		dbus_g_connection_unref (connection);
-		return FALSE;
-	}
 
 	/* Netmask */
 	tmp = sshtun_get_param (handle, SSHTUN_PARAM_NETMASK);
