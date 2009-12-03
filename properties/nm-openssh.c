@@ -321,7 +321,7 @@ init_plugin_ui (OpensshPluginUiWidget *self, NMConnection *connection, GError **
 	GtkWidget *show_password;
 	GtkListStore *store;
 	GtkTreeIter iter;
-	GtkFileFilter *public_key_filter, *private_key_filter;
+	GtkFileFilter *filter;
 	int active = -1;
 	gboolean is_tap = FALSE;
 	const char *value;
@@ -403,12 +403,18 @@ init_plugin_ui (OpensshPluginUiWidget *self, NMConnection *connection, GError **
 		if (value)
 			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
 	}
-	public_key_filter = gtk_file_filter_new ();
-	gtk_file_filter_set_name (GTK_FILE_FILTER (public_key_filter),
+	filter = gtk_file_filter_new ();
+	gtk_file_filter_set_name (GTK_FILE_FILTER (filter),
 							  _("SSH public key (*.pub)"));
-	gtk_file_filter_add_pattern (GTK_FILE_FILTER (public_key_filter), "*.pub");
+	gtk_file_filter_add_pattern (GTK_FILE_FILTER (filter), "*.pub");
 	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget),
-								 GTK_FILE_FILTER (public_key_filter));
+								 GTK_FILE_FILTER (filter));
+	filter = gtk_file_filter_new ();
+	gtk_file_filter_set_name (GTK_FILE_FILTER (filter),
+							  _("All files"));
+	gtk_file_filter_add_pattern (GTK_FILE_FILTER (filter), "*");
+	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget),
+								 GTK_FILE_FILTER (filter));
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
 	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
 	                                   _("Choose an SSH public key..."));
@@ -424,14 +430,20 @@ init_plugin_ui (OpensshPluginUiWidget *self, NMConnection *connection, GError **
 		if (value)
 			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
 	}
-	private_key_filter = gtk_file_filter_new ();
-	gtk_file_filter_set_name (GTK_FILE_FILTER (private_key_filter),
+	filter = gtk_file_filter_new ();
+	gtk_file_filter_set_name (GTK_FILE_FILTER (filter),
 							  _("SSH private key"));
-	gtk_file_filter_add_custom (GTK_FILE_FILTER (private_key_filter),
+	gtk_file_filter_add_custom (GTK_FILE_FILTER (filter),
 								GTK_FILE_FILTER_FILENAME,
 								not_public_key_filter, NULL, NULL);
 	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget),
-								 GTK_FILE_FILTER (private_key_filter));
+								 GTK_FILE_FILTER (filter));
+	filter = gtk_file_filter_new ();
+	gtk_file_filter_set_name (GTK_FILE_FILTER (filter),
+							  _("All files"));
+	gtk_file_filter_add_pattern (GTK_FILE_FILTER (filter), "*");
+	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget),
+								 GTK_FILE_FILTER (filter));
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
 	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
 	                                   _("Choose an SSH private key..."));
