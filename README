@@ -1,8 +1,7 @@
 NetworkManager-openssh -- OpenSSH pseudo VPN plugin for NetworkManager
 
-OpenSSH has a feature to tunnel IP/Ethernet packets over the SSH
-protocol using the TUN/TAP interface.  This plugin allows you to use
-that feature from NetworkManager.
+OpenSSH supports IP/Ethernet tunneling using TUN/TAP interface.  This
+plugin enables to use that feature from NetworkManager.
 
 * Build
 
@@ -44,7 +43,7 @@ that feature from NetworkManager.
  remote$ chmod +x nm_openssh_config
 
  # Create a keypair with an empty passphrase.
- local$ ssh-keygen -t rsa -N '' -f ~/.ssh/tun
+ local$ ssh-keygen -t rsa -f ~/.ssh/tun
  local$ { echo -n 'tunnel=0 '; cat ~/.ssh/tun.pub } | \
         ssh remote 'cat >> ~/.ssh/authorized_keys'
 
@@ -52,16 +51,17 @@ Now you can create a VPN connection from NetworkManager applet.
 
 * How does it work
 
-The core of NetworkManager-openssh is a small library sshtun.c.  It
-internally spawns a setuid'ed process which does the actual job of
-relaying IP/Ethernet packets over SSH.
+NetworkManager-openssh internally spawns a setuid'ed process which
+does the actual job of relaying IP/Ethernet packets over SSH.
 
 The child process first opens "tun@openssh.com" channel (see
 openssh/PROTOCOL), and then opens another channel to get an IP
-configuration.
+configuration, which is a poor man's approach not to require DHCP/PPP
+server setup.
 
-The library API can be used as follows.  All functions are async
-(i.e. should return in a short time).
+The core implementation of NetworkManager-openssh is a small library
+sshtun.c.  The library API can be used as follows.  All function calls
+do not block.
 
  /* Allocate memory for a handle */
  sshtun_new (&handle);
