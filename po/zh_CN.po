@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-02-18 15:14+0800\n"
 "Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -72,13 +72,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "与 OpenVPN 服务器兼容"
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "静态密钥："
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -94,40 +99,53 @@ msgid "<b>Options</b>"
 msgstr "<b>可选信息</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>如果启用密钥方向，它必须与 VPN 端使用的密钥方向相反。例如，VPN 端使用 "
+"'1'，此连接必须使用 '0'。如果您不确认您应该使用何值，请联系网络管理员。</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "密码："
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "私钥密码："
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "私钥："
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "静态密钥："
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "用户名(_U)："
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "显示密码"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "网关(_G)："
+
+#~ msgid "Password:"
+#~ msgstr "密码："
 
 #~ msgid "Certificate password:"
 #~ msgstr "证书密码："
@@ -180,16 +198,6 @@ msgstr "网关(_G)："
 #~ msgid "<b>Authentication</b>"
 #~ msgstr "<b>认证</b>"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>如果启用密钥方向，它必须与 VPN 端使用的密钥方向相反。例如，VPN 端使用 "
-#~ "'1'，此连接必须使用 '0'。如果您不确认您应该使用何值，请联系网络管理员。</"
-#~ "i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "高级(_V)..."
 
@@ -216,9 +224,6 @@ msgstr "网关(_G)："
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "OpenVPN 高级选项"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "私钥密码："
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "远程 IP 地址："

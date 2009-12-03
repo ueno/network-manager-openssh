@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-openvpn.master.mr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-06-09 14:53+0530\n"
 "Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
 "Language-Team: marathi\n"
@@ -71,13 +71,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "OpenVPN सर्वरशी सहत्व."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "स्टॅटीक कि:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -93,40 +98,54 @@ msgid "<b>Options</b>"
 msgstr "<b>ओळख पटवा</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>कि दिशा वापरल्यास, ते VPN सम गटाच्या विरूद्ध वापरलेले असायला हवे.  उदाहरणार्थ, सम "
+"गटाच्य विरूद्ध '1' चा वापर केल्यास, जुळवणीने '0' वापरायला हवे.  कुठले मुल्य वापरायचे हे "
+"निश्चित नसल्यास, तुमच्या प्रणाली प्रशासकाशी संपर्क करा.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "परवलीचा शब्द:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "वैयक्तिक कि परवलीचा शब्द:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "वैयक्तिक कि:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "स्टॅटीक कि:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "वापरकर्ता नाव (_U):"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "परवलीचा शब्द दाखवा"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "गेटवे (_G):"
+
+#~ msgid "Password:"
+#~ msgstr "परवलीचा शब्द:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "प्रमाणपत्र परवलीचा शब्द:"
@@ -176,16 +195,6 @@ msgstr "गेटवे (_G):"
 #~ msgid "Static Key"
 #~ msgstr "Static Key"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>कि दिशा वापरल्यास, ते VPN सम गटाच्या विरूद्ध वापरलेले असायला हवे.  उदाहरणार्थ, "
-#~ "सम गटाच्य विरूद्ध '1' चा वापर केल्यास, जुळवणीने '0' वापरायला हवे.  कुठले मुल्य "
-#~ "वापरायचे हे निश्चित नसल्यास, तुमच्या प्रणाली प्रशासकाशी संपर्क करा.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "प्रगत (_v)..."
 
@@ -212,9 +221,6 @@ msgstr "गेटवे (_G):"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "OpenVPN प्रगत पर्याय"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "वैयक्तिक कि परवलीचा शब्द:"
 
 #~| msgid "Local IP Address:"
 #~ msgid "Remote IP Address:"

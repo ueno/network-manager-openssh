@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: as\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-07-16 15:11+0530\n"
 "Last-Translator: Amitakhya Phukan <aphukan@fedoraproject.org>\n"
 "Language-Team: Assamese <fedora-trans-as@redhat.com>\n"
@@ -72,13 +72,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "OpenVPN সেৱকৰ সৈতে সুসঙ্গত ।"
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "স্টেটিক চাবি:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -94,40 +99,54 @@ msgid "<b>Options</b>"
 msgstr "<b>প্ৰমাণীকৰণ</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>চাবিৰ দিশ ব্যৱহাৰ কৰিলে, সেইটো VPN পিয়েৰত থকাটোতকৈ বিপৰিত দিশৰ হ'ব লাগিব । "
+"যেনে, যদি পিয়েৰে '1' ব্যৱহাৰ কৰে, এই সংযোগে '0' ব্যৱহাৰ কৰিব লাগিব । ব্যৱহাৰ "
+"কৰিব লগা মানৰ বিষয়ে নিশ্চিত ন'হ'লে, আপোনাৰ ব্যৱস্থাপ্ৰণালীৰ প্ৰশাসকক লগ ধৰক ।</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "গুপ্তশব্দ:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "ব্যক্তিগত চাবিৰ গুপ্তশব্দ:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "ব্যক্তিগত চাবি:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "স্টেটিক চাবি:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "ব্যৱহাৰকৰ্তাৰ নাম (_U):"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "গুপ্তশব্দ দেখুৱাওক"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "গেটৱে (_G):"
+
+#~ msgid "Password:"
+#~ msgstr "গুপ্তশব্দ:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "প্ৰমাণপত্ৰৰ গুপ্তশব্দ:"
@@ -177,17 +196,6 @@ msgstr "গেটৱে (_G):"
 #~ msgid "Static Key"
 #~ msgstr "স্টেটিক চাবি"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>চাবিৰ দিশ ব্যৱহাৰ কৰিলে, সেইটো VPN পিয়েৰত থকাটোতকৈ বিপৰিত দিশৰ হ'ব "
-#~ "লাগিব । যেনে, যদি পিয়েৰে '1' ব্যৱহাৰ কৰে, এই সংযোগে '0' ব্যৱহাৰ কৰিব লাগিব "
-#~ "। ব্যৱহাৰ কৰিব লগা মানৰ বিষয়ে নিশ্চিত ন'হ'লে, আপোনাৰ ব্যৱস্থাপ্ৰণালীৰ প্ৰশাসকক "
-#~ "লগ ধৰক ।</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "উন্নত (_v)..."
 
@@ -214,9 +222,6 @@ msgstr "গেটৱে (_G):"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "OpenVPN উন্নত বিকল্প"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "ব্যক্তিগত চাবিৰ গুপ্তশব্দ:"
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "দূৰৰ IP ঠিকনা:"

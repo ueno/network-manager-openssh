@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-05-15 23:29+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@fsf.hu>\n"
@@ -72,13 +72,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Kompatibilis az OpenVPN kiszolgálóval."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Statikus kulcs:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -94,40 +99,55 @@ msgid "<b>Options</b>"
 msgstr "<b>Hitelesítés</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>A kulcsirány használatakor a VPN partneren használttal ellentétesnek kell "
+"lennie. Ha például a partner 1-et használ, akkor a kapcsolatnak 0-t kell. Ha "
+"nem biztos benne, hogy melyik értéket kell használnia, keresse meg a "
+"rendszergazdát.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Jelszó:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Személyes kulcs jelszava:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Személyes kulcs:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Statikus kulcs:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "_Felhasználói név:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Jelszavak megjelenítése"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "Á_tjáró:"
+
+#~ msgid "Password:"
+#~ msgstr "Jelszó:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Tanúsítvány jelszava:"
@@ -177,17 +197,6 @@ msgstr "Á_tjáró:"
 #~ msgid "Static Key"
 #~ msgstr "Statikus kulcs"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>A kulcsirány használatakor a VPN partneren használttal ellentétesnek "
-#~ "kell lennie. Ha például a partner 1-et használ, akkor a kapcsolatnak 0-t "
-#~ "kell. Ha nem biztos benne, hogy melyik értéket kell használnia, keresse "
-#~ "meg a rendszergazdát.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "S_peciális…"
 
@@ -214,9 +223,6 @@ msgstr "Á_tjáró:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "OpenVPN speciális beállításai"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Személyes kulcs jelszava:"
 
 #~| msgid "Local IP Address:"
 #~ msgid "Remote IP Address:"

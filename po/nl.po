@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2008-09-15 10:58+0200\n"
 "Last-Translator: Wouter Bolsterlee <wbolster@gnome.org>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -78,13 +78,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Geschikt voor OpenVPN-servers."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Vaste sleutel:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -100,41 +105,56 @@ msgid "<b>Options</b>"
 msgstr "<b>Authenticatie</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Als een sleutelrichting wordt gebruikt, moet deze tegenovergesteld zijn "
+"dan die van de VPN-peer. Bijvoorbeeld: als de andere machine ‘1’ gebruikt, "
+"moet deze verbinding ‘0’ gebruiken. Neem contact op met uw systeembeheerder "
+"als u niet weet welke waarde te gebruiken."
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-#, fuzzy
-msgid "Password:"
-msgstr "_Wachtwoord:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
 #, fuzzy
-msgid "SSH Private Key:"
+msgid "SSH Private Key Password:"
 msgstr "Privé-sleutel:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
+msgid "SSH Private Key:"
+msgstr "Privé-sleutel:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
 msgid "SSH Public Key:"
 msgstr "Vaste sleutel:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "_Gebruikersnaam:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Wachtwoord"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Gateway:"
+
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "_Wachtwoord:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Certificaat-wachtwoord:"
@@ -174,17 +194,6 @@ msgstr "_Gateway:"
 
 #~ msgid "Static Key"
 #~ msgstr "Vaste sleutel"
-
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Als een sleutelrichting wordt gebruikt, moet deze tegenovergesteld "
-#~ "zijn dan die van de VPN-peer. Bijvoorbeeld: als de andere machine ‘1’ "
-#~ "gebruikt, moet deze verbinding ‘0’ gebruiken. Neem contact op met uw "
-#~ "systeembeheerder als u niet weet welke waarde te gebruiken."
 
 #~ msgid "Ad_vanced..."
 #~ msgstr "_Geavanceerd…"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2007-12-02 18:53+0100\n"
 "Last-Translator: Arangel Angov <arangel@linux.net.mk>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
@@ -72,12 +72,16 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr ""
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
+msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+msgid "SSH public key (*.pub)"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
@@ -93,43 +97,50 @@ msgid "<b>Options</b>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
-msgid "Config Script:"
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:5
-#, fuzzy
-msgid "Password:"
-msgstr "_Лозинка:"
+msgid "Config Script:"
+msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Лозинка на сертификат:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 msgid "SSH Private Key:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 msgid "SSH Public Key:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "_Корисничко име:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "_Лозинка:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 #, fuzzy
 msgid "_Gateway:"
 msgstr "_Порта на премин:"
 
-#~ msgid "Certificate password:"
-#~ msgstr "Лозинка на сертификат:"
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "_Лозинка:"
 
 #~ msgid "Add, Remove, and Edit VPN Connections"
 #~ msgstr "Додавајте, отстранувајте и уредувајте VPN врски"

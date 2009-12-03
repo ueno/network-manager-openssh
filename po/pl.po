@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: networkmanager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-09-13 12:58+0200\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
@@ -76,13 +76,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Kompatybilny z serwerem OpenVPN."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Klucz statyczny:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -97,41 +102,57 @@ msgstr "<b>Ogólne</b>"
 msgid "<b>Options</b>"
 msgstr "<b>Uwierzytelnianie</b>"
 
+# FIXME - ktoś zna się na VPN na tyle, żeby określić czym jest ten VPN peer? Wywnioskowałem, że to po prostu serwer VPN (w przeciwieństwie do VPN Passthrough), please confirm (td)
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Jeśli zostanie użyty kierunek klucza, to musi być przeciwny kierunkowi "
+"użytemu na serwerze VPN. Przykładowo, jeśli serwer używa \"1\", te "
+"połączenie musi użyć \"0\". W wypadku braku pewności jakiej wartości użyć, "
+"proszę skontaktować się z administratorem systemu.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Hasło:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Hasło klucza prywatnego:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Klucz prywatny:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Klucz statyczny:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "Nazwa _użytkownika:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Wyświetlanie haseł"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Brama:"
+
+#~ msgid "Password:"
+#~ msgstr "Hasło:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Hasło certyfikatu:"
@@ -181,18 +202,6 @@ msgstr "_Brama:"
 #~ msgid "Static Key"
 #~ msgstr "Klucz statyczny"
 
-# FIXME - ktoś zna się na VPN na tyle, żeby określić czym jest ten VPN peer? Wywnioskowałem, że to po prostu serwer VPN (w przeciwieństwie do VPN Passthrough), please confirm (td)
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Jeśli zostanie użyty kierunek klucza, to musi być przeciwny kierunkowi "
-#~ "użytemu na serwerze VPN. Przykładowo, jeśli serwer używa \"1\", te "
-#~ "połączenie musi użyć \"0\". W wypadku braku pewności jakiej wartości "
-#~ "użyć, proszę skontaktować się z administratorem systemu.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "Zaa_wansowane..."
 
@@ -219,9 +228,6 @@ msgstr "_Brama:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "Zaawansowane opcje OpenVPN"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Hasło klucza prywatnego:"
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "Zdalny adres IP:"

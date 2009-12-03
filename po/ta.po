@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-openvpn.master.ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-10-30 12:25+0530\n"
 "Last-Translator: I. Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
@@ -76,13 +76,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "திறந்த VPN சேவையகத்துடன் ஏற்றவும்."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "நிலையான விசை:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -98,40 +103,55 @@ msgid "<b>Options</b>"
 msgstr "<b>அங்கீகாரம்</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>விசை திசை பயன்படுத்தப்பட்டால், அது VPN பீரில் பயன்படுத்துபடும் எதிரில் இருக்கும்.  "
+"எடுத்துக்காட்டாக, பீர் '1'ஐ பயன்படுத்தினால், இந்த இணைப்பு '0'வை பயன்படுத்தும்.  நீங்கள் எந்த "
+"மதிப்பை பயன்படுத்த வேண்டுமென தெளிவில்லாமல் இருந்தால், உங்கள் கணினி நிர்வாகியை தொடர்பு "
+"கொள்ளவும்.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "கடவுச்சொல்:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "தனிப்பட்ட விசை கடவுச்சொல்:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "தனிப்பட்ட விசை:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "நிலையான விசை:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "(_U) பயனர் பெயர்:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "கடவுச்சொற்களைக் காட்டு"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "கேட்வே (_G):"
+
+#~ msgid "Password:"
+#~ msgstr "கடவுச்சொல்:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "சான்றிதழ் கடவுச்சொல்:"
@@ -181,17 +201,6 @@ msgstr "கேட்வே (_G):"
 #~ msgid "Static Key"
 #~ msgstr "நிலையான விசை"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>விசை திசை பயன்படுத்தப்பட்டால், அது VPN பீரில் பயன்படுத்துபடும் எதிரில் இருக்கும்.  "
-#~ "எடுத்துக்காட்டாக, பீர் '1'ஐ பயன்படுத்தினால், இந்த இணைப்பு '0'வை பயன்படுத்தும்.  நீங்கள் "
-#~ "எந்த மதிப்பை பயன்படுத்த வேண்டுமென தெளிவில்லாமல் இருந்தால், உங்கள் கணினி நிர்வாகியை "
-#~ "தொடர்பு கொள்ளவும்.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "கூடுதல் (_v)..."
 
@@ -218,9 +227,6 @@ msgstr "கேட்வே (_G):"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "திறந்தVPN கூடுதல் விருப்பங்கள்"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "தனிப்பட்ட விசை கடவுச்சொல்:"
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "தொலை IP முகவரி:"

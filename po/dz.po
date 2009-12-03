@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: networkmanager-openvpn.networkmamager-0-6-0=release.pot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2007-03-19 15:41+0530\n"
 "Last-Translator: sonam pelden <sonaa_peldn@yahoo.com>\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
@@ -73,12 +73,16 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr ""
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
+msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+msgid "SSH public key (*.pub)"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
@@ -95,40 +99,49 @@ msgid "<b>Options</b>"
 msgstr "<b>མཐུད་ལམ་མིང་</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
-msgid "Config Script:"
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:5
-#, fuzzy
-msgid "Password:"
-msgstr "ཆོག་ཡིག: (_P)"
+msgid "Config Script:"
+msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:6
-msgid "SSH Private Key:"
+msgid "SSH Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:7
-msgid "SSH Public Key:"
+msgid "SSH Private Key:"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:8
+msgid "SSH Public Key:"
+msgstr ""
+
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "ལག་ལེན་པའི་མིང་:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "ཆོག་ཡིག་"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 #, fuzzy
 msgid "_Gateway:"
 msgstr "འཛུལ་སྒོའི་འདྲེན་ལམ: (_P)"
+
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "ཆོག་ཡིག: (_P)"
 
 #~ msgid "Add, Remove, and Edit VPN Connections"
 #~ msgstr "ཝི་པི་ཨེན་མཐུད་ལམ་ཚུ་ཁ་སྐོང་བརྐྱབ་ནི་རྩ་བསྐྲད་གཏང་ནི་དང་ཞུན་དག་འབད"

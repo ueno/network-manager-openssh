@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenVPN xx\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2007-11-02 14:45+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -69,12 +69,16 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr ""
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
+msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+msgid "SSH public key (*.pub)"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
@@ -90,43 +94,50 @@ msgid "<b>Options</b>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
-msgid "Config Script:"
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:5
-#, fuzzy
-msgid "Password:"
-msgstr "_Passord:"
+msgid "Config Script:"
+msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Passord for sertifikat:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 msgid "SSH Private Key:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 msgid "SSH Public Key:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "Br_ukernavn:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "_Passord:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 #, fuzzy
 msgid "_Gateway:"
 msgstr "_Port på gateway:"
 
-#~ msgid "Certificate password:"
-#~ msgstr "Passord for sertifikat:"
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "_Passord:"
 
 #~ msgid "Add, Remove, and Edit VPN Connections"
 #~ msgstr "Legg til, fjern og regiger VPN-tilkoblinger"

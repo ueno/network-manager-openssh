@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2006-06-17 22:54+0200\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -72,12 +72,16 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr ""
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
+msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+msgid "SSH public key (*.pub)"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
@@ -94,39 +98,48 @@ msgid "<b>Options</b>"
 msgstr "Informácie o spojení"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
-msgid "Config Script:"
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:5
-#, fuzzy
-msgid "Password:"
-msgstr "_Heslo:"
+msgid "Config Script:"
+msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:6
-msgid "SSH Private Key:"
+msgid "SSH Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:7
-msgid "SSH Public Key:"
+msgid "SSH Private Key:"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:8
+msgid "SSH Public Key:"
+msgstr ""
+
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "Meno používateľa:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Heslo:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "_Heslo:"
 
 #~ msgid "Add, Remove, and Edit VPN Connections"
 #~ msgstr "Pridať, odstrániť a upraviť VPN spojenia"

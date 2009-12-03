@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-openvpn trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-02-12 16:49+0600\n"
 "Last-Translator: Артём Попов <artfwo@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -73,13 +73,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Совместим с сервером OpenVPN."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Статический ключ:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -95,40 +100,56 @@ msgid "<b>Options</b>"
 msgstr "<b>Аутентификация</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Если используется направление ключа, оно должно быть противоположно "
+"направлению, которое использует вторая сторона. Например, если вторая "
+"сторона использует \"1\", это соединение должно использовать \"0\". Если вы "
+"не уверены, какое значение использовать, свяжитесь с системным "
+"администратором.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Пароль:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Пароль личного ключа:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Личный ключ:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Статический ключ:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "_Имя пользователя:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Показать пароли"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Шлюз:"
+
+#~ msgid "Password:"
+#~ msgstr "Пароль:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Пароль сертификата:"
@@ -178,18 +199,6 @@ msgstr "_Шлюз:"
 #~ msgid "Static Key"
 #~ msgstr "Статический ключ"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Если используется направление ключа, оно должно быть противоположно "
-#~ "направлению, которое использует вторая сторона. Например, если вторая "
-#~ "сторона использует \"1\", это соединение должно использовать \"0\". Если "
-#~ "вы не уверены, какое значение использовать, свяжитесь с системным "
-#~ "администратором.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "_Дополнительно..."
 
@@ -216,9 +225,6 @@ msgstr "_Шлюз:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "Дополнительные параметры OpenVPN"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Пароль личного ключа:"
 
 #~ msgid "Security"
 #~ msgstr "Безопасность"

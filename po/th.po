@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2007-02-02 20:53+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n.opentle.org>\n"
@@ -69,12 +69,16 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr ""
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
+msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+msgid "SSH public key (*.pub)"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
@@ -91,42 +95,49 @@ msgid "<b>Options</b>"
 msgstr "<b>ข้อมูลเสริม</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
-msgid "Config Script:"
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:5
-#, fuzzy
-msgid "Password:"
-msgstr "_รหัสผ่าน:"
+msgid "Config Script:"
+msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "รหัสผ่านใบรับรอง:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 msgid "SSH Private Key:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 msgid "SSH Public Key:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "ชื่อผู้ใช้:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "รหัสผ่าน"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "เ_กตเวย์:"
 
-#~ msgid "Certificate password:"
-#~ msgstr "รหัสผ่านใบรับรอง:"
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "_รหัสผ่าน:"
 
 #~ msgid "Add, Remove, and Edit VPN Connections"
 #~ msgstr "เพิ่ม, ลบ และแก้ไข การเชื่อมต่อ VPN"

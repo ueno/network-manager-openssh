@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-09-28 21:59+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
@@ -84,13 +84,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Compatible con el servidor OpenVPN."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Clave estática:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -106,40 +111,55 @@ msgid "<b>Options</b>"
 msgstr "<b>Autenticación</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Si se usa la dirección de la clave, debe ser la opuesta a la usada en el "
+"par VPN. Por ejemplo, si el par usa «1», esta conexión debe usar «0». Si no "
+"está seguro de qué valor usar, contacte con el administrador de su sistema.</"
+"i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Contraseña:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Contraseña de la clave privada:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Clave privada:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Clave estática:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "Nombre de _usuario:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Mostrar contraseñas"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Pasarela:"
+
+#~ msgid "Password:"
+#~ msgstr "Contraseña:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Contraseña del certificado:"
@@ -189,17 +209,6 @@ msgstr "_Pasarela:"
 #~ msgid "Static Key"
 #~ msgstr "Clave estática"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Si se usa la dirección de la clave, debe ser la opuesta a la usada en "
-#~ "el par VPN. Por ejemplo, si el par usa «1», esta conexión debe usar «0». Si "
-#~ "no está seguro de qué valor usar, contacte con el administrador de su "
-#~ "sistema.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "A_vanzado…"
 
@@ -229,9 +238,6 @@ msgstr "_Pasarela:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "Opciones avanzadas de OpenVPN"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Contraseña de la clave privada:"
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "Dirección IP remota:"

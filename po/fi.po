@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2008-11-29 20:00+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -71,13 +71,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Yhteensopiva OpenVPN-palvelimen kanssa."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Kiinteä avain:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -93,40 +98,55 @@ msgid "<b>Options</b>"
 msgstr "<b>Tunnistautuminen</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Jos avaimen suuntaa käytetään, täytyy annetun arvon olla vastkkainen kuin "
+"VPN-yhteyden toisessa päässä. Jos esimerkiksi vastapäässä on arvo 1, tämän "
+"täytyy olla 0. Jos et tiedä mitä tässä pitäisi olla, kysy VPN-yhteytesi "
+"ylläpitäjältä lisätietoja.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Salasana:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Salaisen avaimen salasana:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Salainen avain:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Kiinteä avain:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "Käyttäjätunnus:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Näytä salasanat"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Yhdyskäytävä:"
+
+#~ msgid "Password:"
+#~ msgstr "Salasana:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Varmennettu salasana:"
@@ -170,17 +190,6 @@ msgstr "_Yhdyskäytävä:"
 #~ msgid "Static Key"
 #~ msgstr "Staattinen avain"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Jos avaimen suuntaa käytetään, täytyy annetun arvon olla vastkkainen "
-#~ "kuin VPN-yhteyden toisessa päässä. Jos esimerkiksi vastapäässä on arvo 1, "
-#~ "tämän täytyy olla 0. Jos et tiedä mitä tässä pitäisi olla, kysy VPN-"
-#~ "yhteytesi ylläpitäjältä lisätietoja.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "_Lisäasetukset..."
 
@@ -204,9 +213,6 @@ msgstr "_Yhdyskäytävä:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "OpenVPN-lisäasetukset"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Salaisen avaimen salasana:"
 
 #~ msgid "Type:"
 #~ msgstr "Tyyppi:"

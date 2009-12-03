@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-10-28 23:34+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -72,13 +72,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Kompatibel med OpenVPN-servern."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Statisk nyckel:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -94,40 +99,55 @@ msgid "<b>Options</b>"
 msgstr "<b>Autentisering</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Om nyckelriktning används så måste den vara motsatsen till den som "
+"används på VPN-parten.  Till exempel om parten använder \"1\" måste denna "
+"anslutning vara \"0\".  Om du är osäker vilket värde du ska använda kan du "
+"kontakta din systemadministratör.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Lösenord:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Lösenord för privat nyckel:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Privat nyckel:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Statisk nyckel:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "Användarnamn:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Visa lösenord"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Gateway:"
+
+#~ msgid "Password:"
+#~ msgstr "Lösenord:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Certifikatlösenord:"
@@ -177,17 +197,6 @@ msgstr "_Gateway:"
 #~ msgid "Static Key"
 #~ msgstr "Statisk nyckel"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Om nyckelriktning används så måste den vara motsatsen till den som "
-#~ "används på VPN-parten.  Till exempel om parten använder \"1\" måste denna "
-#~ "anslutning vara \"0\".  Om du är osäker vilket värde du ska använda kan "
-#~ "du kontakta din systemadministratör.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "A_vancerat..."
 
@@ -214,9 +223,6 @@ msgstr "_Gateway:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "Avancerade alternativ för OpenVPN"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Lösenord för privat nyckel:"
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "Fjärr-IP-adress:"

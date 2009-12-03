@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-03-12 13:36+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -74,13 +74,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Suderinamas su OpenVPN serveriu."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Statinis raktas:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -96,40 +101,55 @@ msgid "<b>Options</b>"
 msgstr "<b>Tapatybės nustatymas</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Jeigu naudojama rakto kryptis, ji turi būti priešinga naudojamai VPN "
+"lygiarangyje. Pavyzdžiui, jeigu lygiarangyje naudojama „1“, šiam "
+"prisijungimui turi būti naudojama „0“. Jeigu nežinote, kokią reikšmę "
+"naudoti, susisiekite su savo sistemos administratoriumi.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Slaptažodis:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Asmeninio rakto slaptažodis:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Asmeninis raktas:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Statinis raktas:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "_Naudotojo vardas:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Rodyti slaptažodžius"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "Š_liuzas:"
+
+#~ msgid "Password:"
+#~ msgstr "Slaptažodis:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Liudijimo slaptažodis:"
@@ -179,17 +199,6 @@ msgstr "Š_liuzas:"
 #~ msgid "Static Key"
 #~ msgstr "Statinis raktas"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Jeigu naudojama rakto kryptis, ji turi būti priešinga naudojamai VPN "
-#~ "lygiarangyje. Pavyzdžiui, jeigu lygiarangyje naudojama „1“, šiam "
-#~ "prisijungimui turi būti naudojama „0“. Jeigu nežinote, kokią reikšmę "
-#~ "naudoti, susisiekite su savo sistemos administratoriumi.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "Išsa_miau..."
 
@@ -216,9 +225,6 @@ msgstr "Š_liuzas:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "Išsamesnės OpenVPN parinktys"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Asmeninio rakto slaptažodis:"
 
 #~ msgid "Security"
 #~ msgstr "Saugumas"

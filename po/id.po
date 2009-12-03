@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-09-25 19:00+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: \n"
@@ -69,13 +69,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Kompatibel dengan server OpenVPN."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Kunci Statik:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -91,40 +96,55 @@ msgid "<b>Options</b>"
 msgstr "<b>Otentikasi</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Bila arah kunci dipakai, ini mesti lawan dari yang dipakai pada pasangan "
+"VPN. Sebagai contoh, bila pasangan memakai '1', sambungan ini mesti memakai "
+"'0'. Bila Anda tak yakin nilai apa yang dipakai, hubungi administrator "
+"sistem Anda.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Kata Sandi:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Kata Sandi Kunci Privat:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Kunci Privat:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Kunci Statik:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "Nama Pengg_una:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Tampilkan kata sandi"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Gateway:"
+
+#~ msgid "Password:"
+#~ msgstr "Kata Sandi:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Kata sandi sertifikat:"
@@ -174,17 +194,6 @@ msgstr "_Gateway:"
 #~ msgid "Static Key"
 #~ msgstr "Kunci Statik"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Bila arah kunci dipakai, ini mesti lawan dari yang dipakai pada "
-#~ "pasangan VPN. Sebagai contoh, bila pasangan memakai '1', sambungan ini "
-#~ "mesti memakai '0'. Bila Anda tak yakin nilai apa yang dipakai, hubungi "
-#~ "administrator sistem Anda.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "Tingkat _Lanjut..."
 
@@ -211,9 +220,6 @@ msgstr "_Gateway:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "Opsi Tingkat Lanjut OpenVPN"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Kata Sandi Kunci Privat:"
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "Alamat IP Jauh:"

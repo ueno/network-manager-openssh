@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn.head\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2008-08-19 09:14-0800\n"
 "Last-Translator: Zabeeh Khan <zabeehkhan@gmail.com>\n"
 "Language-Team: Pashto <pathanisation@googlegroups.com>\n"
@@ -72,13 +72,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr ".پالنګر سره جوړ OpenVPN"
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr ":ولاړه کيلۍ"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -94,41 +99,51 @@ msgid "<b>Options</b>"
 msgstr "<b>کرونه</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
-msgid "Config Script:"
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:5
-#, fuzzy
-msgid "Password:"
-msgstr ":تېرنويې_"
+msgid "Config Script:"
+msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:6
 #, fuzzy
-msgid "SSH Private Key:"
+msgid "SSH Private Key Password:"
 msgstr "وګړيزه کيلۍ:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
+msgid "SSH Private Key:"
+msgstr "وګړيزه کيلۍ:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:8
+#, fuzzy
 msgid "SSH Public Key:"
 msgstr ":ولاړه کيلۍ"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr ":کارننوم_"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "تېرنويې"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr ":_ورلار"
+
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr ":تېرنويې_"
 
 #~ msgid "Certificate password:"
 #~ msgstr "د بريليک تېرنويې:"

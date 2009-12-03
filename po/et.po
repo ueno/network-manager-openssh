@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-11-01 18:53+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
@@ -73,13 +73,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "Ühildub OpenVPN serveriga."
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "Püsivõti:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -95,40 +100,54 @@ msgid "<b>Options</b>"
 msgstr "<b>Autentimine</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>Kui kasutatakse võtme suunda, peab see olema vastupidine teise VPN'i "
+"võtme suunale. Näitaks, kui teine masina kasutab '1', peab siin olema '0'. "
+"Kui sa ei tea millist väärtust kasutada, küsi süsteemiadministraatorilt.</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "Parool:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "Privaatvõtme parool:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "Privaatvõti:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "Püsivõti:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "_Kasutajanimi:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "Näita paroole"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Gateway:"
+
+#~ msgid "Password:"
+#~ msgstr "Parool:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "Sertifikaadi parool:"
@@ -178,17 +197,6 @@ msgstr "_Gateway:"
 #~ msgid "Static Key"
 #~ msgstr "Püsivõti"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>Kui kasutatakse võtme suunda, peab see olema vastupidine teise VPN'i "
-#~ "võtme suunale. Näitaks, kui teine masina kasutab '1', peab siin olema "
-#~ "'0'. Kui sa ei tea millist väärtust kasutada, küsi "
-#~ "süsteemiadministraatorilt.</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "_Laiendatud..."
 
@@ -215,9 +223,6 @@ msgstr "_Gateway:"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "OpenVPN laiendatud sätted"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "Privaatvõtme parool:"
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "Kaugmasina IP-aadress:"

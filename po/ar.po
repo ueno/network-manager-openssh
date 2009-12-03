@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2007-12-26 09:06+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -74,13 +74,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr ""
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "مفتاح مشترَك:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -97,42 +102,52 @@ msgid "<b>Options</b>"
 msgstr "<b>اسم الإتصال</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
-msgid "Config Script:"
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
 msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:5
-#, fuzzy
-msgid "Password:"
-msgstr "_كلمة السر:"
+msgid "Config Script:"
+msgstr ""
 
 #: ../properties/nm-sshtun-dialog.glade.h:6
 #, fuzzy
-msgid "SSH Private Key:"
+msgid "SSH Private Key Password:"
 msgstr "مفتاح مشترَك:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
-msgid "SSH Public Key:"
+msgid "SSH Private Key:"
 msgstr "مفتاح مشترَك:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
+msgid "SSH Public Key:"
+msgstr "مفتاح مشترَك:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:9
+#, fuzzy
 msgid "SSH Usename:"
 msgstr "اسم المستخدم:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "كلمة السّر"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 #, fuzzy
 msgid "_Gateway:"
 msgstr "منفذ ال_بوّابة:"
+
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "_كلمة السر:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "كلمة سر الشهادة:"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-openvpn 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 07:17+0900\n"
+"POT-Creation-Date: 2009-12-03 14:56+0900\n"
 "PO-Revision-Date: 2009-04-23 20:29+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
@@ -67,13 +67,18 @@ msgstr ""
 msgid "Compatible with the OpenSSH server."
 msgstr "兼容於 OpenVPN 伺服器。"
 
-#: ../properties/nm-sshtun.c:272
+#: ../properties/nm-sshtun.c:292
 msgid "Point-to-Point"
 msgstr ""
 
-#: ../properties/nm-sshtun.c:279
+#: ../properties/nm-sshtun.c:299
 msgid "Ethernet"
 msgstr ""
+
+#: ../properties/nm-sshtun.c:342
+#, fuzzy
+msgid "SSH public key (*.pub)"
+msgstr "靜態密碼匙:"
 
 #: ../properties/nm-sshtun-dialog.glade.h:1
 msgid " "
@@ -89,40 +94,54 @@ msgid "<b>Options</b>"
 msgstr "<b>驗證</b>"
 
 #: ../properties/nm-sshtun-dialog.glade.h:4
+#, fuzzy
+msgid ""
+"<i>Enter the path to the client configure script on the remote host.  If you "
+"are unsure what value to use, contact your system administrator.</i>"
+msgstr ""
+"<i>如果使用密碼匙方向，在 VPN 對等端也同樣必須使用。舉例來說，如果對等端使用"
+"「1」，這個連線必須使用「0」。如果你不確定要使用什麼數值，請聯絡你的系統管理"
+"員。</i>"
+
+#: ../properties/nm-sshtun-dialog.glade.h:5
 msgid "Config Script:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:5
-msgid "Password:"
-msgstr "密碼:"
-
 #: ../properties/nm-sshtun-dialog.glade.h:6
+#, fuzzy
+msgid "SSH Private Key Password:"
+msgstr "私密密碼匙密碼:"
+
+#: ../properties/nm-sshtun-dialog.glade.h:7
 #, fuzzy
 msgid "SSH Private Key:"
 msgstr "私密密碼匙:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:7
+#: ../properties/nm-sshtun-dialog.glade.h:8
 #, fuzzy
 msgid "SSH Public Key:"
 msgstr "靜態密碼匙:"
 
-#: ../properties/nm-sshtun-dialog.glade.h:8
+#: ../properties/nm-sshtun-dialog.glade.h:9
 #, fuzzy
 msgid "SSH Usename:"
 msgstr "使用者名稱(_U):"
 
-#: ../properties/nm-sshtun-dialog.glade.h:9
+#: ../properties/nm-sshtun-dialog.glade.h:10
 #, fuzzy
 msgid "Show Password"
 msgstr "顯示密碼"
 
-#: ../properties/nm-sshtun-dialog.glade.h:10
+#: ../properties/nm-sshtun-dialog.glade.h:11
 msgid "Tunnel Mode:"
 msgstr ""
 
-#: ../properties/nm-sshtun-dialog.glade.h:11
+#: ../properties/nm-sshtun-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "通訊閘(_G):"
+
+#~ msgid "Password:"
+#~ msgstr "密碼:"
 
 #~ msgid "Certificate password:"
 #~ msgstr "證書密碼:"
@@ -172,16 +191,6 @@ msgstr "通訊閘(_G):"
 #~ msgid "Static Key"
 #~ msgstr "靜態密碼匙"
 
-#~ msgid ""
-#~ "<i>If key direction is used, it must be the opposite of that used on the "
-#~ "VPN peer.  For example, if the peer uses '1', this connection must use "
-#~ "'0'.  If you are unsure what value to use, contact your system "
-#~ "administrator.</i>"
-#~ msgstr ""
-#~ "<i>如果使用密碼匙方向，在 VPN 對等端也同樣必須使用。舉例來說，如果對等端使"
-#~ "用「1」，這個連線必須使用「0」。如果你不確定要使用什麼數值，請聯絡你的系統"
-#~ "管理員。</i>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "進階(_V)..."
 
@@ -208,9 +217,6 @@ msgstr "通訊閘(_G):"
 
 #~ msgid "OpenVPN Advanced Options"
 #~ msgstr "OpenVPN 進階選項"
-
-#~ msgid "Private Key Password:"
-#~ msgstr "私密密碼匙密碼:"
 
 #~ msgid "Remote IP Address:"
 #~ msgstr "遠端 IP 位址:"
