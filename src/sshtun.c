@@ -382,7 +382,8 @@ start_child (struct sshtun_child_st *child)
 		close (child->tun_fd);
 		return -1;
 	}
-	password = recv_event (&handle->event_rfd);
+	if (ret > 0)
+		password = recv_event (&handle->event_rfd);
 
 	ret = open_ssh (&child->ssh_channel, &child->ssh_session,
 					child->tcp_fd,	handle->params.user,

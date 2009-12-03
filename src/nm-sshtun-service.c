@@ -424,13 +424,16 @@ event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
 {
 	NMVPNPlugin *plugin = (NMVPNPlugin *)user_data;
 	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
-	sshtun_state_t old_state = sshtun_state (priv->handle), new_state;
+	sshtun_state_t old_state, new_state;
 
-	new_state = sshtun_dispatch_event (priv->handle);
+	old_state = sshtun_state (priv->handle);
+	sshtun_dispatch_event (priv->handle);
+	new_state = sshtun_state (priv->handle);
 
-	if (new_state == SSHTUN_STATE_NEED_PASSWORD) {
+	if (new_state == SSHTUN_STATE_NEED_PASSWORD && priv->password) {
 		sshtun_send_event (priv->handle, priv->password);
 		g_free (priv->password);
+		priv->password = NULL;
 		return TRUE;
 	}
 
