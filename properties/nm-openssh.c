@@ -213,6 +213,9 @@ stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 	g_signal_emit_by_name (OPENSSH_PLUGIN_UI_WIDGET (user_data), "changed");
 }
 
+static void public_key_selection_changed_cb (GtkWidget *, gpointer);
+static void private_key_selection_changed_cb (GtkWidget *, gpointer);
+
 static void
 public_key_selection_changed_cb (GtkWidget *widget, gpointer user_data)
 {
@@ -238,12 +241,75 @@ public_key_selection_changed_cb (GtkWidget *widget, gpointer user_data)
 		p = strrchr (private_key, '.');
 		if (p && !strcmp (p, ".pub")) {
 			*p = '\0';
-			if (g_file_test (private_key, G_FILE_TEST_EXISTS))
+			if (g_file_test (private_key, G_FILE_TEST_EXISTS)) {
+				g_signal_handlers_disconnect_matched (G_OBJECT (private_key_chooser),
+													  G_SIGNAL_MATCH_FUNC,
+													  0, 0, NULL,
+													  G_CALLBACK (private_key_selection_changed_cb),
+													  user_data);
 				gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (private_key_chooser), private_key);
+				g_signal_connect (G_OBJECT (private_key_chooser),
+								  "selection-changed",
+								  G_CALLBACK (private_key_selection_changed_cb),
+								  user_data);
+			}
 		}
 		g_free (private_key);
 	}
 	stuff_changed_cb (widget, user_data);
+}
+
+static void
+private_key_selection_changed_cb (GtkWidget *widget, gpointer user_data)
+{
+	OpensshPluginUiWidget *self = OPENSSH_PLUGIN_UI_WIDGET (user_data);
+	OpensshPluginUiWidgetPrivate *priv = OPENSSH_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	GtkWidget *public_key_chooser;
+	const char *private_key;
+	char *public_key;
+
+	private_key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
+	if (!private_key || !strlen (private_key)) {
+		stuff_changed_cb (widget, user_data);
+		return;
+	}
+
+	/* Construct the public key filename from the private key filename. */
+	public_key_chooser = glade_xml_get_widget (priv->xml, "public_key_chooser");
+	public_key = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (public_key_chooser));
+	if (!public_key || !strlen (public_key)) {
+		public_key = g_malloc0 (strlen (private_key) + 5);
+		strcpy (public_key, private_key);
+		strcat (public_key, ".pub");
+		if (g_file_test (public_key, G_FILE_TEST_EXISTS)) {
+			g_signal_handlers_disconnect_matched (G_OBJECT (public_key_chooser),
+												  G_SIGNAL_MATCH_FUNC,
+												  0, 0, NULL,
+												  G_CALLBACK (public_key_selection_changed_cb),
+												  user_data);
+			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (public_key_chooser), public_key);
+			g_signal_connect (G_OBJECT (public_key_chooser),
+							  "selection-changed",
+							  G_CALLBACK (public_key_selection_changed_cb),
+							  user_data);
+		}
+		g_free (public_key);
+	}
+	stuff_changed_cb (widget, user_data);
+}
+
+static gboolean
+not_public_key_filter (const GtkFileFilterInfo *filter_info, gpointer data)
+{
+	char *p;
+
+	if (!filter_info->filename)
+		return FALSE;
+
+	p = strrchr (filter_info->filename, '.');
+	if (p && !strcasecmp (p, ".pub"))
+		return FALSE;
+	return TRUE;
 }
 
 static gboolean
@@ -255,7 +321,7 @@ init_plugin_ui (OpensshPluginUiWidget *self, NMConnection *connection, GError **
 	GtkWidget *show_password;
 	GtkListStore *store;
 	GtkTreeIter iter;
-	GtkFileFilter *public_key_filter;
+	GtkFileFilter *public_key_filter, *private_key_filter;
 	int active = -1;
 	gboolean is_tap = FALSE;
 	const char *value;
@@ -343,6 +409,9 @@ init_plugin_ui (OpensshPluginUiWidget *self, NMConnection *connection, GError **
 	gtk_file_filter_add_pattern (GTK_FILE_FILTER (public_key_filter), "*.pub");
 	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget),
 								 GTK_FILE_FILTER (public_key_filter));
+	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
+	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
+	                                   _("Choose an SSH public key..."));
 	g_signal_connect (G_OBJECT (widget), "selection-changed",
 					  G_CALLBACK (public_key_selection_changed_cb), self);
 
@@ -355,8 +424,19 @@ init_plugin_ui (OpensshPluginUiWidget *self, NMConnection *connection, GError **
 		if (value)
 			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
 	}
+	private_key_filter = gtk_file_filter_new ();
+	gtk_file_filter_set_name (GTK_FILE_FILTER (private_key_filter),
+							  _("SSH private key"));
+	gtk_file_filter_add_custom (GTK_FILE_FILTER (private_key_filter),
+								GTK_FILE_FILTER_FILENAME,
+								not_public_key_filter, NULL, NULL);
+	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget),
+								 GTK_FILE_FILTER (private_key_filter));
+	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
+	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
+	                                   _("Choose an SSH private key..."));
 	g_signal_connect (G_OBJECT (widget), "selection-changed",
-					  G_CALLBACK (stuff_changed_cb), self);
+					  G_CALLBACK (private_key_selection_changed_cb), self);
 
 	widget = glade_xml_get_widget (priv->xml, "password_entry");
 	if (!widget)
