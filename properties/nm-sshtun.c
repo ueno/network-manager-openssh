@@ -146,7 +146,7 @@ check_validity (SshtunPluginUiWidget *self, GError **error)
 		             NM_SSHTUN_KEY_USER);
 		return FALSE;
 	}
-	widget = glade_xml_get_widget (priv->xml, "config_script");
+	widget = glade_xml_get_widget (priv->xml, "config_script_entry");
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
