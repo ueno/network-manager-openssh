@@ -409,25 +409,26 @@ event_watch_cb (GIOChannel *channel, GIOCondition cond, gpointer user_data)
 {
 	NMVPNPlugin *plugin = (NMVPNPlugin *)user_data;
 	NMSshtunPluginPrivate *priv = NM_SSHTUN_PLUGIN_GET_PRIVATE (plugin);
-	sshtun_state_t old_state, new_state;
 
 	while (1) {
-		old_state = sshtun_state (priv->handle);
-		
+		sshtun_state_t old_state = sshtun_state (priv->handle);
 		if (sshtun_dispatch_event (priv->handle) < 0)
 			break;
 
-		new_state = sshtun_state (priv->handle);
-
-		if (new_state == SSHTUN_STATE_NEED_PASSWORD && priv->password) {
-			sshtun_send_event (priv->handle, priv->password);
-			g_free (priv->password);
-			priv->password = NULL;
-		}
-
-		if (old_state == SSHTUN_STATE_CONFIGURING
-			&& new_state == SSHTUN_STATE_CONFIGURED) {
-			nm_sshtun_send_ip4_config (priv->handle);
+		switch (sshtun_state (priv->handle)) {
+		case SSHTUN_STATE_NEED_PASSWORD:
+			if (priv->password) {
+				sshtun_send_event (priv->handle, priv->password);
+				g_free (priv->password);
+				priv->password = NULL;
+			}
+			break;
+		case SSHTUN_STATE_CONFIGURED:
+			if (old_state == SSHTUN_STATE_CONFIGURING)
+				nm_sshtun_send_ip4_config (priv->handle);
+			break;
+		default:
+			break;
 		}
 	}
 
