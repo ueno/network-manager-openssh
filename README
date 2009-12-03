@@ -101,7 +101,6 @@ OpenSSH TUN/TAP tunneling involves the problems regarding TCP over
 TCP: http://sites.inka.de/bigred/devel/tcp-tcp.html.  For a serious
 use, consider using OpenVPN (or other VPN software).
 
-The development started just to demonstrate the PermitRootLogin
-setting (on the remote host) and the root privileges (on the local
-host) are not really necessary for the OpenSSH TUN/TAP functionality
-working, though most online resources assume them.
+The development started just to demonstrate the root privileges (on
+the local host) are not really necessary for the OpenSSH TUN/TAP
+functionality working, though most online resources assume them.
