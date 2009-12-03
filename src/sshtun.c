@@ -376,7 +376,7 @@ start_child (struct sshtun_child_st *child)
 	send_event (&handle->event_wfd, "NEED_PASSWORD");
 	pfd.fd = handle->event_rfd.fd;
 	pfd.events = POLLIN;
-	ret = poll (&pfd, 1, 1000);
+	ret = poll (&pfd, 1, 10000);
 	if (ret < 0)  {
 		close (child->tcp_fd);
 		close (child->tun_fd);
@@ -385,6 +385,12 @@ start_child (struct sshtun_child_st *child)
 	if (ret > 0)
 		password = recv_event (&handle->event_rfd);
 
+	{
+		FILE *fp;
+		fp = fopen ("/tmp/sshtun.log", "a");
+		fprintf (fp, "password: %s\n", password);
+		fclose (fp);
+	}
 	ret = open_ssh (&child->ssh_channel, &child->ssh_session,
 					child->tcp_fd,	handle->params.user,
 					handle->params.public_key, handle->params.private_key,
@@ -986,12 +992,6 @@ sshtun_start (sshtun_handle_t handle)
 			sshtun_stop (handle);
 			return -1;
 		}
-		ret = fcntl (handle->event_wfd.fd, F_SETFL, O_NONBLOCK);
-		if (ret == -1) {
-			DBG("fcntl: %s\n", strerror (errno));
-			sshtun_stop (handle);
-			return -1;
-		}
 		parent->pid = pid;
 
 		return 0;
@@ -1013,11 +1013,6 @@ sshtun_start (sshtun_handle_t handle)
 		child->common.event_wfd.fd = pr[1];
 
 		ret = fcntl (child->common.event_rfd.fd, F_SETFL, O_NONBLOCK);
-		if (ret == -1) {
-			DBG("fcntl: %s\n", strerror (errno));
-			goto child_error;
-		}
-		ret = fcntl (child->common.event_wfd.fd, F_SETFL, O_NONBLOCK);
 		if (ret == -1) {
 			DBG("fcntl: %s\n", strerror (errno));
 			goto child_error;
@@ -1153,41 +1148,30 @@ sshtun_dispatch_event (sshtun_handle_t handle)
 
 	parent = (struct sshtun_parent_st *)handle;
 	event = recv_event (&handle->event_rfd);
+	if (!event)
+		return -1;
 
-	if (!strncmp (event, "NEED_PASSWORD", 13)) {
+	if (!strncmp (event, "NEED_PASSWORD", 13))
 		parent->state = SSHTUN_STATE_NEED_PASSWORD;
-		return 0;
-	}
-
-	if (!strncmp (event, "BEGIN_CONFIG", 12)) {
+	else if (!strncmp (event, "BEGIN_CONFIG", 12))
 		parent->state = SSHTUN_STATE_CONFIGURING;
-		return 0;
-	}
-
-	if (!strncmp (event, "END_CONFIG", 10)) {
+	else if (!strncmp (event, "END_CONFIG", 10)) {
 		parent->state = SSHTUN_STATE_CONFIGURED;
 		ret = config_tun (&handle->params, handle->tun_mode);
 		if (ret < 0) {
 			sshtun_stop (handle);
 			return -1;
 		}
-		return 0;
-	}
-
-	if (parent->state == SSHTUN_STATE_CONFIGURING) {
+	} else if (parent->state == SSHTUN_STATE_CONFIGURING) {
 		ret = add_config (&handle->params, event);
 		if (ret < 0) {
 			sshtun_stop (handle);
 			return -1;
 		}
-	}
-
-	if (!strncmp (event, "START", 5)) {
+	} else if (!strncmp (event, "START", 5))
 		parent->state = SSHTUN_STATE_CONNECTED;
-		return 0;
-	}
 
-	return -1;
+	return 0;
 }
 
 int
