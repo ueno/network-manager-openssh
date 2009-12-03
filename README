@@ -1,7 +1,7 @@
 NetworkManager-openssh -- OpenSSH pseudo VPN plugin for NetworkManager
 
 OpenSSH supports IP/Ethernet tunneling using TUN/TAP interface.  This
-plugin enables to use that feature from NetworkManager.
+plugin makes it easy to use the feature from NetworkManager.
 
 * Build
 
