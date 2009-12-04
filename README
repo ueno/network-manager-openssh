@@ -42,7 +42,7 @@ This plugin makes it easy to use the feature from NetworkManager.
  ^D
  remote$ chmod +x nm_openssh_config
 
- # Create a keypair with an empty passphrase.
+ # Create a keypair and add the public key to the remote keyring.
  local$ ssh-keygen -t rsa -f ~/.ssh/tun
  local$ { echo -n 'tunnel=0 '; cat ~/.ssh/tun.pub } | \
         ssh remote 'cat >> ~/.ssh/authorized_keys'
