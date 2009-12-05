@@ -355,14 +355,14 @@ init_plugin_ui (OpensshPluginUiWidget *self, NMConnection *connection, GError **
 	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_INT);
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter,
-	                    COL_TUN_MODE_NAME, _("Point-to-Point"),
+	                    COL_TUN_MODE_NAME, _("Point-to-Point (TUN)"),
 	                    COL_TUN_MODE, NM_OPENSSH_TUN_MODE_TUN,
 	                    -1);
 	if (active == -1 && !is_tap)
 		active = 0;
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter,
-	                    COL_TUN_MODE_NAME, _("Ethernet"),
+	                    COL_TUN_MODE_NAME, _("Ethernet (TAP)"),
 	                    COL_TUN_MODE, NM_OPENSSH_TUN_MODE_TAP,
 	                    -1);
 	if (active == -1 && is_tap)

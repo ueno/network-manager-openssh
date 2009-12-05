@@ -29,8 +29,8 @@ This plugin makes it easy to use the feature from NetworkManager.
  remote$ sudo sh -c 'echo PermitTunnel yes >> /etc/sshd/sshd_config'
  remote$ sudo /etc/init.d/ssh restart
 
- # Create a client IP config script
- remote$ cat > nm_openssh_config
+ # Create a client IP setup script
+ remote$ cat > nm_openssh_setup
  #!/bin/sh
 
  cat <<EOF
@@ -40,7 +40,7 @@ This plugin makes it easy to use the feature from NetworkManager.
  GW_ADDR <remote-ip>
  EOF
  ^D
- remote$ chmod +x nm_openssh_config
+ remote$ chmod +x nm_openssh_setup
 
  # Create a keypair and add the public key to the remote keyring.
  local$ ssh-keygen -t rsa -f ~/.ssh/tun
@@ -55,7 +55,7 @@ NetworkManager-openssh internally spawns a setuid'ed process which
 does the actual job of relaying IP/Ethernet packets over SSH.
 
 The child process first opens "tun@openssh.com" channel (see
-openssh/PROTOCOL), and then opens another channel to get an IP
+openssh/PROTOCOL), and then opens another channel to get a client IP
 configuration, which is a poor man's approach not to require DHCP/PPP
 server setup.
 

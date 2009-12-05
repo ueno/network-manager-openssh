@@ -124,7 +124,7 @@
                         <child>
                           <widget class="GtkLabel" id="label6">
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">Config Script:</property>
+                            <property name="label" translatable="yes">Remote Setup Script:</property>
                           </widget>
                           <packing>
                             <property name="top_attach">1</property>
@@ -173,7 +173,7 @@
                         <child>
                           <widget class="GtkLabel" id="label7">
                             <property name="visible">True</property>
-                            <property name="label" translatable="yes">&lt;i&gt;Enter the path to the client configure script on the remote host.  If you are unsure what value to use, contact your system administrator.&lt;/i&gt;</property>
+                            <property name="label" translatable="yes">&lt;i&gt;Enter the path to the client IP setup script on the remote host.  If you are unsure what value to use, contact your system administrator.&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="wrap">True</property>
                           </widget>
