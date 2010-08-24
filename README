@@ -13,15 +13,17 @@ This plugin makes it easy to use the feature from NetworkManager.
 
 * Setup
 
- # Build tunctl program with "pointopoint" support.
- remote$ apt-get source uml-utilities
- remote$ cd uml-utilities-20070815
- remote$ patch -p1 < tunctl-pointopoint.patch
- remote$ cd tunctl && make
+ # Install tunctl with OpenSUSE fixes.  Note that tunctl in
+ # uml-utilities is too old to be used with NM-openssh.
+ remote$ wget http://downloads.sourceforge.net/project/tunctl/tunctl/1.5/tunctl-1.5.tar.gz
+ remote$ tar xf tunctl-1.5.tar.gz
+ remote$ cd tunctl-1.5
+ remote$ make
+ remote$ sudo make install
 
  # Create a tun device and initialize it.
  remote$ sudo modprobe tun
- remote$ sudo ./tunctl -u $USER -m pointopoint
+ remote$ sudo tunctl -u $USER -n
  remote$ sudo ip addr add 10.0.1.3 peer 10.0.1.1 dev tun0
  remote$ sudo ip link set tun0 up
 
