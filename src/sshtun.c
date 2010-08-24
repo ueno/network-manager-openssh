@@ -144,6 +144,16 @@ struct sshtun_event_fd_st {
 	size_t offset, length;
 };
 
+struct sshtun_tun_fd_st {
+	int fd;
+	int mode;
+};
+
+struct sshtun_ssh_fd_st {
+	int fd;
+	LIBSSH2_CHANNEL *channel;
+};
+
 struct sshtun_common_st {
 	struct sshtun_params_st params;
 	struct sshtun_event_fd_st event_rfd, event_wfd;
@@ -170,7 +180,8 @@ static int open_tcp (struct addrinfo **, const char *, const char *);
 static int open_ssh (LIBSSH2_CHANNEL **, LIBSSH2_SESSION **, int, const char *,
 					 const char *, const char *, const char *, int,
 					 const char *, struct sshtun_event_fd_st *);
-static int start_proxy (int, int, LIBSSH2_CHANNEL *,
+static int start_proxy (struct sshtun_tun_fd_st *,
+						struct sshtun_ssh_fd_st *,
 						struct sshtun_event_fd_st *,
 						struct sshtun_event_fd_st *);
 
@@ -357,6 +368,8 @@ start_child (struct sshtun_child_st *child)
 	char *password = NULL;
 	struct pollfd pfd;
 	int ret;
+	struct sshtun_tun_fd_st tun_fd;
+	struct sshtun_ssh_fd_st ssh_fd;
 
 	handle = (sshtun_handle_t)child;
 	child->tun_fd = open_tun (&ifr, handle->params.tun_dev, handle->tun_mode);
@@ -400,7 +413,11 @@ start_child (struct sshtun_child_st *child)
 	}
 	send_event (&handle->event_wfd, "SSH_OPEN");
 	send_event (&handle->event_wfd, "START");
-	return start_proxy (child->tun_fd, handle->tun_mode, child->ssh_channel,
+	tun_fd.fd = child->tun_fd;
+	tun_fd.mode = handle->tun_mode;
+	ssh_fd.fd = child->tcp_fd;
+	ssh_fd.channel = child->ssh_channel;
+	return start_proxy (&tun_fd, &ssh_fd,
 						&handle->event_rfd, &handle->event_wfd);
 }
 
@@ -640,46 +657,43 @@ destroy_tun (const char *tun_dev, int tun_mode)
 }
 
 static int
-start_proxy (int tun_fd, int tun_mode, LIBSSH2_CHANNEL *ssh_channel,
+start_proxy (struct sshtun_tun_fd_st *tun_fd,
+			 struct sshtun_ssh_fd_st *ssh_fd,
 			 struct sshtun_event_fd_st *event_rfd,
 			 struct sshtun_event_fd_st *event_wfd)
 {
-	LIBSSH2_POLLFD pfds[3];
+	struct pollfd pfds[3];
 	char buffer[BUFSIZ], *p;
 	ssize_t ret;
 
-	pfds[0].type = LIBSSH2_POLLFD_SOCKET;
-	pfds[0].fd.socket = tun_fd;
-
-	pfds[1].type = LIBSSH2_POLLFD_CHANNEL;
-	pfds[1].fd.channel = ssh_channel;
-
-	pfds[2].type = LIBSSH2_POLLFD_SOCKET;
-	pfds[2].fd.socket = event_rfd->fd;
+	pfds[0].fd = tun_fd->fd;
+	pfds[1].fd = ssh_fd->fd;
+	pfds[2].fd = event_rfd->fd;
 
 	while (1) {
 		int nfds;
 
-		pfds[0].events = LIBSSH2_POLLFD_POLLIN;
+		pfds[0].events = POLLIN;
 		pfds[0].revents = 0;
 
-		pfds[1].events = LIBSSH2_POLLFD_POLLIN;
+		pfds[1].events = POLLIN;
 		pfds[1].revents = 0;
 
-		pfds[2].events = LIBSSH2_POLLFD_POLLIN;
+		pfds[2].events = POLLIN;
 		pfds[2].revents = 0;
 
-		nfds = libssh2_poll (pfds, sizeof pfds / sizeof pfds[0], 1000);
+		nfds = poll (pfds, sizeof pfds / sizeof pfds[0], 1000);
 		if (nfds > 0) {
 			/* If we detect one of the FD is closed, stop processing. */
 			if ((pfds[0].revents | pfds[1].revents | pfds[2].revents)
-				& LIBSSH2_POLLFD_POLLHUP)
+				& POLLHUP)
 				return 0;
 
-			if (pfds[0].revents & LIBSSH2_POLLFD_POLLIN) {
+			if (pfds[0].revents & POLLIN) {
 				/* Keep 4-byte for protocol family used in tun@openssh.com. */
-				p = tun_mode == SSH_TUNMODE_POINTOPOINT ? buffer + 4 : buffer;
-				ret = read (tun_fd, p, sizeof buffer - (p - buffer));
+				p = tun_fd->mode == SSH_TUNMODE_POINTOPOINT ? buffer + 4 :
+					buffer;
+				ret = read (tun_fd->fd, p, sizeof buffer - (p - buffer));
 				DBG(">tun -> ssh: %ld\n", ret);
 				if (ret < 0) {
 					DBG("read from tun: %s\n", strerror (errno));
@@ -687,7 +701,7 @@ start_proxy (int tun_fd, int tun_mode, LIBSSH2_CHANNEL *ssh_channel,
 				}
 
 				if (ret > 0) {
-					if (tun_mode == SSH_TUNMODE_POINTOPOINT) {
+					if (tun_fd->mode == SSH_TUNMODE_POINTOPOINT) {
 						/* Currently only IP is supported. */
 						int version = (*p >> 4) & 0xF;
 						uint32_t family;
@@ -712,22 +726,23 @@ start_proxy (int tun_fd, int tun_mode, LIBSSH2_CHANNEL *ssh_channel,
 					}
 
 					do {
-						ret = libssh2_channel_write (ssh_channel, p, ret);
+						ret = libssh2_channel_write (ssh_fd->channel, p, ret);
 					} while (ret == LIBSSH2_ERROR_EAGAIN);
 					DBG("<tun -> ssh: %ld\n", ret);
 					if (ret < 0)
 						break;
 				}
 			}
-			if (pfds[1].revents & LIBSSH2_POLLFD_POLLIN) {
-				ret = libssh2_channel_read (ssh_channel, buffer, sizeof buffer);
+			if (pfds[1].revents & POLLIN) {
+				ret = libssh2_channel_read (ssh_fd->channel, buffer,
+											sizeof buffer);
 				DBG(">ssh -> tun: %ld\n", ret);
 				if (ret < 0)
 					break;
 
 				if (ret > 0) {
 					/* Skip 4-byte protocol family used in tun@openssh.com. */
-					if (tun_mode == SSH_TUNMODE_POINTOPOINT) {
+					if (tun_fd->mode == SSH_TUNMODE_POINTOPOINT) {
 						uint32_t family = ntohl (*(uint32_t *)buffer);
 
 						switch (family) {
@@ -743,7 +758,7 @@ start_proxy (int tun_fd, int tun_mode, LIBSSH2_CHANNEL *ssh_channel,
 					} else
 						p = buffer;
 
-					ret = write (tun_fd, p, ret);
+					ret = write (tun_fd->fd, p, ret);
 					if (ret < 0) {
 						DBG("write to tun: %s\n", strerror (errno));
 						break;
