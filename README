@@ -53,17 +53,17 @@ Now you can create a VPN connection from NetworkManager applet.
 
 * How does it work
 
-NetworkManager-openssh internally spawns a setuid'ed process which
-does the actual job of relaying IP/Ethernet packets over SSH.
+NetworkManager-openssh internally spawns a setuid'ed process doing the
+actual job of relaying IP/Ethernet packets over SSH.
 
-The child process first opens "tun@openssh.com" channel (see
-openssh/PROTOCOL), and then opens another channel to get a client IP
-configuration, which is a poor man's approach not to require DHCP/PPP
-server setup.
+The child process first opens "tun@openssh.com" channel (see the
+PROTOCOL documentation in the OpenSSH source tree), and then opens
+another channel to get a client IP configuration, which is a poor
+man's approach not to require DHCP/PPP server setup.
 
 The core implementation of NetworkManager-openssh is a small library
-sshtun.c.  The library API can be used as follows.  All function calls
-do not block.
+sshtun.c.  The library can be used as follows.  All function calls
+shall not block.
 
  /* Allocate memory for a handle */
  sshtun_new (&handle);
@@ -74,7 +74,7 @@ do not block.
                     SSHTUN_PARAM_TUN_OWNER, tun_owner, ...
                     0);
 
- /* Start a tunneling task */
+ /* Start a tunneling task (this forks internally) */
  sshtun_start (handle);
 
  /* Dispatch events from the child process */
@@ -104,7 +104,3 @@ This plugin is alpha quality; please use at your own risk.
 OpenSSH TUN/TAP tunneling involves the problems regarding TCP over
 TCP: http://sites.inka.de/bigred/devel/tcp-tcp.html.  For a serious
 use, consider using OpenVPN (or other VPN software).
-
-The development started just to demonstrate the root privileges are
-not really necessary for the OpenSSH TUN/TAP functionality working,
-though most online resources assume them.
